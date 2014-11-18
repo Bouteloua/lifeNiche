@@ -8,6 +8,7 @@ from password import *
 
 
 def main():
+	#This is a hello
 	#Setup your client ID and password in the file named password.py
 	cl = LMClient(userId=userName, pwd=password)
 
