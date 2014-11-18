@@ -16,8 +16,9 @@ def main():
 	alg = cl.sdm.getAlgorithmFromCode('ATT_MAXENT')
 
 
-############################## POST LAYERS #########################################
-	postDicLayers = folderMetadata()
+
+	postDicLayers = rawMetaData()
+############################## POST TYPECODE #######################################
 	for key, layerNames in postDicLayers.iteritems():
 		# postTypeCode(
 		# 	code-> The code to use for this new type code [string]
@@ -26,7 +27,9 @@ def main():
 		# 	)
 		descripNote = 'This is a test run for %s' % key 
 		cl.sdm.postTypeCode(code=key, title=key.upper(), description=descripNote)
+############################## POST TYPECODE #######################################
 
+############################## POST LAYERS #########################################
 		for key1, layerName in layerNames.items():
 
 			# postLayer(
@@ -38,6 +41,8 @@ def main():
 			# 	fileName -> The full path to the local file to be uploaded
 			# 	 )
 			lyrObj = cl.sdm.postLayer(name=layerName['Name'], epsgCode=layerName['epsgCode'], envLayerType=layerName['envLayerType'], units=layerName['units'], dataFormat=layerName['dataFormat'], fileName=layerName['fileName'], title=layerName['fullname'])
+
+			#Add the Layer ID from lifemapper to the dictionary 
 			postDicLayers[key][layerName['fullname']].update({'lyrID':lyrObj.id})
 
 	print postDicLayers
@@ -52,6 +57,8 @@ def main():
 	occurrenceDic = csvToShapefile()
 	for key, value in occurrenceDic.iteritems():
 		occObj = cl.sdm.postOccurrenceSet(displayName=str(key), fileType='shapefile', fileName=value['shpPath'], epsgCode=value['epsgCode'])
+
+		#Add the occurrence ID from lifemapper to the dictionary 
 		occurrenceDic[key].update({'occID':occObj.id})
 	
 	#Save a pickle file of the occurrence IDs 
@@ -84,7 +91,7 @@ def main():
 ############################################################################################
 
 #Creates the data structures for the layers 
-def folderMetadata():
+def rawMetaData():
 	#If you rerun increase this number to avoid unique id collisions  
 	add = 0
 	#Returns all the gtiff files in the folder GTiff
