@@ -11,7 +11,7 @@ S'AC4550_bio10'
 p7
 sS'Name'
 p8
-I604
+I767
 sS'typeCode'
 p9
 S'Bio10'
@@ -42,7 +42,7 @@ S'../views/GTiff/clim.AC4550_bio10.tif'
 p22
 sS'lyrID'
 p23
-S'4295'
+S'4403'
 p24
 sS'layerDescription'
 p25
@@ -79,7 +79,7 @@ g6
 S'AC4550_bio13'
 p41
 sg8
-I612
+I775
 sg9
 S'Bio13'
 p42
@@ -102,7 +102,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio13.tif'
 p48
 sg23
-S'4296'
+S'4404'
 p49
 sg25
 S'Precipitation of Wettest Month AC RCP45 2050'
@@ -128,7 +128,7 @@ g6
 S'AC4550_bio14'
 p55
 sg8
-I614
+I777
 sg9
 S'Bio14'
 p56
@@ -151,7 +151,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio14.tif'
 p62
 sg23
-S'4297'
+S'4405'
 p63
 sg25
 S'Precipitation of Driest Month AC RCP45 2050'
@@ -177,7 +177,7 @@ g6
 S'AC4550_bio2'
 p69
 sg8
-I587
+I750
 sg9
 S'Bio2'
 p70
@@ -200,7 +200,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio2.tif'
 p76
 sg23
-S'4298'
+S'4406'
 p77
 sg25
 S'Mean Diurnal Range (Mean of monthly (max temp - min temp)) AC RCP45 2050'
@@ -226,7 +226,7 @@ g6
 S'AC4550_bio11'
 p83
 sg8
-I594
+I757
 sg9
 S'Bio11'
 p84
@@ -249,7 +249,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio11.tif'
 p90
 sg23
-S'4299'
+S'4407'
 p91
 sg25
 S'Mean Temperature of Coldest Quarter AC RCP45 2050'
@@ -275,7 +275,7 @@ g6
 S'AC4550_bio12'
 p97
 sg8
-I599
+I762
 sg9
 S'Bio12'
 p98
@@ -298,7 +298,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio12.tif'
 p104
 sg23
-S'4300'
+S'4408'
 p105
 sg25
 S'Annual Precipitation AC RCP45 2050'
@@ -324,7 +324,7 @@ g6
 S'AC4550_bio1'
 p111
 sg8
-I596
+I759
 sg9
 S'Bio1'
 p112
@@ -347,7 +347,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio1.tif'
 p118
 sg23
-S'4301'
+S'4409'
 p119
 sg25
 S'Annual Mean Temperature AC RCP45 2050'
@@ -373,7 +373,7 @@ g6
 S'AC4550_bio6'
 p125
 sg8
-I582
+I745
 sg9
 S'Bio6'
 p126
@@ -395,7 +395,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio6.tif'
 p131
 sg23
-S'4302'
+S'4410'
 p132
 sg25
 S'Min Temperature of Coldest Month AC RCP45 2050'
@@ -421,7 +421,7 @@ g6
 S'AC4550_bio7'
 p138
 sg8
-I590
+I753
 sg9
 S'Bio7'
 p139
@@ -444,7 +444,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio7.tif'
 p145
 sg23
-S'4303'
+S'4411'
 p146
 sg25
 S'Temperature Annual Range (BIO5-BIO6) AC RCP45 2050'
@@ -470,7 +470,7 @@ g6
 S'AC4550_bio16'
 p152
 sg8
-I603
+I766
 sg9
 S'Bio16'
 p153
@@ -493,7 +493,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio16.tif'
 p159
 sg23
-S'4304'
+S'4412'
 p160
 sg25
 S'Precipitation of Wettest Quarter AC RCP45 2050'
@@ -519,7 +519,7 @@ g6
 S'AC4550_bio17'
 p166
 sg8
-I585
+I748
 sg9
 S'Bio17'
 p167
@@ -542,7 +542,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio17.tif'
 p173
 sg23
-S'4305'
+S'4413'
 p174
 sg25
 S'Precipitation of Driest Quarter AC RCP45 2050'
@@ -568,7 +568,7 @@ g6
 S'AC4550_bio18'
 p180
 sg8
-I628
+I791
 sg9
 S'Bio18'
 p181
@@ -591,7 +591,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio18.tif'
 p187
 sg23
-S'4306'
+S'4414'
 p188
 sg25
 S'Precipitation of Warmest Quarter AC RCP45 2050'
@@ -617,7 +617,7 @@ g6
 S'AC4550_bio19'
 p194
 sg8
-I609
+I772
 sg9
 S'Bio19'
 p195
@@ -640,7 +640,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio19.tif'
 p201
 sg23
-S'4307'
+S'4415'
 p202
 sg25
 S'Precipitation of Coldest Quarter AC RCP45 2050'
@@ -666,7 +666,7 @@ g6
 S'AC4550_bio8'
 p208
 sg8
-I613
+I776
 sg9
 S'Bio8'
 p209
@@ -689,7 +689,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio8.tif'
 p215
 sg23
-S'4308'
+S'4416'
 p216
 sg25
 S'Mean Temperature of Wettest Quarter AC RCP45 2050'
@@ -715,7 +715,7 @@ g6
 S'AC4550_bio9'
 p222
 sg8
-I618
+I781
 sg9
 S'Bio9'
 p223
@@ -738,7 +738,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio9.tif'
 p229
 sg23
-S'4309'
+S'4417'
 p230
 sg25
 S'Mean Temperature of Driest Quarter AC RCP45 2050'
@@ -764,7 +764,7 @@ g6
 S'AC4550_bio15'
 p236
 sg8
-I623
+I786
 sg9
 S'Bio15'
 p237
@@ -787,7 +787,7 @@ sg21
 S'../views/GTiff/clim.AC4550_bio15.tif'
 p243
 sg23
-S'4310'
+S'4418'
 p244
 sg25
 S'Precipitation Seasonality (Coefficient of Variation) AC RCP45 2050'
@@ -816,7 +816,7 @@ g6
 S'AC4570_bio2'
 p252
 sg8
-I616
+I779
 sg9
 S'Bio2'
 p253
@@ -839,7 +839,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio2.tif'
 p259
 sg23
-S'4311'
+S'4419'
 p260
 sg25
 S'Mean Diurnal Range (Mean of monthly (max temp - min temp)) AC RCP45 2070'
@@ -865,7 +865,7 @@ g6
 S'AC4570_bio19'
 p266
 sg8
-I630
+I793
 sg9
 S'Bio19'
 p267
@@ -888,7 +888,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio19.tif'
 p273
 sg23
-S'4312'
+S'4420'
 p274
 sg25
 S'Precipitation of Coldest Quarter AC RCP45 2070'
@@ -914,7 +914,7 @@ g6
 S'AC4570_bio16'
 p280
 sg8
-I615
+I778
 sg9
 S'Bio16'
 p281
@@ -937,7 +937,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio16.tif'
 p287
 sg23
-S'4313'
+S'4421'
 p288
 sg25
 S'Precipitation of Wettest Quarter AC RCP45 2070'
@@ -963,7 +963,7 @@ g6
 S'AC4570_bio3'
 p294
 sg8
-I629
+I792
 sg9
 S'Bio3'
 p295
@@ -986,7 +986,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio3.tif'
 p301
 sg23
-S'4314'
+S'4422'
 p302
 sg25
 S'Isothermality (BIO2/BIO7) (* 100) AC RCP45 2070'
@@ -1012,7 +1012,7 @@ g6
 S'AC4570_bio17'
 p308
 sg8
-I600
+I763
 sg9
 S'Bio17'
 p309
@@ -1035,7 +1035,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio17.tif'
 p315
 sg23
-S'4315'
+S'4423'
 p316
 sg25
 S'Precipitation of Driest Quarter AC RCP45 2070'
@@ -1061,7 +1061,7 @@ g6
 S'AC4570_bio13'
 p322
 sg8
-I627
+I790
 sg9
 S'Bio13'
 p323
@@ -1084,7 +1084,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio13.tif'
 p329
 sg23
-S'4316'
+S'4424'
 p330
 sg25
 S'Precipitation of Wettest Month AC RCP45 2070'
@@ -1110,7 +1110,7 @@ g6
 S'AC4570_bio10'
 p336
 sg8
-I583
+I746
 sg9
 S'Bio10'
 p337
@@ -1133,7 +1133,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio10.tif'
 p343
 sg23
-S'4317'
+S'4425'
 p344
 sg25
 S'Mean Temperature of Warmest Quarter AC RCP45 2070'
@@ -1159,7 +1159,7 @@ g6
 S'AC4570_bio11'
 p350
 sg8
-I601
+I764
 sg9
 S'Bio11'
 p351
@@ -1182,7 +1182,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio11.tif'
 p357
 sg23
-S'4318'
+S'4426'
 p358
 sg25
 S'Mean Temperature of Coldest Quarter AC RCP45 2070'
@@ -1208,7 +1208,7 @@ g6
 S'AC4570_bio12'
 p364
 sg8
-I611
+I774
 sg9
 S'Bio12'
 p365
@@ -1231,7 +1231,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio12.tif'
 p371
 sg23
-S'4319'
+S'4427'
 p372
 sg25
 S'Annual Precipitation AC RCP45 2070'
@@ -1257,7 +1257,7 @@ g6
 S'AC4570_bio1'
 p378
 sg8
-I589
+I752
 sg9
 S'Bio1'
 p379
@@ -1280,7 +1280,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio1.tif'
 p385
 sg23
-S'4320'
+S'4428'
 p386
 sg25
 S'Annual Mean Temperature AC RCP45 2070'
@@ -1306,7 +1306,7 @@ g6
 S'AC4570_bio6'
 p392
 sg8
-I607
+I770
 sg9
 S'Bio6'
 p393
@@ -1329,7 +1329,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio6.tif'
 p399
 sg23
-S'4321'
+S'4429'
 p400
 sg25
 S'Min Temperature of Coldest Month AC RCP45 2070'
@@ -1355,7 +1355,7 @@ g6
 S'AC4570_bio15'
 p406
 sg8
-I588
+I751
 sg9
 S'Bio15'
 p407
@@ -1378,7 +1378,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio15.tif'
 p413
 sg23
-S'4322'
+S'4430'
 p414
 sg25
 S'Precipitation Seasonality (Coefficient of Variation) AC RCP45 2070'
@@ -1404,7 +1404,7 @@ g6
 S'AC4570_bio4'
 p420
 sg8
-I577
+I740
 sg9
 S'Bio4'
 p421
@@ -1426,7 +1426,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio4.tif'
 p426
 sg23
-S'4323'
+S'4431'
 p427
 sg25
 S'Temperature Seasonality (standard deviation *100) AC RCP45 2070'
@@ -1452,7 +1452,7 @@ g6
 S'AC4570_bio5'
 p433
 sg8
-I591
+I754
 sg9
 S'Bio5'
 p434
@@ -1475,7 +1475,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio5.tif'
 p440
 sg23
-S'4324'
+S'4432'
 p441
 sg25
 S'Max Temperature of Warmest Month AC RCP45 2070'
@@ -1501,7 +1501,7 @@ g6
 S'AC4570_bio18'
 p447
 sg8
-I622
+I785
 sg9
 S'Bio18'
 p448
@@ -1524,7 +1524,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio18.tif'
 p454
 sg23
-S'4325'
+S'4433'
 p455
 sg25
 S'Precipitation of Warmest Quarter AC RCP45 2070'
@@ -1550,7 +1550,7 @@ g6
 S'AC4570_bio14'
 p461
 sg8
-I624
+I787
 sg9
 S'Bio14'
 p462
@@ -1573,7 +1573,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio14.tif'
 p468
 sg23
-S'4326'
+S'4434'
 p469
 sg25
 S'Precipitation of Driest Month AC RCP45 2070'
@@ -1599,7 +1599,7 @@ g6
 S'AC4570_bio8'
 p475
 sg8
-I578
+I741
 sg9
 S'Bio8'
 p476
@@ -1622,7 +1622,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio8.tif'
 p482
 sg23
-S'4327'
+S'4435'
 p483
 sg25
 S'Mean Temperature of Wettest Quarter AC RCP45 2070'
@@ -1648,7 +1648,7 @@ g6
 S'AC4570_bio9'
 p489
 sg8
-I617
+I780
 sg9
 S'Bio9'
 p490
@@ -1671,7 +1671,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio9.tif'
 p496
 sg23
-S'4328'
+S'4436'
 p497
 sg25
 S'Mean Temperature of Driest Quarter AC RCP45 2070'
@@ -1697,7 +1697,7 @@ g6
 S'AC4570_bio7'
 p503
 sg8
-I626
+I789
 sg9
 S'Bio7'
 p504
@@ -1720,7 +1720,7 @@ sg21
 S'../views/GTiff/clim.AC4570_bio7.tif'
 p510
 sg23
-S'4329'
+S'4437'
 p511
 sg25
 S'Temperature Annual Range (BIO5-BIO6) AC RCP45 2070'
@@ -1749,7 +1749,7 @@ g6
 S'CURR_bio10'
 p519
 sg8
-I606
+I769
 sg9
 S'Bio10'
 p520
@@ -1772,7 +1772,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio10.tif'
 p526
 sg23
-S'4330'
+S'4438'
 p527
 sg25
 S'Mean Temperature of Warmest Quarter Current Climate 1960-2000'
@@ -1798,7 +1798,7 @@ g6
 S'CURR_bio19'
 p533
 sg8
-I620
+I783
 sg9
 S'Bio19'
 p534
@@ -1821,7 +1821,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio19.tif'
 p540
 sg23
-S'4331'
+S'4439'
 p541
 sg25
 S'Precipitation of Coldest Quarter Current Climate 1960-2000'
@@ -1847,7 +1847,7 @@ g6
 S'CURR_bio16'
 p547
 sg8
-I610
+I773
 sg9
 S'Bio16'
 p548
@@ -1870,7 +1870,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio16.tif'
 p554
 sg23
-S'4332'
+S'4440'
 p555
 sg25
 S'Precipitation of Wettest Quarter Current Climate 1960-2000'
@@ -1896,7 +1896,7 @@ g6
 S'CURR_bio3'
 p561
 sg8
-I593
+I756
 sg9
 S'Bio3'
 p562
@@ -1919,7 +1919,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio3.tif'
 p568
 sg23
-S'4333'
+S'4441'
 p569
 sg25
 S'Isothermality (BIO2/BIO7) (* 100) Current Climate 1960-2000'
@@ -1945,7 +1945,7 @@ g6
 S'CURR_bio17'
 p575
 sg8
-I597
+I760
 sg9
 S'Bio17'
 p576
@@ -1968,7 +1968,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio17.tif'
 p582
 sg23
-S'4334'
+S'4442'
 p583
 sg25
 S'Precipitation of Driest Quarter Current Climate 1960-2000'
@@ -1994,7 +1994,7 @@ g6
 S'CURR_bio1'
 p589
 sg8
-I625
+I788
 sg9
 S'Bio1'
 p590
@@ -2017,7 +2017,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio1.tif'
 p596
 sg23
-S'4335'
+S'4443'
 p597
 sg25
 S'Annual Mean Temperature Current Climate 1960-2000'
@@ -2043,7 +2043,7 @@ g6
 S'CURR_bio2'
 p603
 sg8
-I586
+I749
 sg9
 S'Bio2'
 p604
@@ -2066,7 +2066,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio2.tif'
 p610
 sg23
-S'4336'
+S'4444'
 p611
 sg25
 S'Mean Diurnal Range (Mean of monthly (max temp - min temp)) Current Climate 1960-2000'
@@ -2092,7 +2092,7 @@ g6
 S'CURR_bio11'
 p617
 sg8
-I579
+I742
 sg9
 S'Bio11'
 p618
@@ -2114,7 +2114,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio11.tif'
 p623
 sg23
-S'4337'
+S'4445'
 p624
 sg25
 S'Mean Temperature of Coldest Quarter Current Climate 1960-2000'
@@ -2140,7 +2140,7 @@ g6
 S'CURR_bio12'
 p630
 sg8
-I598
+I761
 sg9
 S'Bio12'
 p631
@@ -2163,7 +2163,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio12.tif'
 p637
 sg23
-S'4338'
+S'4446'
 p638
 sg25
 S'Annual Precipitation Current Climate 1960-2000'
@@ -2189,7 +2189,7 @@ g6
 S'CURR_bio13'
 p644
 sg8
-I584
+I747
 sg9
 S'Bio13'
 p645
@@ -2212,7 +2212,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio13.tif'
 p651
 sg23
-S'4339'
+S'4447'
 p652
 sg25
 S'Precipitation of Wettest Month Current Climate 1960-2000'
@@ -2238,7 +2238,7 @@ g6
 S'CURR_bio14'
 p658
 sg8
-I581
+I744
 sg9
 S'Bio14'
 p659
@@ -2261,7 +2261,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio14.tif'
 p665
 sg23
-S'4340'
+S'4448'
 p666
 sg25
 S'Precipitation of Driest Month Current Climate 1960-2000'
@@ -2287,7 +2287,7 @@ g6
 S'CURR_bio7'
 p672
 sg8
-I619
+I782
 sg9
 S'Bio7'
 p673
@@ -2310,7 +2310,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio7.tif'
 p679
 sg23
-S'4341'
+S'4449'
 p680
 sg25
 S'Temperature Annual Range (BIO5-BIO6) Current Climate 1960-2000'
@@ -2336,7 +2336,7 @@ g6
 S'CURR_bio4'
 p686
 sg8
-I608
+I771
 sg9
 S'Bio4'
 p687
@@ -2359,7 +2359,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio4.tif'
 p693
 sg23
-S'4342'
+S'4450'
 p694
 sg25
 S'Temperature Seasonality (standard deviation *100) Current Climate 1960-2000'
@@ -2385,7 +2385,7 @@ g6
 S'CURR_bio5'
 p700
 sg8
-I592
+I755
 sg9
 S'Bio5'
 p701
@@ -2408,7 +2408,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio5.tif'
 p707
 sg23
-S'4343'
+S'4451'
 p708
 sg25
 S'Max Temperature of Warmest Month Current Climate 1960-2000'
@@ -2434,7 +2434,7 @@ g6
 S'CURR_bio18'
 p714
 sg8
-I602
+I765
 sg9
 S'Bio18'
 p715
@@ -2457,7 +2457,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio18.tif'
 p721
 sg23
-S'4344'
+S'4452'
 p722
 sg25
 S'Precipitation of Warmest Quarter Current Climate 1960-2000'
@@ -2483,7 +2483,7 @@ g6
 S'CURR_bio6'
 p728
 sg8
-I595
+I758
 sg9
 S'Bio6'
 p729
@@ -2506,7 +2506,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio6.tif'
 p735
 sg23
-S'4345'
+S'4453'
 p736
 sg25
 S'Min Temperature of Coldest Month Current Climate 1960-2000'
@@ -2532,7 +2532,7 @@ g6
 S'CURR_bio8'
 p742
 sg8
-I605
+I768
 sg9
 S'Bio8'
 p743
@@ -2555,7 +2555,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio8.tif'
 p749
 sg23
-S'4346'
+S'4454'
 p750
 sg25
 S'Mean Temperature of Wettest Quarter Current Climate 1960-2000'
@@ -2581,7 +2581,7 @@ g6
 S'CURR_bio9'
 p756
 sg8
-I580
+I743
 sg9
 S'Bio9'
 p757
@@ -2604,7 +2604,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio9.tif'
 p763
 sg23
-S'4347'
+S'4455'
 p764
 sg25
 S'Mean Temperature of Driest Quarter Current Climate 1960-2000'
@@ -2630,7 +2630,7 @@ g6
 S'CURR_bio15'
 p770
 sg8
-I621
+I784
 sg9
 S'Bio15'
 p771
@@ -2653,7 +2653,7 @@ sg21
 S'../views/GTiff/clim.CURR_bio15.tif'
 p777
 sg23
-S'4348'
+S'4456'
 p778
 sg25
 S'Precipitation Seasonality (Coefficient of Variation) Current Climate 1960-2000'

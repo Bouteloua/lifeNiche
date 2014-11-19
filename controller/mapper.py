@@ -61,7 +61,61 @@ def main():
 	print '####### Start of the occurrence ID dictionary ############'
 	print occurrenceDic
 
-############################## END POST OCCURRENCE ########################################
+############################## END POST OCCURRENCE ####################################
+
+
+
+############################## POST Scenario ########################################
+
+
+	scenarioDic = dict() 
+	count = 1
+	resolution = 0
+	units = 0
+	epsgCode = 0
+	for key, layerNames in postDicLayers.iteritems():
+		hold = []
+		for key1, layerName in layerNames.items():
+			hold.append(postDicLayers[key][key1]['lyrID'])
+			resolution = postDicLayers[key][key1]['resolution']
+			units = postDicLayers[key][key1]['units']
+			epsgCode = postDicLayers[key][key1]['epsgCode']
+
+		keyDic = 'base' + str(count) + '_' + key
+		scenarioDic.setdefault(keyDic, {
+			# remove the index + X
+			'layers': hold,
+			'code': keyDic,
+			'epsgCode': epsgCode,
+			'units': units,
+			'title': 'Climate Scenario ' + key,
+			'author': 'CGW',
+			'resolution': resolution,
+			'bioclim': key
+			})
+		scn = cl.sdm.postScenario(layers=hold, code=keyDic, epsgCode=epsgCode, units=units, title=key + 'Climate Scenario', author="CGW", resolution=resolution)
+		scenarioDic[keyDic].update({'scnID':scn.id})
+
+			#Save a pickle file of the occurrence IDs 
+	with open('../views/pickleDic/' + 'scenario_dict' + '.pickle', 'wb') as f:
+		cPickle.dump(scenarioDic, f)
+
+	print '####### Start of the Scenario ID dictionary ############'
+	print scenarioDic
+
+############################## END POST Scenario ####################################
+
+############################## END POST Experiment ####################################
+
+
+
+
+
+
+
+
+############################## POST Experiment ########################################
+
 
 
 
@@ -90,7 +144,7 @@ def main():
 #Creates the data structures for the layers 
 def rawMetaData():
 	#If you rerun increase this number to avoid unique id collisions  
-	add = 577
+	add = 740
 	#Returns all the gtiff files in the folder GTiff
 	folderFiles = glob.glob('../views/GTiff/*.tif')
 
