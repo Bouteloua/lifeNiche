@@ -7,7 +7,27 @@ from shapely.geometry import Point, mapping
 from password import *
 
 def main():
-	rawMetaData()
+	postDicLayers = rawMetaData()
+	#print postDicLayers
+	################GOOD###########################
+	# for i in postDicLayers['CURR'].keys():
+	# 	print "code=%s, title=%s, description=%s" % (i, i.upper(), postDicLayers['CURR'][i]['typeCodeDescription'])
+	################ STOP GOOD###########################
+	count = 11
+	for key, layerNames in postDicLayers.iteritems():
+		for key1, layerName in layerNames.items():
+			#print "name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s description=%s" %(layerName['Name'], layerName['epsgCode'], layerName['envLayerType'], layerName['units'], layerName['dataFormat'], layerName['fileName'], layerName['title'], layerName['layerDescription'])
+			print key1
+			postDicLayers[key][key1].update({'lyrID':count})
+			#postDicLayers[key][layerName['fullname']
+			#postDicLayers[key][layerName['typeCode']].update({'lyrID':count})
+			count += 1
+	print postDicLayers['CURR']['bio2']
+	#"name=layerName['Name'], epsgCode=layerName['epsgCode'], envLayerType=layerName['envLayerType'], units=layerName['units'], dataFormat=layerName['dataFormat'], fileName=layerName['fileName'], title=layerName['fullname']"
+
+	# for key, layerNames in postDicLayers.iteritems():
+	#  	print layerNames.keys()
+		#cl.sdm.postTypeCode(code=layerName['typeCode'], title=key.upper(), description=descripNote)
 	#readFile()
 #Creates the data structures for the layers 
 def rawMetaData():
@@ -31,9 +51,8 @@ def rawMetaData():
 		bioclim = layer.split("_")[0].strip()
 		title = folderFile.split("/")[3].strip()
 		fullname = folderFile.split("/")[3][:-4].strip()
-
 		if layerName in layernMetaData.keys():
-			filenameDic.setdefault(typeCode, {}).setdefault(layerName, {
+			filenameDic.setdefault(bioclim, {}).setdefault(typeCode, {
 				# remove the index + X
 				'Name': index + add,
 				'filterType': layernMetaData[layerName]['filterType'],
@@ -52,7 +71,6 @@ def rawMetaData():
 				'fullname': fullname,
 				'resolution': '2.5',
 				})
-			print filenameDic
 		else:
 			print '**********************************error***************************************'
 			print 'Check the layerMetaData.csv file in the masterOccurrenceList folder. MISSING DATA!!!!!!!!'

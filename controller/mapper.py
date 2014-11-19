@@ -16,40 +16,35 @@ def main():
 	alg = cl.sdm.getAlgorithmFromCode('ATT_MAXENT')
 
 	postDicLayers = rawMetaData()
+
 ############################## POST TYPECODE #######################################
-	for key, layerNames in postDicLayers.iteritems():
 		# postTypeCode(
 		# 	code-> The code to use for this new type code [string]
 		# 	title-> (optional) A title for this type code [string]
 		# 	description -> (optional) An extended description of this type code [string]
 		# 	)
-		descripNote = 'This is a test run for %s' % key 
-		cl.sdm.postTypeCode(code=key, title=key.upper(), description=descripNote)
+	for typecode in postDicLayers['CURR'].keys():
+		cl.sdm.postTypeCode(code=typecode, title=typecode.upper(), description=postDicLayers['CURR'][typecode]['typeCodeDescription'])
 ############################## POST TYPECODE #######################################
 
+
 ############################## POST LAYERS #########################################
+	for key, layerNames in postDicLayers.iteritems():
 		for key1, layerName in layerNames.items():
-
-			# postLayer(
-			# 	name[unique] -> The name of the layer, 
-			# 	epsgCode -> The EPSG code for the layer, 
-			# 	envLayerType -> envLayerType, 
-			# 	units -> The cell size units,
-			# 	dataFormat -> Indicates what format the data is in,
-			# 	fileName -> The full path to the local file to be uploaded
-			# 	 )
-			lyrObj = cl.sdm.postLayer(name=layerName['Name'], epsgCode=layerName['epsgCode'], envLayerType=layerName['envLayerType'], units=layerName['units'], dataFormat=layerName['dataFormat'], fileName=layerName['fileName'], title=layerName['fullname'])
-
-			#Add the Layer ID from lifemapper to the dictionary 
-			postDicLayers[key][layerName['fullname']].update({'lyrID':lyrObj.id})
-	print '####### Start of the layer ID dictionary ############'
-	print postDicLayers 
+			lyrObj = cl.sdm.postLayer(name=layerName['Name'], epsgCode=layerName['epsgCode'], envLayerType=layerName['envLayerType'], units=layerName['units'], dataFormat=layerName['dataFormat'], fileName=layerName['fileName'], title=layerName['title'], description=layerName['layerDescription'])
+			postDicLayers[key][key1].update({'lyrID':lyrObj.id})
+	
 
 	#Save a pickle file of the layer IDs 
 	with open('../views/pickleDic/' + 'layerName_dict' + '.pickle', 'wb') as f:
 		cPickle.dump(postDicLayers, f)
 
+	print '####### Start of the layer ID dictionary ############'
+	print postDicLayers
+
 ############################## END POST LAYERS ########################################
+
+
 
 ############################## POST OCCURRENCE ########################################
 	occurrenceDic = csvToShapefile()
@@ -67,6 +62,9 @@ def main():
 	print occurrenceDic
 
 ############################## END POST OCCURRENCE ########################################
+
+
+
 
 ############################################# NEED WORK ###################################
 # 	#print layerID
@@ -92,7 +90,7 @@ def main():
 #Creates the data structures for the layers 
 def rawMetaData():
 	#If you rerun increase this number to avoid unique id collisions  
-	add = 420
+	add = 577
 	#Returns all the gtiff files in the folder GTiff
 	folderFiles = glob.glob('../views/GTiff/*.tif')
 
@@ -101,18 +99,18 @@ def rawMetaData():
 		print "File list is empty"
 		sys.exit(0)
 
+
 	filenameDic = dict() 
-	layernMetaData = readLayerMetaData()
+	layernMetaData = readFile()
 	for index, folderFile in enumerate(folderFiles):
-		typeCode = folderFile.split("_")[1][:-4].strip().lower()
+		typeCode = folderFile.split("_")[1][:-4].strip()
 		layerName = folderFile.split("/")[3][:-4].strip().lower()
 		layer = folderFile.split(".")[3].strip()
 		bioclim = layer.split("_")[0].strip()
 		title = folderFile.split("/")[3].strip()
-		fullname = folderFile.split("/")[3][:-4].strip().lower()
-
+		fullname = folderFile.split("/")[3][:-4].strip()
 		if layerName in layernMetaData.keys():
-			filenameDic.setdefault(typeCode, {}).setdefault(layerName, {
+			filenameDic.setdefault(bioclim, {}).setdefault(typeCode, {
 				# remove the index + X
 				'Name': index + add,
 				'filterType': layernMetaData[layerName]['filterType'],
@@ -203,6 +201,12 @@ def csvToShapefile():
 			print "failed to write %s because %s" % (spsName,str(e))
 	
 	return shapefileDic
+
+def readFile():
+	with open('../views/masterOccurrenceList/layerMetaData.csv', mode='r') as infile:
+		reader = c.reader(infile)
+		mydict = {rows[0].lower(): {'filterType': rows[1], 'typeCode': rows[2], 'TypeCodeDescription': rows[3], 'LayerDescription': rows[4], 'ProjectionDate': rows[5], 'RCP': rows[6]} for rows in reader}
+	return mydict
 
 if __name__ == '__main__':
   main()
