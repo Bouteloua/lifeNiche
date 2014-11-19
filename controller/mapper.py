@@ -15,8 +15,6 @@ def main():
 	#Set the algorithm to be used niche model(s)
 	alg = cl.sdm.getAlgorithmFromCode('ATT_MAXENT')
 
-
-
 	postDicLayers = rawMetaData()
 ############################## POST TYPECODE #######################################
 	for key, layerNames in postDicLayers.iteritems():
@@ -44,8 +42,8 @@ def main():
 
 			#Add the Layer ID from lifemapper to the dictionary 
 			postDicLayers[key][layerName['fullname']].update({'lyrID':lyrObj.id})
-
-	print postDicLayers
+	print '####### Start of the layer ID dictionary ############'
+	print postDicLayers 
 
 	#Save a pickle file of the layer IDs 
 	with open('../views/pickleDic/' + 'layerName_dict' + '.pickle', 'wb') as f:
@@ -65,6 +63,7 @@ def main():
 	with open('../views/pickleDic/' + 'occurrence_dict' + '.pickle', 'wb') as f:
 		cPickle.dump(occurrenceDic, f)
 
+	print '####### Start of the occurrence ID dictionary ############'
 	print occurrenceDic
 
 ############################## END POST OCCURRENCE ########################################
@@ -93,7 +92,7 @@ def main():
 #Creates the data structures for the layers 
 def rawMetaData():
 	#If you rerun increase this number to avoid unique id collisions  
-	add = 0
+	add = 420
 	#Returns all the gtiff files in the folder GTiff
 	folderFiles = glob.glob('../views/GTiff/*.tif')
 
@@ -102,46 +101,58 @@ def rawMetaData():
 		print "File list is empty"
 		sys.exit(0)
 
-
 	filenameDic = dict() 
-
+	layernMetaData = readLayerMetaData()
 	for index, folderFile in enumerate(folderFiles):
-		typeCode = folderFile.split("_")[1][:-4]
-		layerName = folderFile.split("/")[3][:-4]
-		layer = folderFile.split(".")[3]
-		if layer.split("_")[0] == 'CURR':
+		typeCode = folderFile.split("_")[1][:-4].strip().lower()
+		layerName = folderFile.split("/")[3][:-4].strip().lower()
+		layer = folderFile.split(".")[3].strip()
+		bioclim = layer.split("_")[0].strip()
+		title = folderFile.split("/")[3].strip()
+		fullname = folderFile.split("/")[3][:-4].strip().lower()
+
+		if layerName in layernMetaData.keys():
 			filenameDic.setdefault(typeCode, {}).setdefault(layerName, {
 				# remove the index + X
 				'Name': index + add,
+				'filterType': layernMetaData[layerName]['filterType'],
+				'typeCode': layernMetaData[layerName]['typeCode'],
+				'typeCodeDescription': layernMetaData[layerName]['TypeCodeDescription'],
+				'projectionDate': layernMetaData[layerName]['ProjectionDate'],
+				'layerDescription': layernMetaData[layerName]['LayerDescription'],
+				'RCP': layernMetaData[layerName]['RCP'],
+				'bioclim': bioclim,
 				'epsgCode': '4326',
 				'envLayerType': layer,
 				'units': 'dd',
 				'dataFormat': 'GTiff', 
 				'fileName': folderFile,
-				'title': folderFile.split("/")[3],
-				'fullname': folderFile.split("/")[3][:-4],
-				'resolution': 2.5,
-				'Current': 1,
+				'title': title,
+				'fullname': fullname,
+				'resolution': '2.5',
 				})
-		else:	
-			filenameDic.setdefault(typeCode, {}).setdefault(layerName, {
-				# remove the index + X
-				'Name': index + add,
-				'epsgCode': '4326',
-				'envLayerType': layer,
-				'units': 'dd',
-				'dataFormat': 'GTiff', 
-				'fileName': folderFile,
-				'title': folderFile.split("/")[3],
-				'fullname': folderFile.split("/")[3][:-4],
-				'resolution': 2.5,
-				'Current': 0,
-				})
+		else:
+			print '**********************************error***************************************'
+			print 'Check the layerMetaData.csv file in the masterOccurrenceList folder. MISSING DATA!!!!!!!!'
+			sys.exit(0)
 	return filenameDic
+
+#Read the file layerMetaData.csv to get all the label meta data that cannot get out of the file name. Retuen a dictionary. 
+def readLayerMetaData():
+	with open('../views/masterOccurrenceList/layerMetaData.csv', mode='r') as infile:
+		reader = c.reader(infile)
+		mydict = {rows[0].lower(): {'filterType': rows[1], 'typeCode': rows[2], 'TypeCodeDescription': rows[3], 'LayerDescription': rows[4], 'ProjectionDate': rows[5], 'RCP': rows[6]} for rows in reader}
+	return mydict
 
 #Take a csv file and makes returns shapefile for each unique species. Then returns a dictionary name, file path, and will add occurrence ID later 
 def csvToShapefile():
 	schema = { 'geometry': 'Point', 'properties': { 'name': 'str:24'} }
+
+	#Creates a folder is shapefiles does not exist
+	try:
+		os.stat('../views/individualOccurrenceList')
+	except:
+		os.mkdir('../views/individualOccurrenceList')
 
 	df = pd.read_csv('../views/masterOccurrenceList/longlat.csv')
 	uniqueNames = df['Subsp_Ritaxa'].drop_duplicates()

@@ -1,0 +1,293 @@
+LayerName,FilterType,TypeCode,TypeCodeDescription,LayerDescription,ProjectionDate,RCP
+clim.AC4550_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature AC RCP45 2050,2050,45
+clim.AC4550_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter AC RCP45 2050,2050,45
+clim.AC4550_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter AC RCP45 2050,2050,45
+clim.AC4550_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation AC RCP45 2050,2050,45
+clim.AC4550_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month AC RCP45 2050,2050,45
+clim.AC4550_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month AC RCP45 2050,2050,45
+clim.AC4550_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) AC RCP45 2050,2050,45
+clim.AC4550_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter AC RCP45 2050,2050,45
+clim.AC4550_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter AC RCP45 2050,2050,45
+clim.AC4550_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter AC RCP45 2050,2050,45
+clim.AC4550_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter AC RCP45 2050,2050,45
+clim.AC4550_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) AC RCP45 2050,2050,45
+clim.AC4550_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) AC RCP45 2050,2050,45
+clim.AC4550_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) AC RCP45 2050,2050,45
+clim.AC4550_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month AC RCP45 2050,2050,45
+clim.AC4550_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month AC RCP45 2050,2050,45
+clim.AC4550_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) AC RCP45 2050,2050,45
+clim.AC4550_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter AC RCP45 2050,2050,45
+clim.AC4550_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter AC RCP45 2050,2050,45
+clim.AC4570_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature AC RCP45 2070,2070,45
+clim.AC4570_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter AC RCP45 2070,2070,45
+clim.AC4570_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter AC RCP45 2070,2070,45
+clim.AC4570_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation AC RCP45 2070,2070,45
+clim.AC4570_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month AC RCP45 2070,2070,45
+clim.AC4570_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month AC RCP45 2070,2070,45
+clim.AC4570_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) AC RCP45 2070,2070,45
+clim.AC4570_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter AC RCP45 2070,2070,45
+clim.AC4570_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter AC RCP45 2070,2070,45
+clim.AC4570_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter AC RCP45 2070,2070,45
+clim.AC4570_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter AC RCP45 2070,2070,45
+clim.AC4570_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) AC RCP45 2070,2070,45
+clim.AC4570_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) AC RCP45 2070,2070,45
+clim.AC4570_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) AC RCP45 2070,2070,45
+clim.AC4570_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month AC RCP45 2070,2070,45
+clim.AC4570_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month AC RCP45 2070,2070,45
+clim.AC4570_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) AC RCP45 2070,2070,45
+clim.AC4570_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter AC RCP45 2070,2070,45
+clim.AC4570_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter AC RCP45 2070,2070,45
+clim.CURR_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature Current Climate 1960-2000,Present,Present
+clim.CURR_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter Current Climate 1960-2000,Present,Present
+clim.CURR_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter Current Climate 1960-2000,Present,Present
+clim.CURR_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation Current Climate 1960-2000,Present,Present
+clim.CURR_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month Current Climate 1960-2000,Present,Present
+clim.CURR_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month Current Climate 1960-2000,Present,Present
+clim.CURR_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) Current Climate 1960-2000,Present,Present
+clim.CURR_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter Current Climate 1960-2000,Present,Present
+clim.CURR_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter Current Climate 1960-2000,Present,Present
+clim.CURR_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter Current Climate 1960-2000,Present,Present
+clim.CURR_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter Current Climate 1960-2000,Present,Present
+clim.CURR_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) Current Climate 1960-2000,Present,Present
+clim.CURR_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) Current Climate 1960-2000,Present,Present
+clim.CURR_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) Current Climate 1960-2000,Present,Present
+clim.CURR_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month Current Climate 1960-2000,Present,Present
+clim.CURR_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month Current Climate 1960-2000,Present,Present
+clim.CURR_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) Current Climate 1960-2000,Present,Present
+clim.CURR_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter Current Climate 1960-2000,Present,Present
+clim.CURR_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter Current Climate 1960-2000,Present,Present
+clim.GD4550_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature GD RCP45 2050,2050,45
+clim.GD4550_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter GD RCP45 2050,2050,45
+clim.GD4550_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter GD RCP45 2050,2050,45
+clim.GD4550_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation GD RCP45 2050,2050,45
+clim.GD4550_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month GD RCP45 2050,2050,45
+clim.GD4550_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month GD RCP45 2050,2050,45
+clim.GD4550_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) GD RCP45 2050,2050,45
+clim.GD4550_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter GD RCP45 2050,2050,45
+clim.GD4550_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter GD RCP45 2050,2050,45
+clim.GD4550_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter GD RCP45 2050,2050,45
+clim.GD4550_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter GD RCP45 2050,2050,45
+clim.GD4550_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) GD RCP45 2050,2050,45
+clim.GD4550_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) GD RCP45 2050,2050,45
+clim.GD4550_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) GD RCP45 2050,2050,45
+clim.GD4550_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month GD RCP45 2050,2050,45
+clim.GD4550_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month GD RCP45 2050,2050,45
+clim.GD4550_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) GD RCP45 2050,2050,45
+clim.GD4550_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter GD RCP45 2050,2050,45
+clim.GD4550_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter GD RCP45 2050,2050,45
+clim.GD4570_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature GD RCP45 2070,2070,45
+clim.GD4570_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter GD RCP45 2070,2070,45
+clim.GD4570_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter GD RCP45 2070,2070,45
+clim.GD4570_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation GD RCP45 2070,2070,45
+clim.GD4570_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month GD RCP45 2070,2070,45
+clim.GD4570_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month GD RCP45 2070,2070,45
+clim.GD4570_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) GD RCP45 2070,2070,45
+clim.GD4570_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter GD RCP45 2070,2070,45
+clim.GD4570_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter GD RCP45 2070,2070,45
+clim.GD4570_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter GD RCP45 2070,2070,45
+clim.GD4570_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter GD RCP45 2070,2070,45
+clim.GD4570_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) GD RCP45 2070,2070,45
+clim.GD4570_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) GD RCP45 2070,2070,45
+clim.GD4570_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) GD RCP45 2070,2070,45
+clim.GD4570_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month GD RCP45 2070,2070,45
+clim.GD4570_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month GD RCP45 2070,2070,45
+clim.GD4570_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) GD RCP45 2070,2070,45
+clim.GD4570_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter GD RCP45 2070,2070,45
+clim.GD4570_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter GD RCP45 2070,2070,45
+clim.GS4550_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature GS RCP45 2050,2050,45
+clim.GS4550_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter GS RCP45 2050,2050,45
+clim.GS4550_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter GS RCP45 2050,2050,45
+clim.GS4550_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation GS RCP45 2050,2050,45
+clim.GS4550_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month GS RCP45 2050,2050,45
+clim.GS4550_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month GS RCP45 2050,2050,45
+clim.GS4550_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) GS RCP45 2050,2050,45
+clim.GS4550_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter GS RCP45 2050,2050,45
+clim.GS4550_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter GS RCP45 2050,2050,45
+clim.GS4550_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter GS RCP45 2050,2050,45
+clim.GS4550_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter GS RCP45 2050,2050,45
+clim.GS4550_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) GS RCP45 2050,2050,45
+clim.GS4550_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) GS RCP45 2050,2050,45
+clim.GS4550_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) GS RCP45 2050,2050,45
+clim.GS4550_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month GS RCP45 2050,2050,45
+clim.GS4550_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month GS RCP45 2050,2050,45
+clim.GS4550_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) GS RCP45 2050,2050,45
+clim.GS4550_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter GS RCP45 2050,2050,45
+clim.GS4550_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter GS RCP45 2050,2050,45
+clim.GS4570_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature GS RCP45 2070,2070,45
+clim.GS4570_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter GS RCP45 2070,2070,45
+clim.GS4570_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter GS RCP45 2070,2070,45
+clim.GS4570_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation GS RCP45 2070,2070,45
+clim.GS4570_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month GS RCP45 2070,2070,45
+clim.GS4570_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month GS RCP45 2070,2070,45
+clim.GS4570_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) GS RCP45 2070,2070,45
+clim.GS4570_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter GS RCP45 2070,2070,45
+clim.GS4570_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter GS RCP45 2070,2070,45
+clim.GS4570_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter GS RCP45 2070,2070,45
+clim.GS4570_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter GS RCP45 2070,2070,45
+clim.GS4570_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) GS RCP45 2070,2070,45
+clim.GS4570_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) GS RCP45 2070,2070,45
+clim.GS4570_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) GS RCP45 2070,2070,45
+clim.GS4570_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month GS RCP45 2070,2070,45
+clim.GS4570_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month GS RCP45 2070,2070,45
+clim.GS4570_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) GS RCP45 2070,2070,45
+clim.GS4570_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter GS RCP45 2070,2070,45
+clim.GS4570_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter GS RCP45 2070,2070,45
+clim.HE2650_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature HE RCP26 2050,2050,26
+clim.HE2650_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter HE RCP26 2050,2050,26
+clim.HE2650_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter HE RCP26 2050,2050,26
+clim.HE2650_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation HE RCP26 2050,2050,26
+clim.HE2650_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month HE RCP26 2050,2050,26
+clim.HE2650_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month HE RCP26 2050,2050,26
+clim.HE2650_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) HE RCP26 2050,2050,26
+clim.HE2650_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter HE RCP26 2050,2050,26
+clim.HE2650_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter HE RCP26 2050,2050,26
+clim.HE2650_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter HE RCP26 2050,2050,26
+clim.HE2650_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter HE RCP26 2050,2050,26
+clim.HE2650_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) HE RCP26 2050,2050,26
+clim.HE2650_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) HE RCP26 2050,2050,26
+clim.HE2650_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) HE RCP26 2050,2050,26
+clim.HE2650_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month HE RCP26 2050,2050,26
+clim.HE2650_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month HE RCP26 2050,2050,26
+clim.HE2650_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) HE RCP26 2050,2050,26
+clim.HE2650_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter HE RCP26 2050,2050,26
+clim.HE2650_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter HE RCP26 2050,2050,26
+clim.HE2670_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature HE RCP26 2070,2070,26
+clim.HE2670_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter HE RCP26 2070,2070,26
+clim.HE2670_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter HE RCP26 2070,2070,26
+clim.HE2670_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation HE RCP26 2070,2070,26
+clim.HE2670_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month HE RCP26 2070,2070,26
+clim.HE2670_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month HE RCP26 2070,2070,26
+clim.HE2670_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) HE RCP26 2070,2070,26
+clim.HE2670_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter HE RCP26 2070,2070,26
+clim.HE2670_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter HE RCP26 2070,2070,26
+clim.HE2670_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter HE RCP26 2070,2070,26
+clim.HE2670_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter HE RCP26 2070,2070,26
+clim.HE2670_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) HE RCP26 2070,2070,26
+clim.HE2670_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) HE RCP26 2070,2070,26
+clim.HE2670_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) HE RCP26 2070,2070,26
+clim.HE2670_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month HE RCP26 2070,2070,26
+clim.HE2670_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month HE RCP26 2070,2070,26
+clim.HE2670_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) HE RCP26 2070,2070,26
+clim.HE2670_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter HE RCP26 2070,2070,26
+clim.HE2670_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter HE RCP26 2070,2070,26
+clim.HE4550_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature HE RCP45 2050,2050,45
+clim.HE4550_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter HE RCP45 2050,2050,45
+clim.HE4550_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter HE RCP45 2050,2050,45
+clim.HE4550_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation HE RCP45 2050,2050,45
+clim.HE4550_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month HE RCP45 2050,2050,45
+clim.HE4550_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month HE RCP45 2050,2050,45
+clim.HE4550_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) HE RCP45 2050,2050,45
+clim.HE4550_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter HE RCP45 2050,2050,45
+clim.HE4550_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter HE RCP45 2050,2050,45
+clim.HE4550_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter HE RCP45 2050,2050,45
+clim.HE4550_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter HE RCP45 2050,2050,45
+clim.HE4550_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) HE RCP45 2050,2050,45
+clim.HE4550_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) HE RCP45 2050,2050,45
+clim.HE4550_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) HE RCP45 2050,2050,45
+clim.HE4550_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month HE RCP45 2050,2050,45
+clim.HE4550_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month HE RCP45 2050,2050,45
+clim.HE4550_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) HE RCP45 2050,2050,45
+clim.HE4550_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter HE RCP45 2050,2050,45
+clim.HE4550_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter HE RCP45 2050,2050,45
+clim.HE4570_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature HE RCP45 2070,2070,45
+clim.HE4570_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter HE RCP45 2070,2070,45
+clim.HE4570_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter HE RCP45 2070,2070,45
+clim.HE4570_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation HE RCP45 2070,2070,45
+clim.HE4570_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month HE RCP45 2070,2070,45
+clim.HE4570_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month HE RCP45 2070,2070,45
+clim.HE4570_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) HE RCP45 2070,2070,45
+clim.HE4570_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter HE RCP45 2070,2070,45
+clim.HE4570_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter HE RCP45 2070,2070,45
+clim.HE4570_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter HE RCP45 2070,2070,45
+clim.HE4570_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter HE RCP45 2070,2070,45
+clim.HE4570_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) HE RCP45 2070,2070,45
+clim.HE4570_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) HE RCP45 2070,2070,45
+clim.HE4570_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) HE RCP45 2070,2070,45
+clim.HE4570_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month HE RCP45 2070,2070,45
+clim.HE4570_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month HE RCP45 2070,2070,45
+clim.HE4570_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) HE RCP45 2070,2070,45
+clim.HE4570_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter HE RCP45 2070,2070,45
+clim.HE4570_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter HE RCP45 2070,2070,45
+clim.HE6050_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature HE RCP60 2050,2050,60
+clim.HE6050_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter HE RCP60 2050,2050,60
+clim.HE6050_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter HE RCP60 2050,2050,60
+clim.HE6050_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation HE RCP60 2050,2050,60
+clim.HE6050_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month HE RCP60 2050,2050,60
+clim.HE6050_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month HE RCP60 2050,2050,60
+clim.HE6050_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) HE RCP60 2050,2050,60
+clim.HE6050_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter HE RCP60 2050,2050,60
+clim.HE6050_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter HE RCP60 2050,2050,60
+clim.HE6050_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter HE RCP60 2050,2050,60
+clim.HE6050_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter HE RCP60 2050,2050,60
+clim.HE6050_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) HE RCP60 2050,2050,60
+clim.HE6050_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) HE RCP60 2050,2050,60
+clim.HE6050_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) HE RCP60 2050,2050,60
+clim.HE6050_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month HE RCP60 2050,2050,60
+clim.HE6050_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month HE RCP60 2050,2050,60
+clim.HE6050_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) HE RCP60 2050,2050,60
+clim.HE6050_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter HE RCP60 2050,2050,60
+clim.HE6050_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter HE RCP60 2050,2050,60
+clim.HE6070_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature HE RCP60 2070,2070,60
+clim.HE6070_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter HE RCP60 2070,2070,60
+clim.HE6070_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter HE RCP60 2070,2070,60
+clim.HE6070_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation HE RCP60 2070,2070,60
+clim.HE6070_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month HE RCP60 2070,2070,60
+clim.HE6070_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month HE RCP60 2070,2070,60
+clim.HE6070_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) HE RCP60 2070,2070,60
+clim.HE6070_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter HE RCP60 2070,2070,60
+clim.HE6070_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter HE RCP60 2070,2070,60
+clim.HE6070_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter HE RCP60 2070,2070,60
+clim.HE6070_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter HE RCP60 2070,2070,60
+clim.HE6070_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) HE RCP60 2070,2070,60
+clim.HE6070_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) HE RCP60 2070,2070,60
+clim.HE6070_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) HE RCP60 2070,2070,60
+clim.HE6070_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month HE RCP60 2070,2070,60
+clim.HE6070_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month HE RCP60 2070,2070,60
+clim.HE6070_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) HE RCP60 2070,2070,60
+clim.HE6070_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter HE RCP60 2070,2070,60
+clim.HE6070_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter HE RCP60 2070,2070,60
+clim.HE8550_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature HE RCP85 2050,2050,85
+clim.HE8550_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter HE RCP85 2050,2050,85
+clim.HE8550_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter HE RCP85 2050,2050,85
+clim.HE8550_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation HE RCP85 2050,2050,85
+clim.HE8550_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month HE RCP85 2050,2050,85
+clim.HE8550_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month HE RCP85 2050,2050,85
+clim.HE8550_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) HE RCP85 2050,2050,85
+clim.HE8550_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter HE RCP85 2050,2050,85
+clim.HE8550_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter HE RCP85 2050,2050,85
+clim.HE8550_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter HE RCP85 2050,2050,85
+clim.HE8550_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter HE RCP85 2050,2050,85
+clim.HE8550_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) HE RCP85 2050,2050,85
+clim.HE8550_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) HE RCP85 2050,2050,85
+clim.HE8550_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) HE RCP85 2050,2050,85
+clim.HE8550_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month HE RCP85 2050,2050,85
+clim.HE8550_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month HE RCP85 2050,2050,85
+clim.HE8550_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) HE RCP85 2050,2050,85
+clim.HE8550_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter HE RCP85 2050,2050,85
+clim.HE8550_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter HE RCP85 2050,2050,85
+clim.HE8570_Bio1,climate,Bio1,Annual Mean Temperature,Annual Mean Temperature HE RCP85 2070,2070,85
+clim.HE8570_Bio10,climate,Bio10,Mean Temperature of Warmest Quarter,Mean Temperature of Warmest Quarter HE RCP85 2070,2070,85
+clim.HE8570_Bio11,climate,Bio11,Mean Temperature of Coldest Quarter,Mean Temperature of Coldest Quarter HE RCP85 2070,2070,85
+clim.HE8570_Bio12,climate,Bio12,Annual Precipitation,Annual Precipitation HE RCP85 2070,2070,85
+clim.HE8570_Bio13,climate,Bio13,Precipitation of Wettest Month,Precipitation of Wettest Month HE RCP85 2070,2070,85
+clim.HE8570_Bio14,climate,Bio14,Precipitation of Driest Month,Precipitation of Driest Month HE RCP85 2070,2070,85
+clim.HE8570_Bio15,climate,Bio15,Precipitation Seasonality (Coefficient of Variation),Precipitation Seasonality (Coefficient of Variation) HE RCP85 2070,2070,85
+clim.HE8570_Bio16,climate,Bio16,Precipitation of Wettest Quarter,Precipitation of Wettest Quarter HE RCP85 2070,2070,85
+clim.HE8570_Bio17,climate,Bio17,Precipitation of Driest Quarter,Precipitation of Driest Quarter HE RCP85 2070,2070,85
+clim.HE8570_Bio18,climate,Bio18,Precipitation of Warmest Quarter,Precipitation of Warmest Quarter HE RCP85 2070,2070,85
+clim.HE8570_Bio19,climate,Bio19,Precipitation of Coldest Quarter,Precipitation of Coldest Quarter HE RCP85 2070,2070,85
+clim.HE8570_Bio2,climate,Bio2,Mean Diurnal Range (Mean of monthly (max temp - min temp)),Mean Diurnal Range (Mean of monthly (max temp - min temp)) HE RCP85 2070,2070,85
+clim.HE8570_Bio3,climate,Bio3,Isothermality (BIO2/BIO7) (* 100),Isothermality (BIO2/BIO7) (* 100) HE RCP85 2070,2070,85
+clim.HE8570_Bio4,climate,Bio4,Temperature Seasonality (standard deviation *100),Temperature Seasonality (standard deviation *100) HE RCP85 2070,2070,85
+clim.HE8570_Bio5,climate,Bio5,Max Temperature of Warmest Month,Max Temperature of Warmest Month HE RCP85 2070,2070,85
+clim.HE8570_Bio6,climate,Bio6,Min Temperature of Coldest Month,Min Temperature of Coldest Month HE RCP85 2070,2070,85
+clim.HE8570_Bio7,climate,Bio7,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) HE RCP85 2070,2070,85
+clim.HE8570_Bio8,climate,Bio8,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter HE RCP85 2070,2070,85
+clim.HE8570_Bio9,climate,Bio9,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter HE RCP85 2070,2070,85
+env.Altitude_ALT,environmental,ALT,Bioclim Altitude,Bioclim Altitude environmental,Present,Present
+env.Slope_SLOPE,environmental,SLOPE,USGS GTOP030  Slope,USGS GTOP030  Slope environmental,Present,Present
+env.Soil_HWSD,environmental,HWSD,Harmonized world soil data,Harmonized world soil data environmental,Present,Present
+env.VegCover_VCF,environmental,VCF,MODIS VCF,MODIS VCF environmental,Present,Present
+sp.PC1_PC1,spatial,PC1,PC Axis 1 of Distance Matrix,PC Axis 1 of Distance Matrix spatial,Present,Present
+sp.PC2_PC2,spatial,PC2,PC Axis 2 of Distance Matrix,PC Axis 2 of Distance Matrix spatial,Present,Present
+sp.PCn_PCn,spatial,PCn,PC Axis n of Distance Matrix,PC Axis n of Distance Matrix spatial,Present,Present
