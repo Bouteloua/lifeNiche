@@ -131,13 +131,13 @@ def rawMetaData():
 				})
 		else:
 			print '**********************************error***************************************'
-			print 'Check the layerMetaData.csv file in the masterOccurrenceList folder. MISSING DATA!!!!!!!!'
+			print 'Check the layerMetaData.csv file in the rawMetaData folder. MISSING DATA!!!!!!!!'
 			sys.exit(0)
 	return filenameDic
 
 #Read the file layerMetaData.csv to get all the label meta data that cannot get out of the file name. Retuen a dictionary. 
 def readLayerMetaData():
-	with open('../views/masterOccurrenceList/layerMetaData.csv', mode='r') as infile:
+	with open('../views/rawMetaData/layerMetaData.csv', mode='r') as infile:
 		reader = c.reader(infile)
 		mydict = {rows[0].lower(): {'filterType': rows[1], 'typeCode': rows[2], 'TypeCodeDescription': rows[3], 'LayerDescription': rows[4], 'ProjectionDate': rows[5], 'RCP': rows[6]} for rows in reader}
 	return mydict
@@ -148,18 +148,18 @@ def csvToShapefile():
 
 	#Creates a folder is shapefiles does not exist
 	try:
-		os.stat('../views/individualOccurrenceList')
+		os.stat('../views/indivCsvOccurrList')
 	except:
-		os.mkdir('../views/individualOccurrenceList')
+		os.mkdir('../views/indivCsvOccurrList')
 
-	df = pd.read_csv('../views/masterOccurrenceList/longlat.csv')
+	df = pd.read_csv('../views/rawMetaData/longlat.csv')
 	uniqueNames = df['Subsp_Ritaxa'].drop_duplicates()
 	for uniqueName in uniqueNames:
 		filename = df[(df['Subsp_Ritaxa']  == uniqueName)]
-		filename.to_csv('../views/individualOccurrenceList/' + uniqueName + '.csv', index = False)
+		filename.to_csv('../views/indivCsvOccurrList/' + uniqueName + '.csv', index = False)
 
 	#The output to all the individual species text files
-	csvPath = '../views/individualOccurrenceList/'
+	csvPath = '../views/indivCsvOccurrList/'
 
 	#Creates a folder is shapefiles does not exist
 	try:
@@ -203,7 +203,7 @@ def csvToShapefile():
 	return shapefileDic
 
 def readFile():
-	with open('../views/masterOccurrenceList/layerMetaData.csv', mode='r') as infile:
+	with open('../views/rawMetaData/layerMetaData.csv', mode='r') as infile:
 		reader = c.reader(infile)
 		mydict = {rows[0].lower(): {'filterType': rows[1], 'typeCode': rows[2], 'TypeCodeDescription': rows[3], 'LayerDescription': rows[4], 'ProjectionDate': rows[5], 'RCP': rows[6]} for rows in reader}
 	return mydict

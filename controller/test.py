@@ -16,7 +16,7 @@ def main():
 	count = 11
 	for key, layerNames in postDicLayers.iteritems():
 		for key1, layerName in layerNames.items():
-			#print "name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s description=%s" %(layerName['Name'], layerName['epsgCode'], layerName['envLayerType'], layerName['units'], layerName['dataFormat'], layerName['fileName'], layerName['title'], layerName['layerDescription'])
+			print "name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s description=%s" %(layerName['Name'], layerName['epsgCode'], layerName['envLayerType'], layerName['units'], layerName['dataFormat'], layerName['fileName'], layerName['title'], layerName['layerDescription'])
 			print key1
 			postDicLayers[key][key1].update({'lyrID':count})
 			#postDicLayers[key][layerName['fullname']
