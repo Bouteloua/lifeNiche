@@ -23,39 +23,70 @@ def main():
 			postLayers(postDicLayers)
 			run = False
 		elif inputTypeAndLayer.lower() == 'old':
-			lyrs, occurs = pickleFilesLayersAndOccurr()
+			lyrs = pickleFilesLayersAndOccurr()
 			run = False
 		else:
 			run = True
 
 	run2 = True
 	while run2:
-		inputScenario = raw_input('Is this based out new or old layers for the Scenario ("new" or "old" new): ')
-		if inputScenario.lower() == 'new':
-			scenarioDic = postScenario(lyrs)
+		inputOccurrence = raw_input('Do you wish to rerun new occurrence or old occurrence data ("new" or "old" new): ')
+		if inputOccurrence.lower() == 'new':
+			occurs = postOccurrence()
 			run2 = False
-		elif inputScenario.lower() == 'old':
-			scens = pickleFileScenario()
+		elif inputOccurrence.lower() == 'old':
+			occurs = pickleFileOccurrence()
 			run2 = False
 		else:
 			run2 = True
+
+
+	run3 = True
+	while run3:
+		inputScenario = raw_input('Is this based out new or old layers for the Scenario ("new" or "old" new): ')
+		if inputScenario.lower() == 'new':
+			scenarioDic = postScenario(lyrs)
+			run3 = False
+		elif inputScenario.lower() == 'old':
+			scenarioDic = pickleFileScenario()
+			run3 = False
+		else:
+			run3 = True
 	#print lyrs, occurs, scens
 
 
 
 	#scenarioDic = postScenario(postDicLayers)
+	hold = []
+	for key, value in scenarioDic.iteritems():
+		hold.append(value['scnID'])
 
+	expDic = dict() 
+	for key, value in occurs.iteritems():
+		exp = cl.sdm.postExperiment(algorithm=alg, mdlScn=scenarioDic['base51_CURR']['scnID'], occSetId=value['occID'], prjScns=hold, name='Test Experiment2', description='Test run2')
+	 	expDic.setdefault(key, {
+			# remove the index + X
+			'bbox': exp.bbox,
+			'createTime': exp.createTime,
+			'description': exp.description, 
+			'epsgcode': exp.epsgcode,
+			'id': exp.id,
+			'metadataUrl': exp.metadataUrl,
+			'modTime': exp.modTime,
+			'statusModTime': exp.statusModTime,
+			'user': exp.user,
+			'speciesName': key,
+			})
 
-
+	with open('../views/pickleDic/' + 'expDic' + '.pickle', 'wb') as f:
+		cPickle.dump(expDic, f)
+	print expDic
 
 
 
 
 
 ############################## END POST Experiment ####################################
-
-
-
 
 
 
@@ -127,7 +158,7 @@ def postLayers(postDicLayers):
 	############################## POST LAYERS #########################################
 	for key, layerNames in postDicLayers.iteritems():
 		for key1, layerName in layerNames.items():
-			lyrObj = cl.sdm.postLayer(name=layerName['Name'], epsgCode=layerName['epsgCode'], envLayerType=layerName['envLayerType'], units=layerName['units'], dataFormat=layerName['dataFormat'], fileName=layerName['fileName'], title=layerName['title'], description=layerName['layerDescription'])
+			lyrObj = cl.sdm.postLayer(name=layerName['Name'], epsgCode=layerName['epsgCode'], envLayerType=layerName['envLayerType'], units=layerName['units'], dataFormat=layerName['dataFormat'], fileName=layerName['filePath'], title=layerName['title'], description=layerName['layerDescription'])
 			postDicLayers[key][key1].update({'lyrID':lyrObj.id})
 	
 
@@ -155,8 +186,9 @@ def postScenario(postDicLayers):
 			resolution = postDicLayers[key][key1]['resolution']
 			units = postDicLayers[key][key1]['units']
 			epsgCode = postDicLayers[key][key1]['epsgCode']
+			base = postDicLayers[key][key1]['base']
 
-		keyDic = 'base4' + str(count) + '_' + key
+		keyDic = 'base5' + str(count) + '_' + key
 		scenarioDic.setdefault(keyDic, {
 			# remove the index + X
 			'layers': hold,
@@ -166,7 +198,8 @@ def postScenario(postDicLayers):
 			'title': 'Climate Scenario ' + key,
 			'author': 'CGW',
 			'resolution': resolution,
-			'bioclim': key
+			'bioclim': key,
+			'base':base
 			})
 		scn = cl.sdm.postScenario(layers=hold, code=keyDic, epsgCode=epsgCode, units=units, title=key + 'Climate Scenario', author="CGW", resolution=resolution)
 		scenarioDic[keyDic].update({'scnID':scn.id})
@@ -185,16 +218,17 @@ def postScenario(postDicLayers):
 def pickleFilesLayersAndOccurr():
 	with open('../views/pickleDic/layerName_dict.pickle') as f:
 		lyrs = cPickle.load(f)
+	return lyrs
 
+
+def pickleFileOccurrence():
 	with open('../views/pickleDic/occurrence_dict.pickle') as f:
 		occurs = cPickle.load(f)
+	return occurs
 
-	with open('../views/pickleDic/scenario_dict.pickle') as f:
-		scens = cPickle.load(f)
-	return lyrs, occurs
+
 
 def pickleFileScenario():
-
 	with open('../views/pickleDic/scenario_dict.pickle') as f:
 		scens = cPickle.load(f)
 	return scens
@@ -204,7 +238,7 @@ def pickleFileScenario():
 #Creates the data structures for the layers 
 def rawMetaData():
 	#If you rerun increase this number to avoid unique id collisions  
-	add = 975
+	add = 1050
 	#Returns all the gtiff files in the folder GTiff
 	folderFiles = glob.glob('../views/GTiff/*.tif')
 
@@ -222,6 +256,7 @@ def rawMetaData():
 		layer = folderFile.split(".")[3].strip()
 		bioclim = layer.split("_")[0].strip()
 		title = folderFile.split("/")[3].strip()
+		base = title.split('.')[0].strip()
 		fullname = folderFile.split("/")[3][:-4].strip()
 		if layerName in layernMetaData.keys():
 			filenameDic.setdefault(bioclim, {}).setdefault(typeCode, {
@@ -237,8 +272,9 @@ def rawMetaData():
 				'epsgCode': '4326',
 				'envLayerType': layer,
 				'units': 'dd',
+				'base': base,
 				'dataFormat': 'GTiff', 
-				'fileName': folderFile,
+				'filePath': folderFile,
 				'title': title,
 				'fullname': fullname,
 				'resolution': '2.5',
