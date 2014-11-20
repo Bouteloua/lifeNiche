@@ -22,13 +22,26 @@ def main():
 			postTypeCode(postDicLayers)
 			postLayers(postDicLayers)
 			run = False
-		elif inputTypeAndLayer == 'old' or inputTypeAndLayer == 'old':
-			lyrs, occurs, scens = pickleFiles()
+		elif inputTypeAndLayer.lower() == 'old':
+			lyrs, occurs = pickleFilesLayersAndOccurr()
 			run = False
 		else:
 			run = True
 
+	run2 = True
+	while run2:
+		inputScenario = raw_input('Is this based out new or old layers for the Scenario ("new" or "old" new): ')
+		if inputScenario.lower() == 'new':
+			scenarioDic = postScenario(postDicLayers)
+			run2 = False
+		elif inputScenario.lower() == 'old':
+			scens = pickleFileScenario()
+			run2 = False
+		else:
+			run2 = True
 	print lyrs, occurs, scens
+
+
 
 	#scenarioDic = postScenario(postDicLayers)
 
@@ -169,7 +182,7 @@ def postScenario(postDicLayers):
 ############################## END POST Scenario ####################################
 
 
-def pickleFiles():
+def pickleFilesLayersAndOccurr():
 	with open('../views/pickleDic/layerName_dict.pickle') as f:
 		lyrs = cPickle.load(f)
 
@@ -178,7 +191,13 @@ def pickleFiles():
 
 	with open('../views/pickleDic/scenario_dict.pickle') as f:
 		scens = cPickle.load(f)
-	return lyrs, occurs, scens
+	return lyrs, occurs
+
+def pickleFileScenario():
+
+	with open('../views/pickleDic/scenario_dict.pickle') as f:
+		scens = cPickle.load(f)
+	return scens
 
 
 
