@@ -32,14 +32,14 @@ def main():
 	while run2:
 		inputScenario = raw_input('Is this based out new or old layers for the Scenario ("new" or "old" new): ')
 		if inputScenario.lower() == 'new':
-			scenarioDic = postScenario(postDicLayers)
+			scenarioDic = postScenario(lyrs)
 			run2 = False
 		elif inputScenario.lower() == 'old':
 			scens = pickleFileScenario()
 			run2 = False
 		else:
 			run2 = True
-	print lyrs, occurs, scens
+	#print lyrs, occurs, scens
 
 
 
@@ -156,7 +156,7 @@ def postScenario(postDicLayers):
 			units = postDicLayers[key][key1]['units']
 			epsgCode = postDicLayers[key][key1]['epsgCode']
 
-		keyDic = 'base' + str(count) + '_' + key
+		keyDic = 'base4' + str(count) + '_' + key
 		scenarioDic.setdefault(keyDic, {
 			# remove the index + X
 			'layers': hold,
@@ -204,7 +204,7 @@ def pickleFileScenario():
 #Creates the data structures for the layers 
 def rawMetaData():
 	#If you rerun increase this number to avoid unique id collisions  
-	add = 875
+	add = 975
 	#Returns all the gtiff files in the folder GTiff
 	folderFiles = glob.glob('../views/GTiff/*.tif')
 
