@@ -5,6 +5,7 @@ from lifemapper.lmClientLib import LMClient
 from shapely.geometry import Point, mapping
 #Change to match your lifemapper ID and password
 from password import *
+import time
 
 
 def main():
@@ -20,10 +21,10 @@ def main():
 		if inputTypeAndLayer.lower() == 'new':
 			postDicLayers = rawMetaData()
 			postTypeCode(postDicLayers)
-			postLayers(postDicLayers)
+			postDicLayers = postLayers(postDicLayers)
 			run = False
 		elif inputTypeAndLayer.lower() == 'old':
-			lyrs = pickleFilesLayersAndOccurr()
+			postDicLayers = pickleFilesLayersAndOccurr()
 			run = False
 		else:
 			run = True
@@ -45,7 +46,7 @@ def main():
 	while run3:
 		inputScenario = raw_input('Is this based out new or old layers for the Scenario ("new" or "old" new): ')
 		if inputScenario.lower() == 'new':
-			scenarioDic = postScenario(lyrs)
+			scenarioDic = postScenario(postDicLayers)
 			run3 = False
 		elif inputScenario.lower() == 'old':
 			scenarioDic = pickleFileScenario()
@@ -54,16 +55,18 @@ def main():
 			run3 = True
 	#print lyrs, occurs, scens
 
+############################## POST Experiment ########################################
 
-
-	#scenarioDic = postScenario(postDicLayers)
 	hold = []
 	for key, value in scenarioDic.iteritems():
 		hold.append(value['scnID'])
+		print value['scnID']
+	print scenarioDic
 
 	expDic = dict() 
 	for key, value in occurs.iteritems():
-		exp = cl.sdm.postExperiment(algorithm=alg, mdlScn=scenarioDic['base51_CURR']['scnID'], occSetId=value['occID'], prjScns=hold, name='Test Experiment2', description='Test run2')
+		#print "algorithm=alg, mdlScn=%s, occSetId=%s, prjScns=%s, name='Test Experiment2', description='Test run2'" % (scenarioDic['base51_CURR']['scnID'], value['occID'], hold)
+		exp = cl.sdm.postExperiment(algorithm=alg, mdlScn=scenarioDic['base_test1_CURR']['scnID'], occSetId=value['occID'], prjScns=hold, name='Test Experiment2', description='Test run2')
 	 	expDic.setdefault(key, {
 			# remove the index + X
 			'bbox': exp.bbox,
@@ -77,22 +80,12 @@ def main():
 			'user': exp.user,
 			'speciesName': key,
 			})
+	 	time.sleep(10)
 
 	with open('../views/pickleDic/' + 'expDic' + '.pickle', 'wb') as f:
 		cPickle.dump(expDic, f)
 	print expDic
-
-
-
-
-
 ############################## END POST Experiment ####################################
-
-
-
-
-
-############################## POST Experiment ########################################
 
 
 
@@ -188,7 +181,8 @@ def postScenario(postDicLayers):
 			epsgCode = postDicLayers[key][key1]['epsgCode']
 			base = postDicLayers[key][key1]['base']
 
-		keyDic = 'base5' + str(count) + '_' + key
+		keyDic = 'base_test' + str(count) + '_' + key
+		print keyDic
 		scenarioDic.setdefault(keyDic, {
 			# remove the index + X
 			'layers': hold,
@@ -203,7 +197,6 @@ def postScenario(postDicLayers):
 			})
 		scn = cl.sdm.postScenario(layers=hold, code=keyDic, epsgCode=epsgCode, units=units, title=key + 'Climate Scenario', author="CGW", resolution=resolution)
 		scenarioDic[keyDic].update({'scnID':scn.id})
-
 			#Save a pickle file of the occurrence IDs 
 	with open('../views/pickleDic/' + 'scenario_dict' + '.pickle', 'wb') as f:
 		cPickle.dump(scenarioDic, f)
@@ -238,7 +231,7 @@ def pickleFileScenario():
 #Creates the data structures for the layers 
 def rawMetaData():
 	#If you rerun increase this number to avoid unique id collisions  
-	add = 1050
+	add = 0
 	#Returns all the gtiff files in the folder GTiff
 	folderFiles = glob.glob('../views/GTiff/*.tif')
 
@@ -302,7 +295,7 @@ def csvToShapefile():
 	except:
 		os.mkdir('../views/indivCsvOccurrList')
 
-	df = pd.read_csv('../views/rawMetaData/longlat.csv')
+	df = pd.read_csv('../views/rawMetaData/cakile_na.csv')
 	uniqueNames = df['Subsp_Ritaxa'].drop_duplicates()
 	for uniqueName in uniqueNames:
 		filename = df[(df['Subsp_Ritaxa']  == uniqueName)]
