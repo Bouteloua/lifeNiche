@@ -113,7 +113,8 @@ def passwordSetAndUqiValue():
 	#Setup your client ID and password in the file named password.py
 	global cl
 	cl = LMClient(userId=userName, pwd=password)
-	add = uniqid = '112'
+	add = 1000
+	uniqid = '112'
 
 	return add, uniqid
 
