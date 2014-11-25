@@ -1,2 +1,2 @@
-userName = 'CWBFbase1'
+userName = 'Frantest6'
 password = 'Map123'

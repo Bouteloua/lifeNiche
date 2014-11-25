@@ -9,29 +9,50 @@ import time
 
 
 def main():
-	#This is a hello
-	func1()
+	#THINGS THAT CHANGE
+	#####################################
+	#Add values to to the index
+	#If you rerun increase this number to avoid unique id collisions
+	add, uniqid = passwordSetAndUqiValue() 
+	######################################
+
 
 	#Set the algorithm to be used niche model(s)
 	alg = cl.sdm.getAlgorithmFromCode('ATT_MAXENT')
+	alg.setParameter('threshold', 0)
 
-	run = True
-	while run:
-		inputTypeAndLayer = raw_input('Do you wish to rerun post typecodes and post layers or use past pickle IDs ("new" or "old" new): ')
-		if inputTypeAndLayer.lower() == 'new':
-			postDicLayers = rawMetaData()
+	run0 = True
+	while run0:
+		inputType = raw_input('Do you wish to rerun post typecodes or use past pickle IDs ("new" or "pass"): ')
+		if inputType.lower() == 'new':
+			postDicLayers = rawMetaData(add)
 			postTypeCode(postDicLayers)
-			postDicLayers = postLayers(postDicLayers)
-			run = False
+			switchforLayer = True
+			run0 = False
+		elif inputType.lower() == 'pass':
+			run0 = False
+		else:
+			run0 = True
+
+	run1 = True
+	while run1:
+		inputTypeAndLayer = raw_input('Do you wish to rerun post layers or use past pickle IDs ("new" or "old"): ')
+		if inputTypeAndLayer.lower() == 'new':
+			if switchforLayer == True:
+				postDicLayers = postLayers(postDicLayers)
+				run1 = False
+			else:
+				postDicLayers = rawMetaData(add)
+				postDicLayers = postLayers(postDicLayers)
 		elif inputTypeAndLayer.lower() == 'old':
 			postDicLayers = pickleFilesLayersAndOccurr()
-			run = False
+			run1 = False
 		else:
-			run = True
+			run1 = True
 
 	run2 = True
 	while run2:
-		inputOccurrence = raw_input('Do you wish to rerun new occurrence or old occurrence data ("new" or "old" new): ')
+		inputOccurrence = raw_input('Do you wish to rerun new occurrence or old occurrence data ("new" or "old"): ')
 		if inputOccurrence.lower() == 'new':
 			occurs = postOccurrence()
 			run2 = False
@@ -44,9 +65,9 @@ def main():
 
 	run3 = True
 	while run3:
-		inputScenario = raw_input('Is this based out new or old layers for the Scenario ("new" or "old" new): ')
+		inputScenario = raw_input('Is this based out new or old layers for the Scenario ("new" or "old"): ')
 		if inputScenario.lower() == 'new':
-			scenarioDic = postScenario(postDicLayers)
+			scenarioDic, sceKey = postScenario(postDicLayers, uniqid)
 			run3 = False
 		elif inputScenario.lower() == 'old':
 			scenarioDic = pickleFileScenario()
@@ -66,8 +87,8 @@ def main():
 	expDic = dict() 
 	for key, value in occurs.iteritems():
 		#print "algorithm=alg, mdlScn=%s, occSetId=%s, prjScns=%s, name='Test Experiment2', description='Test run2'" % (scenarioDic['base51_CURR']['scnID'], value['occID'], hold)
-		exp = cl.sdm.postExperiment(algorithm=alg, mdlScn=scenarioDic['base_test1_CURR']['scnID'], occSetId=value['occID'], prjScns=hold, name='Test Experiment2', description='Test run2')
-	 	expDic.setdefault(key, {
+		exp = cl.sdm.postExperiment(algorithm=alg, mdlScn=scenarioDic[sceKey]['scnID'], occSetId=value['occID'], prjScns=hold, name='Test Experiment2', description='Test run2')
+		expDic.setdefault(key, {
 			# remove the index + X
 			'bbox': exp.bbox,
 			'createTime': exp.createTime,
@@ -80,7 +101,7 @@ def main():
 			'user': exp.user,
 			'speciesName': key,
 			})
-	 	time.sleep(10)
+		time.sleep(10)
 
 	with open('../views/pickleDic/' + 'expDic' + '.pickle', 'wb') as f:
 		cPickle.dump(expDic, f)
@@ -88,49 +109,38 @@ def main():
 ############################## END POST Experiment ####################################
 
 
-
-
-
-############################################# NEED WORK ###################################
-# 	#print layerID
-# 	lyrs = cl.sdm.listLayers(epsgCode=4326)
-# 	#print lyrs
-# 	print typeCode
-# 	print layerID
-
-# 	OccObj = cl.sdm.postOccurrenceSet(displayName='MyPoints', fileType='shapefile', fileName='files/longlat.shp', epsgCode=4326)
-# # The "postExperiment" function allows you to post a new Lifemapper SDM experiment.
-# # Example: Post an experiment base on occurrence set 12345, with the modeling scenario 67, and the projection scenarios 67, 68, 69 using the ATT Maximum Entropy algorithm
-#2sd
-# #exp = cl.sdm.postExperiment(alg, 67, 12345, prjScns=[67, 68, 69])
-
-
-
-# 	scn = cl.sdm.postScenario(layers=[3834], code='presClim', epsgCode=4326, units='dd', title='Current Climate Scenario', author="CGW", resolution=10)
-# 	scn = cl.sdm.postScenario(layers=[3835], code='futClim', epsgCode=4326, units='dd', title='Future Climate Scenario', author="CGW", resolution=10)
-
-# 	exp = cl.sdm.postExperiment(algorithm=alg, mdlScn=968, occSetId=5645771, prjScns=[968, 969], name='Test Experiment', description='Test Experiment on Cakile and Present and Future Bio1')
-############################################################################################
-
-def func1():
+def passwordSetAndUqiValue():
 	#Setup your client ID and password in the file named password.py
-    global cl
-    cl = LMClient(userId=userName, pwd=password)
+	global cl
+	cl = LMClient(userId=userName, pwd=password)
+	add = uniqid = '112'
 
+	return add, uniqid
 
-def postTypeCode(postDicLayers):
 ############################## POST TYPECODE #######################################
+def postTypeCode(postDicLayers):
 		# postTypeCode(
 		# 	code-> The code to use for this new type code [string]
 		# 	title-> (optional) A title for this type code [string]
 		# 	description -> (optional) An extended description of this type code [string]
 		# 	)
+	typeCodeDic = dict() 
 	for typecode in postDicLayers['CURR'].keys():
-		cl.sdm.postTypeCode(code=typecode, title=typecode.upper(), description=postDicLayers['CURR'][typecode]['typeCodeDescription'])
+		tc = cl.sdm.postTypeCode(code=typecode, title=typecode.upper(), description=postDicLayers['CURR'][typecode]['typeCodeDescription'])
+		typeCodeDic.setdefault(typecode, {
+			# remove the index + X
+			'code': typecode,
+			'title': typecode.upper(),
+			'description': postDicLayers['CURR'][typecode]['typeCodeDescription'],
+			})
+
+	with open('../views/pickleDic/' + 'typeCode_dict' + '.pickle', 'wb') as f:
+		cPickle.dump(typeCodeDic, f)
 ############################## POST TYPECODE #######################################
 
-def postOccurrence():
 ############################## POST OCCURRENCE ########################################
+def postOccurrence():
+
 	occurrenceDic = csvToShapefile()
 	for key, value in occurrenceDic.iteritems():
 		occObj = cl.sdm.postOccurrenceSet(displayName=str(key), fileType='shapefile', fileName=value['shpPath'], epsgCode=value['epsgCode'])
@@ -147,11 +157,11 @@ def postOccurrence():
 	return occurrenceDic
 ############################## END POST OCCURRENCE ####################################
 
+################################# POST LAYERS #########################################
 def postLayers(postDicLayers):
-	############################## POST LAYERS #########################################
 	for key, layerNames in postDicLayers.iteritems():
 		for key1, layerName in layerNames.items():
-			lyrObj = cl.sdm.postLayer(name=layerName['Name'], epsgCode=layerName['epsgCode'], envLayerType=layerName['envLayerType'], units=layerName['units'], dataFormat=layerName['dataFormat'], fileName=layerName['filePath'], title=layerName['title'], description=layerName['layerDescription'])
+			lyrObj = cl.sdm.postLayer(name=layerName['Name'], epsgCode=layerName['epsgCode'], envLayerType=layerName['typeCode'], units=layerName['units'], dataFormat=layerName['dataFormat'], fileName=layerName['filePath'], title=layerName['title'], description=layerName['layerDescription'])
 			postDicLayers[key][key1].update({'lyrID':lyrObj.id})
 	
 
@@ -165,11 +175,12 @@ def postLayers(postDicLayers):
 
 ############################## END POST LAYERS ########################################
 
-def postScenario(postDicLayers):
-	############################## POST Scenario ########################################
+
+############################## POST SCENARIO ########################################
+def postScenario(postDicLayers,uniqid):
 	scenarioDic = dict() 
-	count = 1
 	resolution = 0
+	count = 1
 	units = 0
 	epsgCode = 0
 	for key, layerNames in postDicLayers.iteritems():
@@ -181,7 +192,7 @@ def postScenario(postDicLayers):
 			epsgCode = postDicLayers[key][key1]['epsgCode']
 			base = postDicLayers[key][key1]['base']
 
-		keyDic = 'base_test' + str(count) + '_' + key
+		keyDic = 'base_test' + uniqid + str(count) + '_' + key
 		print keyDic
 		scenarioDic.setdefault(keyDic, {
 			# remove the index + X
@@ -203,7 +214,7 @@ def postScenario(postDicLayers):
 
 	print '####### Start of the Scenario ID dictionary ############'
 	print scenarioDic
-	return scenarioDic
+	return scenarioDic, keyDic
 
 ############################## END POST Scenario ####################################
 
@@ -229,9 +240,8 @@ def pickleFileScenario():
 
 
 #Creates the data structures for the layers 
-def rawMetaData():
+def rawMetaData(add):
 	#If you rerun increase this number to avoid unique id collisions  
-	add = 0
 	#Returns all the gtiff files in the folder GTiff
 	folderFiles = glob.glob('../views/GTiff/*.tif')
 
@@ -270,7 +280,7 @@ def rawMetaData():
 				'filePath': folderFile,
 				'title': title,
 				'fullname': fullname,
-				'resolution': '2.5',
+				'resolution': '10',
 				})
 		else:
 			print '**********************************error***************************************'
@@ -289,29 +299,32 @@ def readLayerMetaData():
 def csvToShapefile():
 	schema = { 'geometry': 'Point', 'properties': { 'name': 'str:24'} }
 
+	indivCsvOccurrList = 'views/indivCsvOccurrList'
+	shapefiles = '../views/shapefiles'
+
 	#Creates a folder is shapefiles does not exist
 	try:
-		os.stat('../views/indivCsvOccurrList')
+		os.stat(indivCsvOccurrList)
 	except:
-		os.mkdir('../views/indivCsvOccurrList')
+		os.mkdir(indivCsvOccurrList)
 
 	df = pd.read_csv('../views/rawMetaData/cakile_na.csv')
 	uniqueNames = df['Subsp_Ritaxa'].drop_duplicates()
 	for uniqueName in uniqueNames:
 		filename = df[(df['Subsp_Ritaxa']  == uniqueName)]
-		filename.to_csv('../views/indivCsvOccurrList/' + uniqueName + '.csv', index = False)
+		filename.to_csv(indivCsvOccurrList + uniqueName + '.csv', index = False)
 
 	#The output to all the individual species text files
-	csvPath = '../views/indivCsvOccurrList/'
+	csvPath = indivCsvOccurrList
 
 	#Creates a folder is shapefiles does not exist
 	try:
-		os.stat('../views/shapefiles')
+		os.stat(shapefiles)
 	except:
-		os.mkdir('../views/shapefiles')
+		os.mkdir(shapefiles)
 
 	#The output to all the individual shapefiles
-	shpOutBasePath = '../views/shapefiles/'
+	shpOutBasePath = shapefiles
 	#Column name for Longitude
 	lonField = 'long'
 	#Column name for Latitude
@@ -352,5 +365,5 @@ def readFile():
 	return mydict
 
 if __name__ == '__main__':
-  main()
+	main()
 
