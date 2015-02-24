@@ -1,5 +1,5 @@
 (dp1
-S'Bio10'
+S'Bio2'
 p2
 (dp3
 S'code'
@@ -7,208 +7,32 @@ p4
 g2
 sS'description'
 p5
-S'Mean Temperature of Warmest Quarter'
+S'Mean Diurnal Range (Mean of monthly (max temp - min temp))'
 p6
 sS'title'
 p7
-S'BIO10'
+S'BIO2'
 p8
-ssS'Bio19'
+ssS'Bio3'
 p9
 (dp10
 g4
 g9
 sg5
-S'Precipitation of Coldest Quarter'
+S'Isothermality (BIO2/BIO7) (* 100)'
 p11
 sg7
-S'BIO19'
+S'BIO3'
 p12
-ssS'Bio13'
+ssS'Bio1'
 p13
 (dp14
 g4
 g13
 sg5
-S'Precipitation of Wettest Month'
+S'Annual Mean Temperature'
 p15
 sg7
-S'BIO13'
-p16
-ssS'Bio4'
-p17
-(dp18
-g4
-g17
-sg5
-S'Temperature Seasonality (standard deviation *100)'
-p19
-sg7
-S'BIO4'
-p20
-ssS'Bio3'
-p21
-(dp22
-g4
-g21
-sg5
-S'Isothermality (BIO2/BIO7) (* 100)'
-p23
-sg7
-S'BIO3'
-p24
-ssS'Bio5'
-p25
-(dp26
-g4
-g25
-sg5
-S'Max Temperature of Warmest Month'
-p27
-sg7
-S'BIO5'
-p28
-ssS'Bio2'
-p29
-(dp30
-g4
-g29
-sg5
-S'Mean Diurnal Range (Mean of monthly (max temp - min temp))'
-p31
-sg7
-S'BIO2'
-p32
-ssS'Bio11'
-p33
-(dp34
-g4
-g33
-sg5
-S'Mean Temperature of Coldest Quarter'
-p35
-sg7
-S'BIO11'
-p36
-ssS'Bio12'
-p37
-(dp38
-g4
-g37
-sg5
-S'Annual Precipitation'
-p39
-sg7
-S'BIO12'
-p40
-ssS'Bio1'
-p41
-(dp42
-g4
-g41
-sg5
-S'Annual Mean Temperature'
-p43
-sg7
 S'BIO1'
-p44
-ssS'Bio14'
-p45
-(dp46
-g4
-g45
-sg5
-S'Precipitation of Driest Month'
-p47
-sg7
-S'BIO14'
-p48
-ssS'Bio15'
-p49
-(dp50
-g4
-g49
-sg5
-S'Precipitation Seasonality (Coefficient of Variation)'
-p51
-sg7
-S'BIO15'
-p52
-ssS'Bio16'
-p53
-(dp54
-g4
-g53
-sg5
-S'Precipitation of Wettest Quarter'
-p55
-sg7
-S'BIO16'
-p56
-ssS'Bio17'
-p57
-(dp58
-g4
-g57
-sg5
-S'Precipitation of Driest Quarter'
-p59
-sg7
-S'BIO17'
-p60
-ssS'Bio18'
-p61
-(dp62
-g4
-g61
-sg5
-S'Precipitation of Warmest Quarter'
-p63
-sg7
-S'BIO18'
-p64
-ssS'Bio6'
-p65
-(dp66
-g4
-g65
-sg5
-S'Min Temperature of Coldest Month'
-p67
-sg7
-S'BIO6'
-p68
-ssS'Bio8'
-p69
-(dp70
-g4
-g69
-sg5
-S'Mean Temperature of Wettest Quarter'
-p71
-sg7
-S'BIO8'
-p72
-ssS'Bio9'
-p73
-(dp74
-g4
-g73
-sg5
-S'Mean Temperature of Driest Quarter'
-p75
-sg7
-S'BIO9'
-p76
-ssS'Bio7'
-p77
-(dp78
-g4
-g77
-sg5
-S'Temperature Annual Range (BIO5-BIO6)'
-p79
-sg7
-S'BIO7'
-p80
+p16
 ss.
