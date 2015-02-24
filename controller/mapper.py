@@ -14,28 +14,35 @@ def main():
 ###########################THIS WILL NEED TO CHANGE#######################################
 def passwordSetAndUqiValue():
 	'''This is userName and passwords and unique ID'''
-	#Setup your client ID and password in the file named password.py
 	global cl
+	#Setup your client ID and password in the file named password.py
 	cl = LMClient(userId=userName, pwd=password)
-	add = 10
-	uniqid = 'why'
-	return add, uniqid
+	#jumpIndexValue to index in the function rawMetaData(). Need to be an unique number within accout index
+	jumpIndexValue = 100
+	uniqid = 'why11115'
+	return jumpIndexValue, uniqid
 
 ############################## POST TYPECODE ############################################
 def postTypeCode(postDicLayers):
+	'''The "postTypeCode" function allows you to post a new type code to be used for matching environmental layers.
+	 This post request can be as simple as just adding a character string identifying it. '''
 		# postTypeCode(
 		# 	code-> The code to use for this new type code [string]
 		# 	title-> (optional) A title for this type code [string]
 		# 	description -> (optional) An extended description of this type code [string]
 		# 	)
 	typeCodeDic = dict()
-	for typecode in postDicLayers['CURR'].keys():
-		tc = cl.sdm.postTypeCode(code=typecode, title=typecode.upper(), description=postDicLayers['CURR'][typecode]['typeCodeDescription'])
+	#print postDicLayers
+	for typecode in postDicLayers['current'].keys():
+		tc = cl.sdm.postTypeCode(code=typecode,
+								title=typecode.upper(),
+								description=postDicLayers['current'][typecode]['typeCodeDescription'])
+
 		typeCodeDic.setdefault(typecode, {
 			# remove the index + X
 			'code': typecode,
 			'title': typecode.upper(),
-			'description': postDicLayers['CURR'][typecode]['typeCodeDescription'],
+			'description': postDicLayers['current'][typecode]['typeCodeDescription'],
 			})
 
 	with open('../views/pickleDic/' + 'typeCode_dict' + '.pickle', 'wb') as f:
@@ -44,28 +51,48 @@ def postTypeCode(postDicLayers):
 
 ################################# POST LAYERS ##########################################
 def postLayers(postDicLayers):
+	'''The "postLayer" function allows you to post a new environmental layer to be used in your SDM experiments.
+	It takes a number of parameters. More information about these parameters is available in the code documentation.'''
 	for key, layerNames in postDicLayers.iteritems():
 		for key1, layerName in layerNames.items():
-			print layerName['Name'], layerName['epsgCode'], layerName['typeCode'], layerName['units'], layerName['dataFormat'], layerName['filePath'], layerName['title'], layerName['layerDescription']
-			lyrObj = cl.sdm.postLayer(name=layerName['Name'], epsgCode=layerName['epsgCode'], envLayerType=layerName['typeCode'], units=layerName['units'], dataFormat=layerName['dataFormat'], fileName=layerName['filePath'], title=layerName['title'], description=layerName['layerDescription'])
+			print 'loading...', 'TypeCode:', layerName['typeCode'], 'LayerName:', layerName['filePath'].split('/')[-1], 'Metadata:', layerName['layerDescription']
+			#print layerName['Name'], layerName['epsgCode'], layerName['typeCode'], layerName['units'], layerName['dataFormat'], layerName['filePath'], layerName['title'], layerName['layerDescription']
+
+			lyrObj = cl.sdm.postLayer(name=layerName['Name'],
+									  epsgCode=layerName['epsgCode'],
+									  envLayerType=layerName['typeCode'],
+									  units=layerName['units'],
+									  dataFormat=layerName['dataFormat'],
+									  fileName=layerName['filePath'],
+									  title=layerName['title'],
+									  description=layerName['layerDescription'])
+
 			postDicLayers[key][key1].update({'lyrID':lyrObj.id})
 
 	#Save a pickle file of the layer IDs
 	with open('../views/pickleDic/' + 'layerName_dict' + '.pickle', 'wb') as f:
 		cPickle.dump(postDicLayers, f)
 
-	print '####### Start of the layer ID dictionary ############'
-	print postDicLayers
+	print '####### Completed loadup of layer IDs and TypeCode IDs see file layerName_dict.pickle for input ############'
 	return postDicLayers
 
 ############################## END POST LAYERS ##########################################
 
 ############################## POST OCCURRENCE ##########################################
 def postOccurrence():
+	'''The "postOccurrenceSet" function allows you to add a new occurrence set for SDM experiments to the Lifemapper system.
+	It takes a name, a file and file type as well as an option parameter for specifying the map
+	projection (as an EPSG code) for your occurrence data.'''
 
 	occurrenceDic = csvToShapefile()
-	for key, value in occurrenceDic.iteritems():
-		occObj = cl.sdm.postOccurrenceSet(displayName=str(key), fileType='shapefile', fileName=value['shpPath'], epsgCode=value['epsgCode'])
+	print occurrenceDic
+	for key, occurrence in occurrenceDic.iteritems():
+		print 'loading...', occurrence['shpPath'].split('/')[-1], occurrence['epsgCode'], occurrence['shpPath']
+
+		occObj = cl.sdm.postOccurrenceSet(displayName=str(key),
+										  fileType='shapefile',
+										  fileName=occurrence['shpPath'],
+										  epsgCode=occurrence['epsgCode'])
 
 		#Add the occurrence ID from lifemapper to the dictionary
 		occurrenceDic[key].update({'occID':occObj.id})
@@ -74,13 +101,16 @@ def postOccurrence():
 	with open('../views/pickleDic/' + 'occurrence_dict' + '.pickle', 'wb') as f:
 		cPickle.dump(occurrenceDic, f)
 
-	print '####### Start of the occurrence ID dictionary ############'
-	print occurrenceDic
+	print '####### Completed loadup of occurrence IDs see file occurrence_dict.pickle for input ############'
 	return occurrenceDic
 ############################## END POST OCCURRENCE ######################################
 
 ############################## POST SCENARIO ############################################
 def postScenario(postDicLayers,uniqid):
+	'''The "postScenario" function allows you to add a new scenario for creating SDM models and projections to the Lifemapper system.
+	You will need to supply a few parameters at a minimum when posting a new scenario. More information about
+	these parameters is available in the code documentation.'''
+
 	scenarioDic = dict()
 	resolution = 0
 	count = 1
@@ -95,7 +125,7 @@ def postScenario(postDicLayers,uniqid):
 			epsgCode = postDicLayers[key][key1]['epsgCode']
 			base = postDicLayers[key][key1]['base']
 
-		keyDic = 'base_test' + uniqid + str(count) + '_' + key
+		keyDic = 'Scenario' + uniqid + str(count) + '_' + key
 		print keyDic
 		scenarioDic.setdefault(keyDic, {
 			# remove the index + X
@@ -123,19 +153,24 @@ def postScenario(postDicLayers,uniqid):
 ############################## END POST Scenario #########################################
 
 ############################## New POST Experiment ########################################
-def newPostExperiment(scenarioDic, sceKey, occurs, alg):
-	print 'check'
-	print sceKey
+def newPostExperiment(scenarioDic, sceKey, occurrences, alg):
+	'''The "postExperiment" function allows you to post a new Lifemapper SDM experiment.'''
 	prjScns_input = []
 	for key, value in scenarioDic.iteritems():
 		prjScns_input.append(value['scnID'])
-		#print value['scnID']
 	print scenarioDic
 
 	expDic = dict()
-	for key, value in occurs.iteritems():
+	for key, occurrence in occurrences.iteritems():
 		#print alg, scenarioDic[sceKey]['scnID'], value['occID'], prjScns_input, 'Test Experiment2', 'Test run2'
-		exp = cl.sdm.postExperiment(algorithm=alg, mdlScn=scenarioDic[sceKey]['scnID'], occSetId=value['occID'], prjScns=prjScns_input, name='Test Experiment2', description='Test run2')
+
+		exp = cl.sdm.postExperiment(algorithm=alg,
+									mdlScn=scenarioDic[sceKey]['scnID'],
+									occSetId=occurrence['occID'],
+									prjScns=prjScns_input,
+									name='Test Experiment2',
+									description='Test run2')
+
 		expDic.setdefault(key, {
 			# remove the index + X
 			'bbox': exp.bbox,
@@ -157,7 +192,8 @@ def newPostExperiment(scenarioDic, sceKey, occurs, alg):
 ############################## new END POST Experiment ####################################
 
 ############################## old POST Experiment ########################################
-def oldPostExperiment(scenarioDic, occurs, alg):
+def oldPostExperiment(scenarioDic, occurrences, alg):
+	'''The "postExperiment" function allows you to post a new Lifemapper SDM experiment.'''
 	prjScns_input = []
 	for key, value in scenarioDic.iteritems():
 		prjScns_input.append(value['scnID'])
@@ -165,14 +201,22 @@ def oldPostExperiment(scenarioDic, occurs, alg):
 	current_layer_name = ''
 	for keyOfLayerName in scenarioDic:
 		Name = keyOfLayerName.split('_')
-		if 'CURR' in Name:
+		if 'current' in Name:
 			current_layer_name = keyOfLayerName
 
 	expDic = dict()
-	for key, value in occurs.iteritems():
+	for key, occurrence in occurrences.iteritems():
 
 		#print alg, scenarioDic[current_layer_name]['scnID'], value['occID'], prjScns_input, 'Test Experiment2', 'Test run2'
-		exp = cl.sdm.postExperiment(algorithm=alg, mdlScn=scenarioDic[current_layer_name]['scnID'], occSetId=value['occID'], prjScns=prjScns_input, name='Test Experiment2', description='Test run2')
+
+
+		exp = cl.sdm.postExperiment(algorithm=alg,
+									mdlScn=scenarioDic[current_layer_name]['scnID'],
+									occSetId=occurrence['occID'],
+									prjScns=prjScns_input,
+									name='Test Experiment2',
+									description='Test run2')
+
 		expDic.setdefault(key, {
 			# remove the index + X
 			'bbox': exp.bbox,
@@ -194,9 +238,8 @@ def oldPostExperiment(scenarioDic, occurs, alg):
 
 
 #Creates the data structures for the layers
-def rawMetaData(add):
-	#If you rerun increase this number to avoid unique id collisions
-	#Returns all the gtiff files in the folder GTiff
+def rawMetaData(jumpIndexValue):
+	'''Creates a dictionary off the metadata in the filename of the GTiff'''
 	folderFiles = glob.glob('../views/GTiff/*.tif')
 
 	#Check list of NULL
@@ -206,19 +249,29 @@ def rawMetaData(add):
 
 
 	filenameDic = dict()
-	layernMetaData = readFile()
+	layernMetaData = readLayerMetaData()
 	for index, folderFile in enumerate(folderFiles):
-		typeCode = folderFile.split("_")[1][:-4].strip()
+		# typeCode = folderFile.split("_")[1][:-4].strip()
+		# layerName = folderFile.split("/")[3][:-4].strip().lower()
+		# layer = folderFile.split(".")[3].strip()
+		# bioclim = layer.split("_")[0].strip()
+		# title = folderFile.split("/")[3].strip()
+		# base = title.split('.')[0].strip()
+		# fullname = folderFile.split("/")[3][:-4].strip()
+
+		typeCode = folderFile.split(".")[4].strip()
 		layerName = folderFile.split("/")[3][:-4].strip().lower()
-		layer = folderFile.split(".")[3].strip()
-		bioclim = layer.split("_")[0].strip()
+		layer = folderFile.split(".")[3] + '.' + folderFile.split(".")[4].strip()
+		bioclim = layer.split('.')[0].strip()
 		title = folderFile.split("/")[3].strip()
 		base = title.split('.')[0].strip()
 		fullname = folderFile.split("/")[3][:-4].strip()
+
+
 		if layerName in layernMetaData.keys():
 			filenameDic.setdefault(bioclim, {}).setdefault(typeCode, {
 				# remove the index + X
-				'Name': index + add,
+				'Name': index + jumpIndexValue,
 				'filterType': layernMetaData[layerName]['filterType'],
 				'typeCode': layernMetaData[layerName]['typeCode'],
 				'typeCodeDescription': layernMetaData[layerName]['TypeCodeDescription'],
@@ -234,7 +287,7 @@ def rawMetaData(add):
 				'filePath': folderFile,
 				'title': title,
 				'fullname': fullname,
-				'resolution': '10',
+				'resolution': '30',
 				})
 		else:
 			print '**********************************error***************************************'
@@ -245,17 +298,20 @@ def rawMetaData(add):
 
 ############################# START LOAD OLD FILES ######################################
 def pickleFilesLayersAndOccurr():
+	'''Load the pickle file of layerName'''
 	with open('../views/pickleDic/layerName_dict.pickle') as f:
 		lyrs = cPickle.load(f)
 	return lyrs
 
 def pickleFileOccurrence():
+	'''Load the pickle file of occurrence'''
 	with open('../views/pickleDic/occurrence_dict.pickle') as f:
 		occurs = cPickle.load(f)
 	return occurs
 
 
 def pickleFileScenario():
+	'''Load the pickle file of scenario'''
 	with open('../views/pickleDic/scenario_dict.pickle') as f:
 		scens = cPickle.load(f)
 	return scens
@@ -263,15 +319,9 @@ def pickleFileScenario():
 ############################# END START LOAD OLD FILES ######################################
 
 
-#Read the file layerMetaData.csv to get all the label meta data that cannot get out of the file name. Retuen a dictionary.
-def readLayerMetaData():
-	with open('../views/rawMetaData/layerMetaData.csv', mode='r') as infile:
-		reader = c.reader(infile)
-		mydict = {rows[0].lower(): {'filterType': rows[1], 'typeCode': rows[2], 'TypeCodeDescription': rows[3], 'LayerDescription': rows[4], 'ProjectionDate': rows[5], 'RCP': rows[6]} for rows in reader}
-	return mydict
-
 #Take a csv file and makes returns shapefile for each unique species. Then returns a dictionary name, file path, and will add occurrence ID later
 def csvToShapefile():
+	'''Take a csv file and creates shapefiles'''
 	schema = { 'geometry': 'Point', 'properties': { 'name': 'str:24'} }
 
 	indivCsvOccurrList = '../views/indivCsvOccurrList/'
@@ -283,10 +333,10 @@ def csvToShapefile():
 	except:
 		os.mkdir(indivCsvOccurrList)
 
-	df = pd.read_csv('../views/rawMetaData/cakile_na.csv')
-	uniqueNames = df['Subsp_Ritaxa'].drop_duplicates()
+	df = pd.read_csv('../views/rawMetaData/caede.csv')
+	uniqueNames = df['taxa'].drop_duplicates()
 	for uniqueName in uniqueNames:
-		filename = df[(df['Subsp_Ritaxa']  == uniqueName)]
+		filename = df[(df['taxa']  == uniqueName)]
 		filename.to_csv(indivCsvOccurrList + uniqueName + '.csv', index = False)
 
 	#The output to all the individual species text files
@@ -305,7 +355,7 @@ def csvToShapefile():
 	#Column name for Latitude
 	latField = 'lat'
 	#Column name for species names
-	nameField = 'Subsp_Ritaxa'
+	nameField = 'taxa'
 
 	csvs = commands.getoutput('ls %s*.csv' % (csvPath))
 	csvPathList = csvs.split('\n')
@@ -330,23 +380,23 @@ def csvToShapefile():
 						})
 		except Exception, e:
 			print "failed to write %s because %s" % (spsName,str(e))
-
+	print shapefileDic
 	return shapefileDic
 
-def readFile():
+def readLayerMetaData():
+	'''Open the the file layerMetaData.csv to get all the label meta data that cannot get out of the file name. Return a dictionary'''
 	with open('../views/rawMetaData/layerMetaData.csv', mode='r') as infile:
 		reader = c.reader(infile)
 		mydict = {rows[0].lower(): {'filterType': rows[1], 'typeCode': rows[2], 'TypeCodeDescription': rows[3], 'LayerDescription': rows[4], 'ProjectionDate': rows[5], 'RCP': rows[6]} for rows in reader}
 	return mydict
 
-
 def newOrOldFiles():
-
+	'''Upload new data or load the past pickle files'''
 	#THINGS THAT CHANGE
 	#####################################
 	#Add values to to the index
 	#If you rerun increase this number to avoid unique id collisions
-	add, uniqid = passwordSetAndUqiValue()
+	jumpIndexValue, uniqid = passwordSetAndUqiValue()
 	######################################
 
 	#Set the algorithm to be used niche model(s)
@@ -357,7 +407,7 @@ def newOrOldFiles():
 	while whilePostLayers:
 		inputType = raw_input('Do you wish to rerun post typecodes and post layers or use the past pickle IDs ("new" or "old"): ')
 		if inputType.lower() == 'new':
-			postDicLayers = rawMetaData(add)
+			postDicLayers = rawMetaData(jumpIndexValue)
 			postTypeCode(postDicLayers)
 			postDicLayers = postLayers(postDicLayers)
 			whilePostLayers = False
