@@ -1,0 +1,199 @@
+Thu Feb 26 12:24:39 CST 2015
+MaxEnt version 3.3.3k
+Checking header of /var/lm/jobs/job-110-11031260/layers/layer0.asc
+Checking header of /var/lm/jobs/job-110-11031260/layers/layer1.asc
+Checking header of /var/lm/jobs/job-110-11031260/layers/layer2.asc
+Checking header of /var/lm/jobs/job-110-11031260/layers/layer3.asc
+Checking header of /var/lm/jobs/job-110-11031260/layers/layer4.asc
+Checking header of /var/lm/jobs/job-110-11031260/layers/layer5.asc
+Checking header of /var/lm/jobs/job-110-11031260/layers/layer6.asc
+Reading samples from samples.csv
+Read samples: max memory 15024979968, total allocated 1012465664, free 906794184, used 105671480, increment 105671480
+Converting file /var/lm/jobs/job-110-11031260/layers/layer0.asc size 9064785633, max memory = 15024979968
+Determining type of file layer0.asc
+Time since start: 148.791
+Writing file /var/lm/jobs/job-110-11031260/layers/maxent.cache/layer0.mxe
+Time since start: 318.209
+Converting file /var/lm/jobs/job-110-11031260/layers/layer1.asc size 3220956472, max memory = 15024979968
+Reading file layer1.asc
+Time since start: 454.96
+FLOAT, 40550686 pixels with data
+readGrid: max memory 15024979968, total allocated 3397779456, free 1157093944, used 2240685512, increment 2135014032
+Writing file /var/lm/jobs/job-110-11031260/layers/maxent.cache/layer1.mxe
+Time since start: 491.508
+Converting file /var/lm/jobs/job-110-11031260/layers/layer2.asc size 9668179817, max memory = 15024979968
+Determining type of file layer2.asc
+Writing file /var/lm/jobs/job-110-11031260/layers/maxent.cache/layer2.mxe
+Time since start: 718.793
+Converting file /var/lm/jobs/job-110-11031260/layers/layer3.asc size 2028860187, max memory = 15024979968
+Reading file layer3.asc
+Time since start: 764.751
+BYTE, 40872271 pixels with data
+readGrid: max memory 15024979968, total allocated 3366715392, free 653253104, used 2713462288, increment 472776776
+Writing file /var/lm/jobs/job-110-11031260/layers/maxent.cache/layer3.mxe
+Time since start: 786.882
+Converting file /var/lm/jobs/job-110-11031260/layers/layer4.asc size 2040522137, max memory = 15024979968
+Reading file layer4.asc
+Time since start: 873.792
+SHORT, 40872271 pixels with data
+readGrid: max memory 15024979968, total allocated 4900257792, free 2411007176, used 2489250616, increment -224211672
+Writing file /var/lm/jobs/job-110-11031260/layers/maxent.cache/layer4.mxe
+Time since start: 905.587
+Converting file /var/lm/jobs/job-110-11031260/layers/layer5.asc size 2015389398, max memory = 15024979968
+Reading file layer5.asc
+Time since start: 994.637
+SHORT, 40872271 pixels with data
+readGrid: max memory 15024979968, total allocated 6039666688, free 4275504200, used 1764162488, increment -725088128
+Writing file /var/lm/jobs/job-110-11031260/layers/maxent.cache/layer5.mxe
+Time since start: 1022.484
+Converting file /var/lm/jobs/job-110-11031260/layers/layer6.asc size 9064785633, max memory = 15024979968
+Determining type of file layer6.asc
+Time since start: 1261.358
+Writing file /var/lm/jobs/job-110-11031260/layers/maxent.cache/layer6.mxe
+Time since start: 1578.331
+Extractor: max memory 15024979968, total allocated 6645088256, free 1865054920, used 4780033336, increment 3015870848
+Extracting random background and sample data
+Warning: Sample at -54.8, 49.667 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -54.8, 49.667 which has no environmental data
+Warning: Sample at -54.507, 49.36898 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -54.507, 49.36898 which has no environmental data
+Warning: Sample at -64.75, 47.783 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -64.75, 47.783 which has no environmental data
+Warning: Sample at -64.45, 46.233 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -64.45, 46.233 which has no environmental data
+Warning: Sample at -62.546, 46.17081 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -62.546, 46.17081 which has no environmental data
+Warning: Sample at -63.033, 46.05 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -63.033, 46.05 which has no environmental data
+Warning: Sample at -60.23, 45.7337 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -60.23, 45.7337 which has no environmental data
+Warning: Sample at -67.315, 44.6609 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -67.315, 44.6609 which has no environmental data
+Warning: Sample at -68.231, 44.2567 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -68.231, 44.2567 which has no environmental data
+Warning: Sample at -68.531, 44.224 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -68.531, 44.224 which has no environmental data
+Warning: Sample at -69.491, 43.8653 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -69.491, 43.8653 which has no environmental data
+Warning: Sample at -70.18, 43.74061 in samples.csv is missing some environmental data (e.g. layer3)
+Warning: Skipping sample at -70.18, 43.74061
+Warning: Sample at -69.818, 43.7291 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -69.818, 43.7291 which has no environmental data
+Warning: Sample at -70.524, 43.3422 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -70.524, 43.3422 which has no environmental data
+Warning: Sample at -70.593, 43.201 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -70.593, 43.201 which has no environmental data
+Warning: Sample at -70.797, 42.9331 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -70.797, 42.9331 which has no environmental data
+Warning: Sample at -70.776, 42.7162 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -70.776, 42.7162 which has no environmental data
+Warning: Sample at -70.75, 42.6812 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -70.75, 42.6812 which has no environmental data
+Warning: Sample at -70.939, 42.443 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -70.939, 42.443 which has no environmental data
+Warning: Sample at -70.928, 42.3208 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -70.928, 42.3208 which has no environmental data
+Warning: Sample at -70.747, 42.218 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -70.747, 42.218 which has no environmental data
+Warning: Sample at -70.631, 41.9979 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -70.631, 41.9979 which has no environmental data
+Warning: Sample at -70.298, 41.732 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -70.298, 41.732 which has no environmental data
+Warning: Sample at -71.254, 41.4876 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -71.254, 41.4876 which has no environmental data
+Warning: Sample at -71.531, 41.37721 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -71.531, 41.37721 which has no environmental data
+Warning: Sample at -71.501, 41.37341 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -71.501, 41.37341 which has no environmental data
+Warning: Sample at -70.697, 41.3437 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -70.697, 41.3437 which has no environmental data
+Warning: Sample at -70.13, 41.24641 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -70.13, 41.24641 which has no environmental data
+Warning: Sample at -73.352, 41.10588 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -73.352, 41.10588 which has no environmental data
+Warning: Sample at -72.616, 40.8012 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -72.616, 40.8012 which has no environmental data
+Warning: Sample at -73.809, 40.5833 in samples.csv is missing some environmental data (e.g. layer1)
+Warning: Skipping sample at -73.809, 40.5833
+Warning: Sample at -73.605, 40.586 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -73.605, 40.586 which has no environmental data
+Warning: Sample at -74.518, 39.317 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -74.518, 39.317 which has no environmental data
+Warning: Sample at -74.948, 38.9325 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -74.948, 38.9325 which has no environmental data
+Warning: Sample at -74.905, 38.9329 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -74.905, 38.9329 which has no environmental data
+Warning: Sample at -76.512, 38.5175 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -76.512, 38.5175 which has no environmental data
+Warning: Sample at -76.51, 38.02398 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -76.51, 38.02398 which has no environmental data
+Warning: Sample at -76.308, 37.81964 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -76.308, 37.81964 which has no environmental data
+Warning: Sample at -76.33, 37.68717 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -76.33, 37.68717 which has no environmental data
+Warning: Sample at -76.41, 37.37045 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -76.41, 37.37045 which has no environmental data
+Warning: Sample at -75.944, 36.364 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -75.944, 36.364 which has no environmental data
+Warning: Sample at -75.727, 35.69 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -75.727, 35.69 which has no environmental data
+Warning: Sample at -76.153, 35.406 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -76.153, 35.406 which has no environmental data
+Warning: Sample at -76.504, 34.876 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -76.504, 34.876 which has no environmental data
+Warning: Sample at -76.815, 34.694 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -76.815, 34.694 which has no environmental data
+Warning: Sample at -76.689, 34.694 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -76.689, 34.694 which has no environmental data
+Warning: Sample at -77.088, 34.647 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -77.088, 34.647 which has no environmental data
+Warning: Sample at -78.221, 34.039 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -78.221, 34.039 which has no environmental data
+Warning: Sample at -80.694, 32.353 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -80.694, 32.353 which has no environmental data
+Warning: Sample at -80.841, 32.002 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -80.841, 32.002 which has no environmental data
+Warning: Sample at -81.085, 31.968 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -81.085, 31.968 which has no environmental data
+Warning: Sample at -81.372, 31.48 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -81.372, 31.48 which has no environmental data
+Warning: Sample at -81.494, 31.217 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -81.494, 31.217 which has no environmental data
+Warning: Sample at -81.638, 30.919 in samples.csv is missing some environmental data (e.g. layer0)
+Warning: Skipping sample at -81.638, 30.919 which has no environmental data
+Time since start: 1635.585
+40519360 points with values for all grids
+Adding samples to background in feature space
+Command line used:  -s /var/lm/jobs/job-110-11031260/samples.csv -e /var/lm/jobs/job-110-11031260/layers -o /var/lm/jobs/job-110-11031260 --responsecurves=false --threshold=false --maximumiterations=500 --convergencethreshold=1e-05 nowarnings autorun -z
+Command line to repeat: java density.MaxEnt nowarnings noprefixes outputdirectory=/var/lm/jobs/job-110-11031260 samplesfile=/var/lm/jobs/job-110-11031260/samples.csv environmentallayers=/var/lm/jobs/job-110-11031260/layers nowarnings autorun novisible
+Species: Caede
+Layers: layer0 layer1 layer2 layer3 layer4 layer5 layer6
+Layertypes: Continuous Continuous Continuous Continuous Continuous Continuous Continuous
+outputdirectory: /var/lm/jobs/job-110-11031260
+samplesfile: /var/lm/jobs/job-110-11031260/samples.csv
+environmentallayers: /var/lm/jobs/job-110-11031260/layers
+warnings: false
+autorun: true
+visible: false
+
+getSamples: max memory 15024979968, total allocated 6645088256, free 1865021048, used 4780067208, increment 33872
+Making features
+makeFeatures: max memory 15024979968, total allocated 6645088256, free 1865021048, used 4780067208, increment 0
+Caede: 
+Regularization values: linear/quadratic/product: 0.442, categorical: 0.250, threshold: 1.800, hinge: 0.500
+20 samples
+Density: max memory 15024979968, total allocated 6645088256, free 1753081616, used 4892006640, increment 111939432
+linearPredictor: max memory 15024979968, total allocated 6645088256, free 1753081616, used 4892006640, increment 0
+FeaturedSpace: max memory 15024979968, total allocated 6645088256, free 1753081616, used 4892006640, increment 0
+Sequential: max memory 15024979968, total allocated 6645088256, free 1753081616, used 4892006640, increment 0
+Initial loss: 9.212338374638856
+Time since start: 1639.408
+320: time = 3.210000 loss = 5.281148
+Resulting gain: 3.9311908351864355
+Time since start: 1641.778
+Projecting...
+Writing file /var/lm/jobs/job-110-11031260/Caede.asc
+Time since start: 2005.55
+Writing /var/lm/jobs/job-110-11031260/plots/Caede.png
+Time since start: 2132.833
+Ending

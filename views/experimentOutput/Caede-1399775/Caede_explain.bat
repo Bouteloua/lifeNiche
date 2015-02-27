@@ -1,0 +1,1 @@
+java -mx14328m -cp "/opt/lifemapper/lm/apps/maxent.jar:/opt/lifemapper/lm/apps/maxent.jar" density.Explain -l /var/lm/jobs/job-110-11031260/Caede.lambdas /var/lm/jobs/job-110-11031260/Caede.asc /var/lm/jobs/job-110-11031260/layers

@@ -1,38 +1,18 @@
 (dp1
-S'Bio2'
+S'bio10'
 p2
 (dp3
 S'code'
 p4
 g2
-sS'description'
+ssS'bio11'
 p5
-S'Mean Diurnal Range (Mean of monthly (max temp - min temp))'
-p6
-sS'title'
+(dp6
+g4
+g5
+ssS'bio12'
 p7
-S'BIO2'
-p8
-ssS'Bio3'
-p9
-(dp10
+(dp8
 g4
-g9
-sg5
-S'Isothermality (BIO2/BIO7) (* 100)'
-p11
-sg7
-S'BIO3'
-p12
-ssS'Bio1'
-p13
-(dp14
-g4
-g13
-sg5
-S'Annual Mean Temperature'
-p15
-sg7
-S'BIO1'
-p16
+g7
 ss.
