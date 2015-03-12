@@ -8,29 +8,29 @@
 
 @license: Copyright (C) 2014, University of Kansas Center for Research
 
-          Lifemapper Project, lifemapper [at] ku [dot] edu, 
+          Lifemapper Project, lifemapper [at] ku [dot] edu,
           Biodiversity Institute,
           1345 Jayhawk Boulevard, Lawrence, Kansas, 66045, USA
-   
-          This program is free software; you can redistribute it and/or modify 
-          it under the terms of the GNU General Public License as published by 
-          the Free Software Foundation; either version 2 of the License, or (at 
+
+          This program is free software; you can redistribute it and/or modify
+          it under the terms of the GNU General Public License as published by
+          the Free Software Foundation; either version 2 of the License, or (at
           your option) any later version.
-  
-          This program is distributed in the hope that it will be useful, but 
-          WITHOUT ANY WARRANTY; without even the implied warranty of 
-          MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU 
+
+          This program is distributed in the hope that it will be useful, but
+          WITHOUT ANY WARRANTY; without even the implied warranty of
+          MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
           General Public License for more details.
-  
-          You should have received a copy of the GNU General Public License 
-          along with this program; if not, write to the Free Software 
-          Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 
+
+          You should have received a copy of the GNU General Public License
+          along with this program; if not, write to the Free Software
+          Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
           02110-1301, USA.
 
 @note: Additional service documentation can be found at:
           http://lifemapper.org/schemas/services.wadl
 
-@note: Time format - Time should be specified in ISO 8601 format 
+@note: Time format - Time should be specified in ISO 8601 format
           YYYY-mm-ddTHH-MM-SSZ
              Where:
                 YYYY is the four-digit year (example 2009)
@@ -101,7 +101,7 @@ class LMClient(object):
       self.sdm = SDMClient(self._cl)
       if userId not in [DEFAULT_POST_USER, DEFAULT_USER]:
          self.rad = RADClient(self._cl)
-   
+
    # .........................................
    def logout(self):
       """
@@ -128,12 +128,12 @@ class _Client(object):
       self.userId = userId
       self.pwd = pwd
       self.server = server
-      
+
       self.cookieJar = cookielib.LWPCookieJar()
       opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(self.cookieJar))
       urllib2.install_opener(opener)
       self._login()
-   
+
    # .........................................
    def checkVersion(self, clientName="lmClientLib", verStr=None):
       """
@@ -141,7 +141,7 @@ class _Client(object):
                    reported by the web server
       @param clientName: (optional) Check this client if not the client library
       @param verStr: (optional) The version string of the client to check
-      @raise OutOfDateException: Raised if the client is out of date and 
+      @raise OutOfDateException: Raised if the client is out of date and
                                     cannot continue
       """
       res = self.makeRequest(LM_CLIENT_VERSION_URL, objectify=True)
@@ -152,18 +152,18 @@ class _Client(object):
             minVersion = self._getVersionNumbers(verStr=minVersionStr)
             curVersion = self._getVersionNumbers(verStr=curVersionStr)
             myVersion = self._getVersionNumbers(verStr=verStr)
-            
+
             if myVersion < minVersion:
                raise OutOfDateException(myVersion, minVersion)
             if myVersion < curVersion:
                warnings.warn("Client is not latest version: (%s < %s)" % \
                                    (myVersion, curVersion), Warning)
-            
+
    # .........................................
    def _getVersionNumbers(self, verStr=None):
       """
       @summary: Splits a version string into a tuple
-      @param verStr: The version number as a string, if None, get the client 
+      @param verStr: The version number as a string, if None, get the client
                         version
       @return: Tuple of version (major, minor, revision, status)
       """
@@ -177,18 +177,18 @@ class _Client(object):
 
       if len(vStr) > 1:
          status = vStr[1]
-      
+
       mmrList = vStr[0].split('.') # Split on '.'
-      
+
       try: # If not all parts are specified, specifies as many as possible
          major = int(mmrList[0])
          minor = int(mmrList[1])
          revision = int(mmrList[2])
       except:
          pass
-      
+
       return (major, minor, revision, status)
-      
+
    # .........................................
    def getAutozipShapefileStream(self, fn):
       """
@@ -207,7 +207,7 @@ class _Client(object):
                files.append(f)
       else:
          raise Exception ("Filename must end in '.shp'")
-      
+
       outStream = StringIO.StringIO()
       zf = zipfile.ZipFile(outStream, 'w')
       for f in files:
@@ -223,11 +223,11 @@ class _Client(object):
       @param url: A URL pointing to a count service end-point
       @param parameters: (optional) List of query parameters for the request
       """
-      obj = self.makeRequest(url, method="GET", parameters=parameters, 
+      obj = self.makeRequest(url, method="GET", parameters=parameters,
                                                                 objectify=True)
       count = int(obj.items.itemCount)
       return count
-   
+
    # .........................................
    def getList(self, url, parameters=[]):
       """
@@ -235,7 +235,7 @@ class _Client(object):
       @param url: A URL pointing to a list service end-point
       @param parameters: (optional) List of query parameters for the request
       """
-      obj = self.makeRequest(url, method="GET", parameters=parameters, 
+      obj = self.makeRequest(url, method="GET", parameters=parameters,
                                                                 objectify=True)
       try:
          if isinstance(obj.items, ListType):
@@ -252,7 +252,7 @@ class _Client(object):
       return []
 
    # .........................................
-   def makeRequest(self, url, method="GET", parameters=[], body=None, 
+   def makeRequest(self, url, method="GET", parameters=[], body=None,
                          headers={}, objectify=False):
       """
       @summary: Performs an HTTP request
@@ -266,13 +266,13 @@ class _Client(object):
       """
       parameters = removeNonesFromTupleList(parameters)
       urlparams = urllib.urlencode(parameters)
-      
+
       if body is None and len(parameters) > 0 and method.lower() == "post":
          body = urlparams
       else:
          url = "%s?%s" % (url, urlparams)
       req = urllib2.Request(url, data=body, headers=headers)
-      ret = urllib2.urlopen(req)
+      ret = urllib2.urlopen(req, timeout=648000)
       resp = ''.join(ret.readlines())
       if objectify:
          return self.objectify(resp)
@@ -287,7 +287,7 @@ class _Client(object):
       @note: Uses LmAttList and LmAttObj
       @note: Object attributes are defined on the fly
       """
-      return deserialize(ET.fromstring(xmlString))   
+      return deserialize(ET.fromstring(xmlString))
 
    # .........................................
    def _login(self):
@@ -298,9 +298,9 @@ class _Client(object):
       if self.userId != DEFAULT_POST_USER and self.userId != DEFAULT_USER and \
                         self.pwd is not None:
          url = "%s/login" % self.server
-         
+
          urlParams = [("username", self.userId), ("pword", self.pwd)]
-         
+
          self.makeRequest(url, parameters=urlParams)
 
    # .........................................
@@ -332,20 +332,20 @@ class LmAttObj(object):
    def __init__(self, attribs={}, name="LmObj"):
       """
       @summary: Constructor
-      @param attribs: (optional) Dictionary of attributes to attach to the 
+      @param attribs: (optional) Dictionary of attributes to attach to the
                          object
       @param name: (optional) The name of the object (useful for serialization)
       """
       self.__name__ = name
       self._attribs = attribs
-   
+
    # ......................................
    def __getattr__(self, name):
       """
-      @summary: Called if the default getattribute method fails.  This will 
+      @summary: Called if the default getattribute method fails.  This will
                    attempt to return the value from the attribute dictionary
       @param name: The name of the attribute to return
-      @note: A deepcopy or similar call to a built-in method will probably 
+      @note: A deepcopy or similar call to a built-in method will probably
                 cause problems
       @return: The value of the attribute
       """
@@ -359,7 +359,7 @@ class LmAttObj(object):
       @rtype: Dictionary
       """
       return self._attribs
-   
+
    # ......................................
    def setAttribute(self, name, value):
       """
@@ -384,12 +384,12 @@ class LmAttList(list, LmAttObj):
       @summary: Constructor
       @param items: (optional) A list of initial values for the list
       @param attribs: (optional) Dictionary of attributes to attach to the list
-      @param name: (optional) The name of the object (useful for serialization) 
+      @param name: (optional) The name of the object (useful for serialization)
       """
       LmAttObj.__init__(self, attribs, name)
       for item in items:
          self.append(item)
-   
+
 # =============================================================================
 # =                             Helper Functions                              =
 # =============================================================================
@@ -407,8 +407,8 @@ def deserialize(element, removeNS=True):
       processTag = lambda s: s.split("}")[1] if s.find("}") >= 0 else s
    else:
       processTag = lambda s: s
-   
-   # If the element has no children, just get the text   
+
+   # If the element has no children, just get the text
    if len(list(element)) == 0 and len(element.attrib.keys()) == 0:
       try:
          val = element.text.strip()
@@ -428,12 +428,12 @@ def deserialize(element, removeNS=True):
             obj.value = val
       except:
          pass
-      
+
       # Get a list of all of the element's children's tags
       # If they are all the same type and match the parent, make one list
       tags = [child.tag for child in list(element)]
       reducedTags = list(set(tags))
-      
+
       if len(reducedTags) == 1 and reducedTags[0] == element.tag[:-1]: # or len(tags) > 1):
          obj = LmAttList([], attribs=attribs, name=processTag(element.tag))
          for child in list(element):
@@ -468,7 +468,7 @@ def removeNonesFromTupleList(paramsList):
 # .............................................................................
 def stringifyError(err):
    """
-   @summary: This really only adds information for urllib2.HTTPErrors that 
+   @summary: This really only adds information for urllib2.HTTPErrors that
                 include an 'Error-Message' header
    @param err: The exception to stringify
    """

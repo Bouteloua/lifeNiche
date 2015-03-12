@@ -1,1 +1,3 @@
-/home/franzone/Documents/lifeNiche/views/GTiff/*.tif
+views/GTiff/*
+views/shapefiles/*
+
