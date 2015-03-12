@@ -126,10 +126,18 @@ def updateLyrsIDs(rawData):
 		for scenarioKey, value1 in value.items():
 			for typeCode_key, layerName in value1.items():
 				if layerName['title'] in cleanupDic:
-					t = layerName['title']
-					rawData[bioClimKey][scenarioKey][typeCode_key].update({'lyrID':cleanupDic[t]})
+					temp = layerName['title']
+					rawData[bioClimKey][scenarioKey][typeCode_key].update({'lyrID':cleanupDic[temp]})
 					print 'Updating layer ID...', rawData[bioClimKey][scenarioKey][typeCode_key]['fullname']
 					count += 1
+
+	path = '../views/pickleDic/'
+	hiddenPaths = filter( lambda f:  f.startswith('.'), os.listdir(path +'.'))
+	for hiddenfile in hiddenPaths:
+		if hiddenfile == '.masterLayerDictionary.pickle':
+			os.system("rm ../views/pickleDic/.masterLayerDictionary.pickle")
+		if hiddenfile == '.master_LayerNameDictionary.pickle':
+			os.system("rm ../views/pickleDic/.master_LayerNameDictionary.pickle")
 
 	with open('../views/pickleDic/' + '.masterLayerDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(rawData, f)
