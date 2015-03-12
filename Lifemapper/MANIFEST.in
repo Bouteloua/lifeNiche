@@ -1,6 +1,0 @@
-exclude src/test_*
-exclude Doxyfile
-exclude docs/doxypy.py
-prune dist
-recursive-include docs/html *
-recursive-include docs/examples *
