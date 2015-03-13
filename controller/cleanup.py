@@ -17,6 +17,7 @@ def passwordSetAndUqiValue():
 	'''This is userName and passwords and unique ID'''
 	global cl
 	#Setup your client ID and password in the file named password.py
+
 	cl = LMClient(userId=userName, pwd=password)
 
 
@@ -43,13 +44,13 @@ def postTypeCode(postDicLayers):
 
 	#Iterate through all the unique set list of typecodes
 	for typecode in set(typeList):
-		print 'updating codeType... %s' % typecode.lower()
-
 		#Creates a typecode dictionary of all the typecode that got uploaded to lifemapper
 		typeCodeDictionary.setdefault(typecode, {
 		'code': typecode,
 		'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 		})
+
+		print 'Updated unique type code... %s' % typecode.lower()
 	#print postDicLayers
 	##Save a pickle dictionary of all the typecodes
 	with open('../views/pickleDic/' + 'typeCodeDictionary' + '.pickle', 'wb') as f:
@@ -121,15 +122,15 @@ def updateLyrsIDs(rawData):
 	for i in lyrs:
 	    cleanupDic[i.title.split(': ')[1].strip()] = i.id
 
-	count = 0
+	updateCounter = 0
 	for bioClimKey, value in rawData.iteritems():
 		for scenarioKey, value1 in value.items():
 			for typeCode_key, layerName in value1.items():
 				if layerName['title'] in cleanupDic:
 					temp = layerName['title']
 					rawData[bioClimKey][scenarioKey][typeCode_key].update({'lyrID':cleanupDic[temp]})
-					print 'Updating layer ID...', rawData[bioClimKey][scenarioKey][typeCode_key]['fullname']
-					count += 1
+					print 'Updated layer ID:', rawData[bioClimKey][scenarioKey][typeCode_key]['fullname']
+					updateCounter += 1
 
 	path = '../views/pickleDic/'
 	hiddenPaths = filter( lambda f:  f.startswith('.'), os.listdir(path +'.'))
@@ -142,10 +143,16 @@ def updateLyrsIDs(rawData):
 	with open('../views/pickleDic/' + '.masterLayerDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(rawData, f)
 
-	count = cl.sdm.countLayers(epsgCode=4326)
+	LifeMapperCount = cl.sdm.countLayers(epsgCode=4326)
 
-	print 'Total layer count uploaded onto lifemapper:', count
-	print 'Total layer count uploaded in .masterLayerDictionary.pickle file', count
+	if LifeMapperCount == updateCounter:
+		print "\nLifemapper and your personal dictionaries are in sync!!!, it's safe to post experiments now\n"
+	else:
+		print "\nLifemapper and your personal dictionaries are out of sync!!!!. Something is wrong"
+		print "This could be correct if your doing this for a set purpose to remove layers and then running mapper.py\n"
+
+	print 'Current total of layers uploaded on lifemapper:', LifeMapperCount
+	print 'Current total of layers uploaded on .masterLayerDictionary.pickle file', updateCounter
 
 
 ############################# END START LOAD OLD FILES ######################################
@@ -161,10 +168,6 @@ def readLayerMetaData():
 
 def newOrOldFiles():
 	'''Upload new data or load the past pickle files'''
-	#THINGS THAT CHANGE
-	#####################################
-	#Add values to to the index
-	#If you rerun increase this number to avoid unique id collisions
 	passwordSetAndUqiValue()
 	rawData = rawMetaData()
 	postTypeCode(rawData)
