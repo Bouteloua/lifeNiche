@@ -30,9 +30,25 @@ def getArgs(parser):
 				spatialTest = False
 			else:
 				spatialTest = True
-	# if args.Family:
-	# 	FamilyTest = True
-	# 	if args.Family.lower()[-4:] == 'ceae':
 
+	if args.Family:
+		FamilyTest = True
+		while spatialTest:
+			if args.Family.lower()[-5:] == 'aceae':
+				print 'Selecting family from dictionary', args.Family
+				FamilyTest = False
+			else:
+				args.Spatial = raw_input('Enter a family name ending with "aceae": ')
+				FamilyTest = True
+
+	if args.Group:
+		GroupTest = True
+		while GroupTest:
+			if type(args.Group) == type(0):
+				print 'Selecting group from dictionary', args.Group
+				GroupTest = False
+			else:
+				args.Group = raw_input('Enter integer to select set batch out of occurrence dictionary: ')
+				GroupTest = True
 
 	return args

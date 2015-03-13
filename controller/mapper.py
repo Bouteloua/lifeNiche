@@ -11,8 +11,8 @@ from password import *
 def main(argv=None):
 
 	newOrOldFiles()
-#cl.sdm.getExperimentPackage(1399743, filename='/home/franzone/Documents/lifeNiche/views/1399744.zip')
-###########################THIS WILL NEED TO CHANGE#######################################
+
+########################### THIS WILL NEED TO CHANGE #######################################
 def passwordSetAndUqiValue():
 	'''This is userName and passwords and unique ID'''
 	global cl
@@ -141,7 +141,7 @@ def postScenario(postDicLayers,uniqid):
 			for typeCode_key, layerValue in value.iteritems():
 				environemntID.append(postDicLayers['env'][scenarioKey][typeCode_key]['lyrID'])
 	except:
-		print 'No environment layer loaded!!!!!!!!\n\n'
+		print 'No environment layers loaded!!!!!!!!\n\n'
 		pass
 
 	try:
@@ -149,7 +149,7 @@ def postScenario(postDicLayers,uniqid):
 			for typeCode_key, layerValue in value.iteritems():
 				spatialID.append(postDicLayers['spat'][scenarioKey][typeCode_key]['lyrID'])
 	except:
-		print 'No Spatial layer loaded!!!!!!!!\n\n'
+		print 'No Spatial layers loaded!!!!!!!!\n\n'
 		pass
 	#Iterate through all the unique layers and group all set scenario into a list
 	for bioClimKey, value in postDicLayers.iteritems():
