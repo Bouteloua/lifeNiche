@@ -56,7 +56,7 @@ def postTypeCode(postDicLayers):
 		})
 	#print postDicLayers
 	##Save a pickle dictionary of all the typecodes
-	with open('../views/pickleDic/' + 'typeCodeDictionary' + '.pickle', 'wb') as f:
+	with open('../views/pastPickleDictionaries/' + 'typeCodeDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(typeCodeDictionary, f)
 ############################## POST TYPECODE ###########################################
 
@@ -83,7 +83,7 @@ def postLayers(postDicLayers):
 				# Updating the dictionary with the new lifemapper ID for that layer
 				postDicLayers[bioClimKey][scenarioKey][typeCodeKey].update({'lyrID':lyrObj.id})
 	#Save a pickle file of the layer IDs
-	with open('../views/pickleDic/' + 'LayerDictionary' + '.pickle', 'wb') as f:
+	with open('../views/pastPickleDictionaries/' + 'LayerDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(postDicLayers, f)
 
 	print '####### Completed loadup of layer IDs and TypeCode IDs see file layerName_dict.pickle for input ############\n'
@@ -97,7 +97,7 @@ def postOccurrence():
 	It takes a name, a file and file type as well as an option parameter for specifying the map
 	projection (as an EPSG code) for your occurrence data.'''
 	#Checks if text file called taxaList.csv exist and will tranform textial data into shapefile. If not will need to load the shapefiles into the folder called shapefiles
-	taxaFileExist = os.path.isfile('../views/rawMetaData/taxaList.csv')
+	taxaFileExist = os.path.isfile('../views/layerDescriptions/taxaList.csv')
 	if taxaFileExist == True:
 		print 'Loading csv file into shapefiles'
 		occurrenceDictionary = csvToShapefile()
@@ -116,7 +116,7 @@ def postOccurrence():
 		occurrenceDictionary[speciesNameKey].update({'occurrenceID':occurrenceObj.id})
 
 	#Save a pickle file of the occurrence IDs
-	with open('../views/pickleDic/' + 'occurrenceDictionary' + '.pickle', 'wb') as f:
+	with open('../views/pastPickleDictionaries/' + 'occurrenceDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(occurrenceDictionary, f)
 
 	print '####### Completed loadup of occurrence IDs see file occurrence_dict.pickle for input ############\n'
@@ -198,7 +198,7 @@ def postScenario(postDicLayers,uniqid):
 			#Save a pickle file of the occurrence IDs
 
 	#print postDicLayers
-	with open('../views/pickleDic/' + 'scenarioDictionary' + '.pickle', 'wb') as f:
+	with open('../views/pastPickleDictionaries/' + 'scenarioDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(scenarioDictionary, f)
 
 	print '####### Completed loadup of scenario IDs see file scenario_dict.pickle for input ############\n'
@@ -250,7 +250,7 @@ def newPostExperiment(scenarioDic, currentID, occurrences):
 			'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 			})
 
-	with open('../views/pickleDic/' + 'experimentDictionary' + '.pickle', 'wb') as f:
+	with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(expDic, f)
 
 	print '####### Completed loadup of Experiment IDs see file expDic.pickle for input ############\n'
@@ -306,7 +306,7 @@ def oldPostExperiment(scenarioDic, occurrences):
 			'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 			})
 
-	with open('../views/pickleDic/' + 'experimentDictionary' + '.pickle', 'wb') as f:
+	with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(expDic, f)
 
 	print '####### Completed loadup of Experiment IDs see file expDic.pickle for input ############\n'
@@ -365,13 +365,13 @@ def rawMetaData():
 		else:
 
 			print '**********************************error***************************************'
-			print 'Check the layerMetaData.csv file in the rawMetaData folder. MISSING DATA!!!!!!!!'
+			print 'Check the layerMetaData.csv file in the layerDescriptions folder. MISSING DATA!!!!!!!!'
 			sys.exit()
 
 	return filenameDic
 
 def createFolders():
-	requiredFolders = ('shapefiles', 'GTiff', 'indivCsvOccurrList', 'pickleDic', 'rawMetaData')
+	requiredFolders = ('shapefiles', 'GTiff', 'speciesOccurrenceRecord_CSV', 'pastPickleDictionaries', 'layerDescriptions', 'experimentOutput')
 	path = '../views/'
 	for folders in requiredFolders:
 	#Check if required folders have been created
@@ -383,9 +383,9 @@ def createFolders():
 ############################# START LOAD OLD FILES ######################################
 def pickleFilesLayersAndOccurr():
 	'''Load the pickle file of layerName'''
-	path = '../views/pickleDic/.masterLayerDictionary.pickle'
+	path = '../views/pastPickleDictionaries/.masterLayerDictionary.pickle'
 	if os.path.exists(path):
-		with open('../views/pickleDic/.masterLayerDictionary.pickle') as f:
+		with open('../views/pastPickleDictionaries/.masterLayerDictionary.pickle') as f:
 			LayerDictionary = cPickle.load(f)
 	else:
 		print 'missing file!!!!!', path
@@ -394,9 +394,9 @@ def pickleFilesLayersAndOccurr():
 
 def pickleFileOccurrence():
 	'''Load the pickle file of occurrence'''
-	path = '../views/pickleDic/occurrenceDictionary.pickle'
+	path = '../views/pastPickleDictionaries/occurrenceDictionary.pickle'
 	if os.path.exists(path):
-		with open('../views/pickleDic/occurrenceDictionary.pickle') as f:
+		with open('../views/pastPickleDictionaries/occurrenceDictionary.pickle') as f:
 			occurrenceDictionary = cPickle.load(f)
 	else:
 		print 'missing file!!!!!', path
@@ -406,9 +406,9 @@ def pickleFileOccurrence():
 
 def pickleFileScenario():
 	'''Load the pickle file of scenario'''
-	path = '../views/pickleDic/scenarioDictionary.pickle'
+	path = '../views/pastPickleDictionaries/scenarioDictionary.pickle'
 	if os.path.exists(path):
-		with open('../views/pickleDic/scenarioDictionary.pickle') as f:
+		with open('../views/pastPickleDictionaries/scenarioDictionary.pickle') as f:
 			scenarioDictionary = cPickle.load(f)
 	else:
 		print 'missing file!!!!!', path
@@ -423,23 +423,23 @@ def csvToShapefile():
 	'''Take a csv file and creates shapefiles'''
 	schema = { 'geometry': 'Point', 'properties': { 'name': 'str:24'} }
 
-	indivCsvOccurrList = '../views/indivCsvOccurrList/'
+	speciesOccurrenceRecord_CSV = '../views/speciesOccurrenceRecord_CSV/'
 	shapefiles = '../views/shapefiles'
 
 	#Creates a folder is shapefiles does not exist
 	try:
-		os.stat(indivCsvOccurrList)
+		os.stat(speciesOccurrenceRecord_CSV)
 	except:
-		os.mkdir(indivCsvOccurrList)
+		os.mkdir(speciesOccurrenceRecord_CSV)
 
-	df = pd.read_csv('../views/rawMetaData/taxaList.csv')
+	df = pd.read_csv('../views/layerDescriptions/taxaList.csv')
 	uniqueNames = df['taxa'].drop_duplicates()
 	for uniqueName in uniqueNames:
 		filename = df[(df['taxa']  == uniqueName)]
-		filename.to_csv(indivCsvOccurrList + uniqueName + '.csv', index = False)
+		filename.to_csv(speciesOccurrenceRecord_CSV + uniqueName + '.csv', index = False)
 
 	#The output to all the individual species text files
-	csvPath = indivCsvOccurrList
+	csvPath = speciesOccurrenceRecord_CSV
 
 
 	#The output to all the individual shapefiles
@@ -492,7 +492,7 @@ def getShapeFiles():
 
 def readLayerMetaData():
 	'''Open the the file layerMetaData.csv to get all the label meta data that cannot get out of the file name. Return a dictionary'''
-	with open('../views/rawMetaData/layerMetaData.csv', mode='r') as infile:
+	with open('../views/layerDescriptions/layerMetaData.csv', mode='r') as infile:
 		reader = c.reader(infile)
 		mydict = {rows[0].lower(): {'filterType': rows[1], 'typeCode': rows[2], 'TypeCodeDescription': rows[3], 'LayerDescription': rows[4], 'ProjectionDate': rows[5], 'RCP': rows[6]} for rows in reader}
 	return mydict

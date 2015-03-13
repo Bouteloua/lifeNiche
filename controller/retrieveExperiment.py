@@ -50,7 +50,7 @@ def getExperimentAndProj(experimentDict, path):
 
 def loadExperiments():
 	'''Load the pickle file of scenario'''
-	with open('../views/pickleDic/expDic.pickle') as f:
+	with open('../views/pastPickleDictionaries/experimentDictionary.pickle') as f:
 		expDic = cPickle.load(f)
 	return expDic
 

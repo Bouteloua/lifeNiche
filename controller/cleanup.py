@@ -53,7 +53,7 @@ def postTypeCode(postDicLayers):
 		print 'Updated unique type code... %s' % typecode.lower()
 	#print postDicLayers
 	##Save a pickle dictionary of all the typecodes
-	with open('../views/pickleDic/' + 'typeCodeDictionary' + '.pickle', 'wb') as f:
+	with open('../views/pastPickleDictionaries/' + 'typeCodeDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(typeCodeDictionary, f)
 
 #Creates the data structures for the layers
@@ -104,7 +104,7 @@ def rawMetaData():
 				})
 		else:
 			print '**********************************error***************************************'
-			print 'Check the layerMetaData.csv file in the rawMetaData folder. MISSING DATA!!!!!!!!'
+			print 'Check the layerMetaData.csv file in the layerDescriptions folder. MISSING DATA!!!!!!!!'
 			sys.exit()
 
 	return filenameDic
@@ -132,15 +132,15 @@ def updateLyrsIDs(rawData):
 					print 'Updated layer ID:', rawData[bioClimKey][scenarioKey][typeCode_key]['fullname']
 					updateCounter += 1
 
-	path = '../views/pickleDic/'
+	path = '../views/pastPickleDictionaries/'
 	hiddenPaths = filter( lambda f:  f.startswith('.'), os.listdir(path +'.'))
 	for hiddenfile in hiddenPaths:
 		if hiddenfile == '.masterLayerDictionary.pickle':
-			os.system("rm ../views/pickleDic/.masterLayerDictionary.pickle")
+			os.system("rm ../views/pastPickleDictionaries/.masterLayerDictionary.pickle")
 		if hiddenfile == '.master_LayerNameDictionary.pickle':
-			os.system("rm ../views/pickleDic/.master_LayerNameDictionary.pickle")
+			os.system("rm ../views/pastPickleDictionaries/.master_LayerNameDictionary.pickle")
 
-	with open('../views/pickleDic/' + '.masterLayerDictionary' + '.pickle', 'wb') as f:
+	with open('../views/pastPickleDictionaries/' + '.masterLayerDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(rawData, f)
 
 	LifeMapperCount = cl.sdm.countLayers(epsgCode=4326)
@@ -160,7 +160,7 @@ def updateLyrsIDs(rawData):
 
 def readLayerMetaData():
 	'''Open the the file layerMetaData.csv to get all the label meta data that cannot get out of the file name. Return a dictionary'''
-	with open('../views/rawMetaData/layerMetaData.csv', mode='r') as infile:
+	with open('../views/layerDescriptions/layerMetaData.csv', mode='r') as infile:
 		reader = c.reader(infile)
 		mydict = {rows[0].lower(): {'filterType': rows[1], 'typeCode': rows[2], 'TypeCodeDescription': rows[3], 'LayerDescription': rows[4], 'ProjectionDate': rows[5], 'RCP': rows[6]} for rows in reader}
 		#print mydict
