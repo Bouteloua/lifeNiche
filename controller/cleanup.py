@@ -1,4 +1,4 @@
-import glob, sys, os, commands, fiona, cPickle, datetime
+import glob, sys, os, commands, fiona, cPickle, datetime, os.path
 import csv as c
 import pandas as pd
 #from lifemapper.lmClientLib import LMClient

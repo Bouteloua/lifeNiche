@@ -4,6 +4,9 @@ def getArgs(parser):
 	parser.add_argument('-c', '--Climate', required=True, help='Use Climate Clim or Agclim')
 	parser.add_argument('-e', '--Environment', required=True, help='Use Environment layers add or del')
 	parser.add_argument('-s', '--Spatial', required=True, help='Use Spatial layers add or del')
+	parser.add_argument('-o', '--Occurrence', required=False, help='Use past occurrence data dictionary')
+	parser.add_argument('-family', '--Family', required=False, help='Select subset of families from past occurrence dictionary')
+	parser.add_argument('-group', '--Group', required=False, help='Select an integer batch from past occurrence dictionary')
 
 	args = parser.parse_args()
 
@@ -27,6 +30,9 @@ def getArgs(parser):
 				spatialTest = False
 			else:
 				spatialTest = True
+	# if args.Family:
+	# 	FamilyTest = True
+	# 	if args.Family.lower()[-4:] == 'ceae':
 
 
 	return args

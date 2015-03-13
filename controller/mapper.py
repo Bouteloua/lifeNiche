@@ -8,8 +8,6 @@ from lifemapper.lmClientLib import LMClient
 #Change to match your lifemapper ID and password
 from password import *
 
-
-
 def main(argv=None):
 
 	newOrOldFiles()
@@ -21,10 +19,8 @@ def passwordSetAndUqiValue():
 	#Setup your client ID and password in the file named password.py
 	cl = LMClient(userId=userName, pwd=password)
 	#Need to be an unique number within accout index
-	uniqid = 'bf002'
+	uniqid = 'bf004'
 	return uniqid
-
-
 ############################## POST TYPECODE ############################################
 def postTypeCode(postDicLayers):
 	'''The "postTypeCode" function allows you to post a new type code to be used for matching environmental layers.
@@ -86,7 +82,6 @@ def postLayers(postDicLayers):
 										  )
 				# Updating the dictionary with the new lifemapper ID for that layer
 				postDicLayers[bioClimKey][scenarioKey][typeCodeKey].update({'lyrID':lyrObj.id})
-
 	#Save a pickle file of the layer IDs
 	with open('../views/pickleDic/' + 'LayerDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(postDicLayers, f)
@@ -110,11 +105,8 @@ def postOccurrence():
 		print 'Loading Shapefiles'
 		occurrenceDictionary = getShapeFiles()
 
-
 	for speciesNameKey, occurrenceValue in occurrenceDictionary.iteritems():
-
 		print "cl.sdm.postOccurrenceSet(displayName=%s, fileType=%s, fileName=%s, epsgCode=%s)"  % (str(speciesNameKey), 'shapefile', occurrenceValue['shpPath'], occurrenceValue['epsgCode'])
-
 		occurrenceObj = cl.sdm.postOccurrenceSet(displayName=str(speciesNameKey),
 										  fileType='shapefile',
 										  fileName=occurrenceValue['shpPath'],
@@ -144,7 +136,6 @@ def postScenario(postDicLayers,uniqid):
 
 	environemntID = []
 	spatialID = []
-
 	try:
 		for scenarioKey, value in postDicLayers['env'].iteritems():
 			for typeCode_key, layerValue in value.iteritems():
@@ -160,7 +151,6 @@ def postScenario(postDicLayers,uniqid):
 	except:
 		print 'No Spatial layer loaded!!!!!!!!\n\n'
 		pass
-
 	#Iterate through all the unique layers and group all set scenario into a list
 	for bioClimKey, value in postDicLayers.iteritems():
 		for scenarioKey, value1 in value.items():
@@ -259,13 +249,15 @@ def newPostExperiment(scenarioDic, currentID, occurrences):
 			'occSetId': occurrence['occurrenceID'],
 			'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 			})
-		time.sleep(1)
 
 	with open('../views/pickleDic/' + 'experimentDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(expDic, f)
 
 	print '####### Completed loadup of Experiment IDs see file expDic.pickle for input ############\n'
 	print expDic
+	print 'ATT_MAXENT setting...\n'
+	for i in alg.parameters:
+		print i.__dict__
 ############################## new END POST Experiment ####################################
 
 ############################## old POST Experiment ########################################
@@ -313,13 +305,15 @@ def oldPostExperiment(scenarioDic, occurrences):
 			'speciesName': key,
 			'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 			})
-		time.sleep(1)
 
 	with open('../views/pickleDic/' + 'experimentDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(expDic, f)
 
 	print '####### Completed loadup of Experiment IDs see file expDic.pickle for input ############\n'
 	print expDic
+	print '\n*********ATT_MAXENT setting**********\n'
+	for i in alg.parameters:
+		print i.__dict__
 
 
 #Creates the data structures for the layers
@@ -376,26 +370,50 @@ def rawMetaData():
 
 	return filenameDic
 
+def createFolders():
+	requiredFolders = ('shapefiles', 'GTiff', 'indivCsvOccurrList', 'pickleDic', 'rawMetaData')
+	path = '../views/'
+	for folders in requiredFolders:
+	#Check if required folders have been created
+		try:
+			os.stat(path + folders)
+		except:
+			os.mkdir(path + folders)
 
 ############################# START LOAD OLD FILES ######################################
 def pickleFilesLayersAndOccurr():
 	'''Load the pickle file of layerName'''
-	with open('../views/pickleDic/.masterLayerDictionary.pickle') as f:
-		lyrs = cPickle.load(f)
-	return lyrs
+	path = '../views/pickleDic/.masterLayerDictionary.pickle'
+	if os.path.exists(path):
+		with open('../views/pickleDic/.masterLayerDictionary.pickle') as f:
+			LayerDictionary = cPickle.load(f)
+	else:
+		print 'missing file!!!!!', path
+		sys.exit()
+	return LayerDictionary
 
 def pickleFileOccurrence():
 	'''Load the pickle file of occurrence'''
-	with open('../views/pickleDic/occurrenceDictionary.pickle') as f:
-		occurs = cPickle.load(f)
-	return occurs
+	path = '../views/pickleDic/occurrenceDictionary.pickle'
+	if os.path.exists(path):
+		with open('../views/pickleDic/occurrenceDictionary.pickle') as f:
+			occurrenceDictionary = cPickle.load(f)
+	else:
+		print 'missing file!!!!!', path
+		sys.exit()
+	return occurrenceDictionary
 
 
 def pickleFileScenario():
 	'''Load the pickle file of scenario'''
-	with open('../views/pickleDic/scenarioDictionary.pickle') as f:
-		scens = cPickle.load(f)
-	return scens
+	path = '../views/pickleDic/scenarioDictionary.pickle'
+	if os.path.exists(path):
+		with open('../views/pickleDic/scenarioDictionary.pickle') as f:
+			scenarioDictionary = cPickle.load(f)
+	else:
+		print 'missing file!!!!!', path
+		sys.exit()
+	return scenarioDictionary
 
 ############################# END START LOAD OLD FILES ######################################
 
@@ -423,11 +441,6 @@ def csvToShapefile():
 	#The output to all the individual species text files
 	csvPath = indivCsvOccurrList
 
-	#Creates a folder is shapefiles does not exist
-	try:
-		os.stat(shapefiles)
-	except:
-		os.mkdir(shapefiles)
 
 	#The output to all the individual shapefiles
 	shpOutBasePath = shapefiles
@@ -490,20 +503,20 @@ def removeMetaDataFromDictionary(args, postDicLayers):
 		sys.exit()
 	if args.Climate.lower() != 'clim':
 		del postDicLayers['clim']
-		print 'Deleteing Climate layers'
+		print 'Deleting Climate layers'
 	if args.Climate.lower() != 'agclim':
 		del postDicLayers['agclim']
-		print 'Deleteing Agclimate layers'
+		print 'Deleting Agclimate layers'
 	if args.Environment.lower() == 'del':
 		del postDicLayers['env']
-		print 'Deleteing Environment layers'
+		print 'Deleting Environment layers'
 	if args.Environment.lower() == 'add':
 		if 'env.hwsd.t_cecsoil' in postDicLayers['env']['hwsd']['t_cecsoil'].values():
 			temp = postDicLayers['env']['hwsd']['t_cecsoil']['envLayerType']
 			del postDicLayers['env']['hwsd']['t_cecsoil']
-			print 'Deleteing environmental layer', temp, 'because of correlating issues'
+			print 'Deleting environmental layer', temp, 'because of correlating issues'
 	if args.Spatial.lower() == 'del':
-		print 'Deleteing Spatial layers'
+		print 'Deleting Spatial layers'
 		del postDicLayers['spat']
 
 	return postDicLayers
@@ -519,6 +532,9 @@ def ArgsCheck():
 def newOrOldFiles():
 	'''Upload new data or load the past pickle files'''
 	args = ArgsCheck()
+
+	#Check stats of folders
+	createFolders()
 
 	#THINGS THAT CHANGE
 	#####################################
