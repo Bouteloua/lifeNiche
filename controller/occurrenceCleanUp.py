@@ -3,21 +3,65 @@ import cPickle as cp
 from lifemapper.lmClientLib import LMClient
 import csv as c
 
+
 from password import *
 
 def main():
 	global cl
 	cl = LMClient(userId=userName, pwd=password)
 
+	pickListOptions()
+
+def pickListOptions():
+
+	whileOccurrenceClean = True
+	while whileOccurrenceClean:
+		print 'Only need to update master occurrence dictionary if you updated new occurrence files into Lifemapper or not picklist'
+		inputType = raw_input('Update the "MASTER" occurrence dictionary or just species "PICKLIST" dictionary: ')
+		if inputType.lower() == 'master':
+			print 'Updating the master and picklist dictionary'
+			updateMasterOccurrence()
+			updatePickList()
+			whileOccurrenceClean = False
+		elif inputType.lower() == 'picklist':
+			print 'Updating only the species picklist dictionary'
+			updatePickList()
+			whileOccurrenceClean = False
+		else:
+			whileOccurrenceClean = True
+
+def pickleFileOccurrence():
+	'''Load the pickle file of occurrence'''
+	path = '../views/pastPickleDictionaries/.masterOccurrenceDictionary.pickle'
+	if os.path.exists(path):
+		with open('../views/pastPickleDictionaries/.masterOccurrenceDictionary.pickle') as f:
+			occurrenceDictionary = cp.load(f)
+	else:
+		print 'missing file!!!!!', path
+		sys.exit()
+	return occurrenceDictionary
+
+
+def updatePickList():
+
+	occPickList = occurrencePickList()
+	occurrenceDictionary = pickleFileOccurrence()
+	pickList = dict([(i, occurrenceDictionary[i]) for i in occPickList if i in occurrenceDictionary])
+
+			#Save a pickle file of the occurrence IDs
+	with open('../views/pastPickleDictionaries/' + 'occurrenceDictionary' + '.pickle', 'wb') as f:
+		cp.dump(pickList, f)
+
+	print '\nOccurrence dictionary of %s records are ready for posting experiments\ntime to run mapper.py' % len(pickList)
+
+def updateMasterOccurrence():
 	perPageTotal = 20000
 	epsgCodeL = 4326
-	speciesMetaFile = readLayerMetaData()
-	
 	print 'Getting a list no greater than %s occurrences records for all %s "epsg code" occurrences' % (perPageTotal, epsgCodeL)
 	occurrenceObjs = cl.sdm.listOccurrenceSets(epsgCode=epsgCodeL, perPage=perPageTotal)
 
 	occurrenceDictionary = dict()
-
+	speciesMetaFile = readLayerMetaData()
 	countSpeciesMatch = 0
 	countNOSpeciesMatch = 0
 	for occurrenceObj in occurrenceObjs:
@@ -26,7 +70,7 @@ def main():
 			occurrenceObj.title = occurrenceObj.title[8:]
 
 		if occurrenceObj.title.lower() == 'caede':
-			continue 
+			continue
 
 		species = occurrenceObj.title
 		if species.lower() in speciesMetaFile:
@@ -34,7 +78,7 @@ def main():
 					'epsgCode': int(occurrenceObj.epsgcode),
 					'occurrenceID': occurrenceObj.id,
 					'species': species,
-					'shapefile': speciesMetaFile[species.lower()]['shapefile'],
+					'dataFormat': speciesMetaFile[species.lower()]['shapefile'],
 					'occurencesCount': speciesMetaFile[species.lower()]['occurencesCount'],
 					'downloadedTime': speciesMetaFile[species.lower()]['downloadedTime'],
 					'family': speciesMetaFile[species.lower()]['family'],
@@ -54,7 +98,7 @@ def main():
 				})
 			print 'could not match', species
 			countNOSpeciesMatch += 1
-
+	print 'The number of records on lifemapper', cl.sdm.countOccurrenceSets(epsgCode=epsgCodeL)
 	print 'The number of matches:', countSpeciesMatch
 	print 'The number of missing matches:', countNOSpeciesMatch
 
@@ -69,16 +113,8 @@ def main():
 		#Save a pickle file of the occurrence IDs
 	with open('../views/pastPickleDictionaries/' + '.masterOccurrenceDictionary' + '.pickle', 'wb') as f:
 		cp.dump(occurrenceDictionary, f)
-
-	occPickList = occurrencePickList()
-	pickList = dict([(i, occurrenceDictionary[i]) for i in occPickList if i in occurrenceDictionary])
-
-			#Save a pickle file of the occurrence IDs
-	with open('../views/pastPickleDictionaries/' + 'occurrenceDictionary' + '.pickle', 'wb') as f:
-		cp.dump(pickList, f)
-
-	print '\nOccurrence dictionary of %s records are ready for posting experiments\ntime to run mapper.py' % len(pickList)
-
+	print 'Completed %s records into .masterOccurrenceDictionary.pickle' % countSpeciesMatch
+	return occurrenceDictionary
 
 def readLayerMetaData():
 	'''Open the the file speciesDistributionmetaData.csv to get all the label meta data that cannot get out of the file name. Return a dictionary'''
@@ -98,4 +134,3 @@ def occurrencePickList():
 
 if __name__ == '__main__':
 	main()
-

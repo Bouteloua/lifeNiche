@@ -270,7 +270,6 @@ def oldPostExperiment(scenarioDic, occurrences):
 	alg.setParameter('outputformat', 0)
 
 	prjScns_input = []
-	print scenarioDic
 	for key, value in scenarioDic.iteritems():
 		prjScns_input.append(value['ScenarioID'])
 
@@ -544,13 +543,13 @@ def newOrOldFiles():
 
 	whilePostLayers = True
 	while whilePostLayers:
-		inputType = raw_input('Rerun post TYPECODES and post LAYERS or use a past run pickle IDs ("new" or "old"): ')
+		inputType = raw_input('Post new TYPECODES and LAYERS to lifemapper or use a snapshot dictionary IDs ("new" or "past"): ')
 		if inputType.lower() == 'new':
 			postDicLayers = rawMetaData()
 			postTypeCode(postDicLayers)
 			postDicLayers = postLayers(postDicLayers)
 			whilePostLayers = False
-		elif inputType.lower() == 'old':
+		elif inputType.lower() == 'past':
 			postDicLayers = pickleFilesLayersAndOccurr()
 			postDicLayers = removeMetaDataFromDictionary(args, postDicLayers)
 			#print postDicLayers
@@ -560,11 +559,11 @@ def newOrOldFiles():
 
 	whileOccurrence = True
 	while whileOccurrence:
-		inputOccurrence = raw_input('Rerun post OCCURRENCE or use a past run pickle IDs ("new" or "old"): ')
+		inputOccurrence = raw_input('Post new OCCURRENCE to lifemapper or use a past snapshot dictionary IDs ("new" or "past"): ')
 		if inputOccurrence.lower() == 'new':
 			occurs = postOccurrence()
 			whileOccurrence = False
-		elif inputOccurrence.lower() == 'old':
+		elif inputOccurrence.lower() == 'past':
 			occurs = pickleFileOccurrence()
 			whileOccurrence = False
 		else:
@@ -572,12 +571,12 @@ def newOrOldFiles():
 
 	whileScenario = True
 	while whileScenario:
-		inputScenario = raw_input('Rerun post SCENARIO or use a past run pickle IDs ("new" or "old"): ')
+		inputScenario = raw_input('Post new SCENARIO to lifemapper or use a past snapshot dictionary IDs ("new" or "past"): ')
 		if inputScenario.lower() == 'new':
 			scenarioDic, sceKey = postScenario(postDicLayers, uniqid)
 			newPostExperiment(scenarioDic, sceKey, occurs)
 			whileScenario = False
-		elif inputScenario.lower() == 'old':
+		elif inputScenario.lower() == 'past':
 			oldPostExperiment(pickleFileScenario(), occurs)
 			whileScenario = False
 		else:
