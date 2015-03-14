@@ -55,8 +55,8 @@ def main():
 			print 'could not match', species
 			countNOSpeciesMatch += 1
 
-	print 'The number matches:', countSpeciesMatch
-	print 'The number missing matches:', countNOSpeciesMatch
+	print 'The number of matches:', countSpeciesMatch
+	print 'The number of missing matches:', countNOSpeciesMatch
 
 	path = '../views/pastPickleDictionaries/'
 	hiddenPaths = filter( lambda f:  f.startswith('.'), os.listdir(path +'.'))
