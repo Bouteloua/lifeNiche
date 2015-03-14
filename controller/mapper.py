@@ -19,7 +19,7 @@ def passwordSetAndUqiValue():
 	#Setup your client ID and password in the file named password.py
 	cl = LMClient(userId=userName, pwd=password)
 	#Need to be an unique number within accout index
-	uniqid = 'bf004'
+	uniqid = 'bf005'
 	return uniqid
 ############################## POST TYPECODE ############################################
 def postTypeCode(postDicLayers):
@@ -106,10 +106,9 @@ def postOccurrence():
 		occurrenceDictionary = getShapeFiles()
 
 	for speciesNameKey, occurrenceValue in occurrenceDictionary.iteritems():
-		print "cl.sdm.postOccurrenceSet(displayName=%s, fileType=%s, fileName=%s, epsgCode=%s)"  % (str(speciesNameKey), 'shapefile', occurrenceValue['shpPath'], occurrenceValue['epsgCode'])
+		print "cl.sdm.postOccurrenceSet(displayName=%s, fileType=%s, epsgCode=%s)"  % (str(speciesNameKey), 'shapefile', occurrenceValue['epsgCode'])
 		occurrenceObj = cl.sdm.postOccurrenceSet(displayName=str(speciesNameKey),
 										  fileType='shapefile',
-										  fileName=occurrenceValue['shpPath'],
 										  epsgCode=occurrenceValue['epsgCode'])
 
 		#Add the occurrence ID from lifemapper to the dictionary
@@ -254,8 +253,8 @@ def newPostExperiment(scenarioDic, currentID, occurrences):
 		cPickle.dump(expDic, f)
 
 	print '####### Completed loadup of Experiment IDs see file expDic.pickle for input ############\n'
-	print expDic
-	print 'ATT_MAXENT setting...\n'
+
+	print '\n*********ATT_MAXENT setting**********\n'
 	for i in alg.parameters:
 		print i.__dict__
 ############################## new END POST Experiment ####################################
@@ -310,7 +309,7 @@ def oldPostExperiment(scenarioDic, occurrences):
 		cPickle.dump(expDic, f)
 
 	print '####### Completed loadup of Experiment IDs see file expDic.pickle for input ############\n'
-	print expDic
+
 	print '\n*********ATT_MAXENT setting**********\n'
 	for i in alg.parameters:
 		print i.__dict__
