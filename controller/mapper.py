@@ -647,6 +647,7 @@ def removeMetaDataFromDictionary(args, postDicLayers):
 	if args.Climate.lower() != 'clim' and args.Climate.lower() != 'agclim':
 		print 'You cannot run the model with Climate and Agclimate data, Please remove one'
 	if args.Correlatedlayers == 'yes':
+		cleanUpMasterLayer()
 		recursionLayerDic = pickleFilesLayersAndOccurr()
 		thrash, postDicLayers = removeCorrelatedLayers(recursionLayerDic, postDicLayers)
 	if args.Climate.lower() != 'clim':
@@ -676,7 +677,7 @@ def removeCorrelatedLayers(recursionLayerDic, deletedCorrelatedLayers):
 		for key in recursionLayerDic:
 			if key == 'Correlated' and recursionLayerDic[key] == 'yes':
 				del newDic[recursionLayerDic['model']][recursionLayerDic['bioclim']][recursionLayerDic['typeCode']]
-				print 'deleting correlated layer...', recursionLayerDic['fullname']
+				print 'Deleting correlated layer...', recursionLayerDic['fullname']
 			else:
 				removeCorrelatedLayers(recursionLayerDic[key], deletedCorrelatedLayers)
 	return recursionLayerDic, deletedCorrelatedLayers
@@ -689,6 +690,9 @@ def ArgsCheck():
 	args = getArgs(parser)
 	return args
 
+def cleanUpMasterLayer():
+	rawDataDictionary = updateLyrsIDs(rawMetaData())
+	return rawDataDictionary
 
 def newOrOldFiles():
 	'''Upload new data or load the past pickle files'''
@@ -717,8 +721,7 @@ def newOrOldFiles():
 
 
 	if args.CleanUpLayer:
-		rawDataDictionary = rawMetaData()
-		updateLyrsIDs(rawDataDictionary)
+		cleanUpMasterLayer()
 		print '\nCompleted updating .masterLayerDictionary. Quiting now'
 		sys.exit()
 
