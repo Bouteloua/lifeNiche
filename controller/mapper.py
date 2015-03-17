@@ -19,7 +19,7 @@ def passwordSetAndUqiValue():
 	#Setup your client ID and password in the file named password.py
 	cl = LMClient(userId=userName, pwd=password)
 	#Need to be an unique number within accout index
-	uniqid = 'bf005'
+	uniqid = 'bf006'
 	return uniqid
 ############################## POST TYPECODE ############################################
 def postTypeCode(postDicLayers):
@@ -42,55 +42,52 @@ def postTypeCode(postDicLayers):
 
 		#Creates a typecode dictionary of all the typecode that got uploaded to lifemapper
 		typeCodeDictionary.setdefault(typecode, {
-		'typecode': typecode,
 		'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 		})
 
-	##Save a pickle dictionary of all the typecodes
-	sys.exit()
+	#Save a pickle dictionary of all the typecodes
+	
 	print typeCodeDictionary
 	with open('../views/pastPickleDictionaries/' + 'typeCodeDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(typeCodeDictionary, f)
-############################## POST TYPECODE ###########################################
 
-def recursionTypeCodeID(dictionary, typeCodeList):
-	if type(dictionary)==type({}):
-		for key in dictionary:
+def recursionTypeCodeID(typeCodeDictionary, typeCodeList):
+	if type(typeCodeDictionary)==type({}):
+		for key in typeCodeDictionary:
 			if key == 'typeCode':
-				if dictionary[key] not in typeCodeList:
-					typeCodeList.append(dictionary[key])
+				if typeCodeDictionary[key] not in typeCodeList:
+					typeCodeList.append(typeCodeDictionary[key])
 			else:
-				recursionTypeCodeID(dictionary[key], typeCodeList)
+				recursionTypeCodeID(typeCodeDictionary[key], typeCodeList)
 	return typeCodeList
 
+############################## POST TYPECODE ###########################################
 ################################# POST LAYERS ##########################################
-def postLayers(postDicLayers):
-	'''The "postLayer" function allows you to post a new environmental layer to be used in your SDM experiments.
-	It takes a number of parameters. More information about these parameters is available in the code documentation.'''
+def recursionLayersPost(layerDictionary):
+	'''The "postLayer" function allows you to post a new environmental layer to be used in your SDM experiments.'''
 
-	#Iterate through all the unique layers and getting layer ID from lifemapper and updating the dictionary
-	for bioClimKey, value in postDicLayers.iteritems():
-		for scenarioKey, value1 in value.items():
-			for typeCodeKey, layerName in value1.items():
-				print "cl.sdm.postLayer(name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s, description=layerName%s, isCategorical=False)" % (layerName['fullname'], layerName['epsgCode'], layerName['typeCode'], layerName['units'], layerName['dataFormat'], layerName['filePath'], layerName['title'], layerName['layerDescription'])
-				#posting the unique layer
-				lyrObj = cl.sdm.postLayer(name=layerName['fullname'],
-										  epsgCode=layerName['epsgCode'],
-										  envLayerType=layerName['typeCode'],
-										  units=layerName['units'],
-										  dataFormat=layerName['dataFormat'],
-										  fileName=layerName['filePath'],
-										  title=layerName['title'],
-										  description=layerName['layerDescription']
+	if type(layerDictionary)==type({}):
+		for key in layerDictionary:
+
+			if key == 'fullname':
+				print "cl.sdm.postLayer(name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s, description=layerName%s, isCategorical=False)" % (layerDictionary['fullname'], layerDictionary['epsgCode'], layerDictionary['typeCode'], layerDictionary['units'], layerDictionary['dataFormat'], layerDictionary['filePath'], layerDictionary['title'], layerDictionary['layerDescription'])
+				lyrObj = cl.sdm.postLayer(name=layerDictionary['fullname'],
+										  epsgCode=layerDictionary['epsgCode'],
+										  envLayerType=layerDictionary['typeCode'],
+										  units=layerDictionary['units'],
+										  dataFormat=layerDictionary['dataFormat'],
+										  fileName=layerDictionary['filePath'],
+										  title=layerDictionary['title'],
+										  description=layerDictionary['layerDescription']
 										  )
-				# Updating the dictionary with the new lifemapper ID for that layer
-				postDicLayers[bioClimKey][scenarioKey][typeCodeKey].update({'lyrID':lyrObj.id})
-	#Save a pickle file of the layer IDs
-	with open('../views/pastPickleDictionaries/' + 'LayerDictionary' + '.pickle', 'wb') as f:
-		cPickle.dump(postDicLayers, f)
-
-	print '####### Completed loadup of layer IDs and TypeCode IDs see file layerName_dict.pickle for input ############\n'
-	return postDicLayers
+				# Updating the layerDictionary with the new lifemapper ID for that layer
+				layerDictionary.update({'lyrID':lyrObj.id})
+			else:
+				recursionLayersPost(layerDictionary[key])
+		#Save a pickle file of the layer IDs
+	with open('../views/pastPickleDictionaries/' + 'LayerDictionary.pickle', 'wb') as f:
+		cPickle.dump(layerDictionary, f)
+	return layerDictionary
 
 ############################## END POST LAYERS ##########################################
 
@@ -118,7 +115,7 @@ def postOccurrence():
 		occurrenceDictionary[speciesNameKey].update({'occurrenceID':occurrenceObj.id})
 
 	#Save a pickle file of the occurrence IDs
-	with open('../views/pastPickleDictionaries/' + 'occurrenceDictionary' + '.pickle', 'wb') as f:
+	with open('../views/pastPickleDictionaries/' + 'occurrenceDictionary.pickle', 'wb') as f:
 		cPickle.dump(occurrenceDictionary, f)
 
 	print '####### Completed loadup of occurrence IDs see file occurrence_dict.pickle for input ############\n'
@@ -200,7 +197,7 @@ def postScenario(postDicLayers,uniqid):
 			#Save a pickle file of the occurrence IDs
 
 	#print postDicLayers
-	with open('../views/pastPickleDictionaries/' + 'scenarioDictionary' + '.pickle', 'wb') as f:
+	with open('../views/pastPickleDictionaries/' + 'scenarioDictionary.pickle', 'wb') as f:
 		cPickle.dump(scenarioDictionary, f)
 
 	print '####### Completed loadup of scenario IDs see file scenario_dict.pickle for input ############\n'
@@ -213,11 +210,7 @@ def newPostExperiment(scenarioDic, currentID, occurrences):
 	'''The "postExperiment" function allows you to post a new Lifemapper SDM experiment.'''
 
 	#Set the algorithm to be used niche model(s)
-	alg = cl.sdm.getAlgorithmFromCode('ATT_MAXENT')
-	alg.setParameter('threshold', 0)
-	alg.setParameter('jackknife', 1)
-	alg.setParameter('removeduplicates', 1)
-	alg.setParameter('outputformat', 0)
+	alg = settingMaxent()
 
 	prjScns_input = []
 	for key, value in scenarioDic.iteritems():
@@ -251,8 +244,8 @@ def newPostExperiment(scenarioDic, currentID, occurrences):
 			'occSetId': occurrence['occurrenceID'],
 			'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 			})
-
-	with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + '.pickle', 'wb') as f:
+	postTime = datetime.datetime.strftime(datetime.datetime.now(), '_%Y-%m-%d|%H:%M:%S')
+	with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + postTime + '.pickle', 'wb') as f:
 		cPickle.dump(expDic, f)
 
 	print '####### Completed loadup of Experiment IDs see file expDic.pickle for input ############\n'
@@ -262,15 +255,21 @@ def newPostExperiment(scenarioDic, currentID, occurrences):
 		print i.__dict__
 ############################## new END POST Experiment ####################################
 
-############################## old POST Experiment ########################################
-def oldPostExperiment(scenarioDic, occurrences):
-	'''The "postExperiment" function allows you to post a new Lifemapper SDM experiment.'''
-	#Set the algorithm to be used niche model(s)
+def settingMaxent():
 	alg = cl.sdm.getAlgorithmFromCode('ATT_MAXENT')
 	alg.setParameter('threshold', 0)
 	alg.setParameter('jackknife', 1)
 	alg.setParameter('removeduplicates', 1)
 	alg.setParameter('outputformat', 0)
+
+	return alg
+
+
+############################## old POST Experiment ########################################
+def oldPostExperiment(scenarioDic, occurrences):
+	'''The "postExperiment" function allows you to post a new Lifemapper SDM experiment.'''
+	#Set the algorithm to be used niche model(s)
+	alg = settingMaxent()
 
 	prjScns_input = []
 	for key, value in scenarioDic.iteritems():
@@ -307,7 +306,8 @@ def oldPostExperiment(scenarioDic, occurrences):
 			'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 			})
 
-	with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + '.pickle', 'wb') as f:
+	postTime = datetime.datetime.strftime(datetime.datetime.now(), '_%Y-%m-%d|%H:%M:%S')
+	with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + postTime +'.pickle', 'wb') as f:
 		cPickle.dump(expDic, f)
 
 	print '####### Completed loadup of Experiment IDs see file expDic.pickle for input ############\n'
@@ -337,6 +337,7 @@ def rawMetaData():
 
 		layerName = folderFile.split("/")[3][:-4].strip().lower()
 		layer = folderFile.split(".")[3] + '.' + folderFile.split(".")[4].strip()
+		print layer
 		bioclim = layer.split('.')[0].strip()
 		title = folderFile.split("/")[3].strip()
 		model = title.split('.')[0].strip()
@@ -394,6 +395,17 @@ def pickleFilesLayersAndOccurr():
 		sys.exit()
 	return LayerDictionary
 
+def masterOccurrenceDictionary():
+	'''Load the pickle file of occurrence'''
+	path = '../views/pastPickleDictionaries/.masterOccurrenceDictionary.pickle'
+	if os.path.exists(path):
+		with open('../views/pastPickleDictionaries/.masterOccurrenceDictionary.pickle') as f:
+			occurrenceDictionary = cPickle.load(f)
+	else:
+		print 'missing file!!!!!', path
+		sys.exit()
+	return occurrenceDictionary
+
 def pickleFileOccurrence():
 	'''Load the pickle file of occurrence'''
 	path = '../views/pastPickleDictionaries/occurrenceDictionary.pickle'
@@ -418,7 +430,131 @@ def pickleFileScenario():
 	return scenarioDictionary
 
 ############################# END START LOAD OLD FILES ######################################
+def updatePickList():
 
+	occPickList = occurrencePickList()
+	occurrenceDictionary = masterOccurrenceDictionary()
+	pickList = dict([(i, occurrenceDictionary[i]) for i in occPickList if i in occurrenceDictionary])
+
+			#Save a pickle file of the occurrence IDs
+	with open('../views/pastPickleDictionaries/' + 'occurrenceDictionary' + '.pickle', 'wb') as f:
+		cPickle.dump(pickList, f)
+
+	print '\nOccurrence dictionary of %s records updated\n' % len(pickList)
+
+def updateMasterOccurrence():
+	perPageTotal = 20000
+	epsgCodeL = 4326
+	print 'Getting a list no greater than %s occurrences records for all %s "epsg code" occurrences' % (perPageTotal, epsgCodeL)
+	occurrenceObjs = cl.sdm.listOccurrenceSets(epsgCode=epsgCodeL, perPage=perPageTotal)
+
+	occurrenceDictionary = dict()
+	speciesMetaFile = readLayerMetaData()
+	countSpeciesMatch = 0
+	countNOSpeciesMatch = 0
+	for occurrenceObj in occurrenceObjs:
+
+		if occurrenceObj.title[:8].lower() == 'uploaded':
+			occurrenceObj.title = occurrenceObj.title[8:]
+
+		if occurrenceObj.title.lower() == 'caede':
+			continue
+
+		species = occurrenceObj.title
+		if species.lower() in speciesMetaFile:
+			occurrenceDictionary.setdefault(species, {
+					'epsgCode': int(occurrenceObj.epsgcode),
+					'occurrenceID': occurrenceObj.id,
+					'species': species,
+					'dataFormat': speciesMetaFile[species.lower()]['shapefile'],
+					'occurencesCount': speciesMetaFile[species.lower()]['occurencesCount'],
+					'downloadedTime': speciesMetaFile[species.lower()]['downloadedTime'],
+					'family': speciesMetaFile[species.lower()]['family'],
+					'group': int(speciesMetaFile[species.lower()]['group'])
+					})
+			countSpeciesMatch += 1
+		else:
+			occurrenceDictionary.setdefault(species, {
+				'epsgCode': int(occurrenceObj.epsgcode),
+				'occurrenceID': occurrenceObj.id,
+				'species': species,
+				'shapefile': 'NULL',
+				'occurencesCount': 'NULL',
+				'downloadedTime': 'NULL',
+				'family': 'NULL',
+				'group': -9999,
+				})
+			print 'could not match', species
+			countNOSpeciesMatch += 1
+	print 'The number of records on lifemapper', cl.sdm.countOccurrenceSets(epsgCode=epsgCodeL)
+	print 'The number of matches:', countSpeciesMatch
+	print 'The number of missing matches:', countNOSpeciesMatch
+
+	path = '../views/pastPickleDictionaries/'
+	hiddenPaths = filter( lambda f:  f.startswith('.'), os.listdir(path +'.'))
+	for hiddenfile in hiddenPaths:
+		if hiddenfile == '.masterOccurrenceDictionary.pickle':
+			os.system("rm ../views/pastPickleDictionaries/.masterOccurrenceDictionary.pickle")
+		if hiddenfile == '.master_OccurrenceDictionary.pickle':
+			os.system("rm ../views/pastPickleDictionaries/.master_OccurrenceDictionary.pickle")
+
+		#Save a pickle file of the occurrence IDs
+	with open('../views/pastPickleDictionaries/' + '.masterOccurrenceDictionary' + '.pickle', 'wb') as f:
+		cPickle.dump(occurrenceDictionary, f)
+	print 'Completed %s records into .masterOccurrenceDictionary.pickle' % countSpeciesMatch
+	return occurrenceDictionary
+
+def occurrencePickList():
+	'''Open the the file speciesDistributionmetaData.csv to get all the label meta data that cannot get out of the file name. Return a dictionary'''
+	with open('../views/layerDescriptions/occurrencePickList.csv', mode='r') as infile:
+		reader = c.reader(infile)
+		speciesHolder = []
+		for i in reader:
+			speciesHolder.append(i[0])
+	return speciesHolder
+
+def updateLyrsIDs(rawData):
+
+	lyrs = cl.sdm.listLayers(epsgCode=4326, perPage=500, public=False)
+
+	cl.sdm.countLayers(epsgCode=4326)
+
+	cleanupDic = {}
+	count = 0
+	for i in lyrs:
+	    cleanupDic[i.title.split(': ')[1].strip()] = i.id
+
+	updateCounter = 0
+	for bioClimKey, value in rawData.iteritems():
+		for scenarioKey, value1 in value.items():
+			for typeCode_key, layerName in value1.items():
+				if layerName['title'] in cleanupDic:
+					temp = layerName['title']
+					rawData[bioClimKey][scenarioKey][typeCode_key].update({'lyrID':cleanupDic[temp]})
+					print 'Updated layer ID:', rawData[bioClimKey][scenarioKey][typeCode_key]['fullname']
+					updateCounter += 1
+
+	path = '../views/pastPickleDictionaries/'
+	hiddenPaths = filter( lambda f:  f.startswith('.'), os.listdir(path +'.'))
+	for hiddenfile in hiddenPaths:
+		if hiddenfile == '.masterLayerDictionary.pickle':
+			os.system("rm ../views/pastPickleDictionaries/.masterLayerDictionary.pickle")
+		if hiddenfile == '.master_LayerNameDictionary.pickle':
+			os.system("rm ../views/pastPickleDictionaries/.master_LayerNameDictionary.pickle")
+
+	with open('../views/pastPickleDictionaries/' + '.masterLayerDictionary' + '.pickle', 'wb') as f:
+		cPickle.dump(rawData, f)
+
+	LifeMapperCount = cl.sdm.countLayers(epsgCode=4326)
+
+	if LifeMapperCount == updateCounter:
+		print "\nLifemapper and your personal dictionaries are in sync!!!, it's safe to post experiments now\n"
+	else:
+		print "\nLifemapper and your personal dictionaries are out of sync!!!!. Something is wrong"
+		print "This could be correct if your doing this for a set purpose to remove layers\n"
+
+	print 'Current total of layers uploaded on lifemapper:', LifeMapperCount
+	print 'Current total of layers uploaded on .masterLayerDictionary.pickle file', updateCounter
 
 #Take a csv file and makes returns shapefile for each unique species. Then returns a dictionary name, file path, and will add occurrence ID later
 def csvToShapefile():
@@ -544,19 +680,36 @@ def newOrOldFiles():
 	#If you rerun increase this number to avoid unique id collisions
 	uniqid = passwordSetAndUqiValue()
 	######################################
+	if args.UpdateOccurrences:
+		if args.UpdateOccurrences.lower() == 'master':
+			print 'Updating the master and picklist dictionary'
+			updateMasterOccurrence()
+			updatePickList()
+		elif args.UpdateOccurrences.lower() == 'picklist':
+			print 'Updating only species from the picklist occurrencePickList.csv in the folder layerDescriptions'
+			updatePickList()
+		else:
+			print 'ERROR!!'
+			sys.exit()
+
+
+	if args.CleanUpLayer:
+		rawDataDictionary = rawMetaData()
+		updateLyrsIDs(rawDataDictionary)
+		print '\nCompleted updating .masterLayerDictionary. Quiting now'
+		sys.exit()
 
 	whilePostLayers = True
 	while whilePostLayers:
 		inputType = raw_input('Post new TYPECODES and LAYERS to lifemapper or use a snapshot dictionary IDs ("new" or "past"): ')
 		if inputType.lower() == 'new':
-			postDicLayers = rawMetaData()
-			postTypeCode(postDicLayers)
-			postDicLayers = postLayers(postDicLayers)
+			rawDataDictionary = rawMetaData()
+			postTypeCode(rawDataDictionary)
+			layersdictionary = recursionLayersPost(rawDataDictionary)
+			print layersdictionary
 			whilePostLayers = False
 		elif inputType.lower() == 'past':
-			postDicLayers = pickleFilesLayersAndOccurr()
-			postDicLayers = removeMetaDataFromDictionary(args, postDicLayers)
-			#print postDicLayers
+			layersdictionary = removeMetaDataFromDictionary(args, pickleFilesLayersAndOccurr())
 			whilePostLayers = False
 		else:
 			whilePostLayers = True
@@ -577,7 +730,7 @@ def newOrOldFiles():
 	while whileScenario:
 		inputScenario = raw_input('Post new SCENARIO to lifemapper or use a past snapshot dictionary IDs ("new" or "past"): ')
 		if inputScenario.lower() == 'new':
-			scenarioDic, sceKey = postScenario(postDicLayers, uniqid)
+			scenarioDic, sceKey = postScenario(layersdictionary, uniqid)
 			newPostExperiment(scenarioDic, sceKey, occurs)
 			whileScenario = False
 		elif inputScenario.lower() == 'past':

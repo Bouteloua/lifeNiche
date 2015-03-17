@@ -7,6 +7,8 @@ def getArgs(parser):
 	parser.add_argument('-o', '--Occurrence', required=False, help='Use past occurrence data dictionary')
 	parser.add_argument('-family', '--Family', required=False, help='Select subset of families from past occurrence dictionary')
 	parser.add_argument('-group', '--Group', required=False, help='Select an integer batch from past occurrence dictionary')
+	parser.add_argument('-cleanlayers', '--CleanUpLayer', required=False, help='Recreate the .masterLayerDictionary')
+	parser.add_argument('-upocc', '--UpdateOccurrences', required=False, help='Create a new master or picklist dictionary for the occurrences')
 
 	args = parser.parse_args()
 
@@ -50,5 +52,16 @@ def getArgs(parser):
 			else:
 				args.Group = raw_input('Enter integer to select set batch out of occurrence dictionary: ')
 				GroupTest = True
+
+	if args.UpdateOccurrences.lower() != 'master' and args.UpdateOccurrences.lower() != 'picklist':
+		updateOccurrencesTest = True
+		while updateOccurrencesTest:
+			args.Spatial = raw_input('Updating the master or picklist dictionary ("master" or "picklist")": ')
+			if args.UpdateOccurrences.lower() == 'master' or args.UpdateOccurrences.lower() == 'picklist':
+				updateOccurrencesTest = False
+			else:
+				updateOccurrencesTest = True
+
+
 
 	return args
