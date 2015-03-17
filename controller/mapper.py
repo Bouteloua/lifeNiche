@@ -450,7 +450,6 @@ def updateMasterOccurrence():
 
 	occurrenceDictionary = dict()
 	speciesMetaFile = readOccurrenceMetaData()
-	print speciesMetaFile
 	countSpeciesMatch = 0
 	countNOSpeciesMatch = 0
 	for occurrenceObj in occurrenceObjs:
