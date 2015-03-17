@@ -25,25 +25,16 @@ def passwordSetAndUqiValue():
 def postTypeCode(postDicLayers):
 	'''The "postTypeCode" function allows you to post a new type code to be used for matching environmental layers.
 	 This post request can be as simple as just adding a character string identifying it. '''
-		# postTypeCode(
-		# 	code-> The code to use for this new type code [string]
-		# 	title-> (optional) A title for this type code [string]
-		# 	description -> (optional) An extended description of this type code [string]
-		# 	)
 
+	#List holding all the unique typecodes from the recurse function recursionTypeCodeID()
+	typeCodeList= []
+	#Dictionary holding all the IDs that got posted to lifemapper
+	#
+	recursionTypeCodeID(postDicLayers, typeCodeList)
 	#Dictionary holding the unique typecodes
 	typeCodeDictionary = dict()
 
-	typeList = []
-	#Make a list of all the typecode values
-	for bioClimKey, value in postDicLayers.iteritems():
-		for scenarioKey, value1 in value.items():
-			for typeCode_key, layerName in value1.items():
-				print typeCode_key
-				typeList.append(typeCode_key)
-
-	#Iterate through all the unique set list of typecodes
-	for typecode in set(typeList):
+	for typecode in typeCodeList:
 		print 'tc = cl.sdm.postTypeCode(code=%s)' % typecode.lower()
 
 		#posting the unique typecode
@@ -51,14 +42,26 @@ def postTypeCode(postDicLayers):
 
 		#Creates a typecode dictionary of all the typecode that got uploaded to lifemapper
 		typeCodeDictionary.setdefault(typecode, {
-		'code': typecode,
+		'typecode': typecode,
 		'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 		})
-	#print postDicLayers
+
 	##Save a pickle dictionary of all the typecodes
+	sys.exit()
+	print typeCodeDictionary
 	with open('../views/pastPickleDictionaries/' + 'typeCodeDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(typeCodeDictionary, f)
 ############################## POST TYPECODE ###########################################
+
+def recursionTypeCodeID(dictionary, typeCodeList):
+	if type(dictionary)==type({}):
+		for key in dictionary:
+			if key == 'typeCode':
+				if dictionary[key] not in typeCodeList:
+					typeCodeList.append(dictionary[key])
+			else:
+				recursionTypeCodeID(dictionary[key], typeCodeList)
+	return typeCodeList
 
 ################################# POST LAYERS ##########################################
 def postLayers(postDicLayers):
@@ -312,6 +315,7 @@ def oldPostExperiment(scenarioDic, occurrences):
 	print '\n*********ATT_MAXENT setting**********\n'
 	for i in alg.parameters:
 		print i.__dict__
+
 
 
 #Creates the data structures for the layers
