@@ -337,7 +337,6 @@ def rawMetaData():
 
 		layerName = folderFile.split("/")[3][:-4].strip().lower()
 		layer = folderFile.split(".")[3] + '.' + folderFile.split(".")[4].strip()
-		print layer
 		bioclim = layer.split('.')[0].strip()
 		title = folderFile.split("/")[3].strip()
 		model = title.split('.')[0].strip()
@@ -352,6 +351,7 @@ def rawMetaData():
 				'projectionDate': layernMetaData[layerName]['ProjectionDate'],
 				'layerDescription': layernMetaData[layerName]['LayerDescription'],
 				'RCP': layernMetaData[layerName]['RCP'],
+				'Correlated': layernMetaData[layerName]['Correlated'],
 				'bioclim': bioclim,
 				'epsgCode': 4326,
 				'envLayerType': layer,
@@ -646,7 +646,9 @@ def readLayerMetaData():
 def removeMetaDataFromDictionary(args, postDicLayers):
 	if args.Climate.lower() != 'clim' and args.Climate.lower() != 'agclim':
 		print 'You cannot run the model with Climate and Agclimate data, Please remove one'
-		sys.exit()
+	if args.Correlatedlayers == 'yes':
+		recursionLayerDic = pickleFilesLayersAndOccurr()
+		thrash, postDicLayers = removeCorrelatedLayers(recursionLayerDic, postDicLayers)
 	if args.Climate.lower() != 'clim':
 		del postDicLayers['clim']
 		print 'Deleting Climate layers'
@@ -656,16 +658,29 @@ def removeMetaDataFromDictionary(args, postDicLayers):
 	if args.Environment.lower() == 'del':
 		del postDicLayers['env']
 		print 'Deleting Environment layers'
-	if args.Environment.lower() == 'add':
-		if 'env.hwsd.t_cecsoil' in postDicLayers['env']['hwsd']['t_cecsoil'].values():
-			temp = postDicLayers['env']['hwsd']['t_cecsoil']['envLayerType']
-			del postDicLayers['env']['hwsd']['t_cecsoil']
-			print 'Deleting environmental layer', temp, 'because of correlating issues'
+	# if args.Environment.lower() == 'add':
+	# 	if 'env.hwsd.t_cecsoil' in postDicLayers['env']['hwsd']['t_cecsoil'].values():
+	# 		temp = postDicLayers['env']['hwsd']['t_cecsoil']['envLayerType']
+	# 		del postDicLayers['env']['hwsd']['t_cecsoil']
+	# 		print 'Deleting environmental layer', temp, 'because of correlating issues'
 	if args.Spatial.lower() == 'del':
 		print 'Deleting Spatial layers'
 		del postDicLayers['spat']
 
 	return postDicLayers
+
+def removeCorrelatedLayers(recursionLayerDic, deletedCorrelatedLayers):
+	'''The "postLayer" function allows you to post a new environmental layer to be used in your SDM experiments.'''
+	newDic = deletedCorrelatedLayers
+	if type(recursionLayerDic)==type({}):
+		for key in recursionLayerDic:
+			if key == 'Correlated' and recursionLayerDic[key] == 'yes':
+				del newDic[recursionLayerDic['model']][recursionLayerDic['bioclim']][recursionLayerDic['typeCode']]
+				print 'deleting correlated layer...', recursionLayerDic['fullname']
+			else:
+				removeCorrelatedLayers(recursionLayerDic[key], deletedCorrelatedLayers)
+	return recursionLayerDic, deletedCorrelatedLayers
+
 
 def ArgsCheck():
 	# Create the parser object here and pass it in so script-specific arguments can be added if necessary

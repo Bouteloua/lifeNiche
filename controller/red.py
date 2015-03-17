@@ -1,9 +1,14 @@
 import cPickle, os
 
 def main():
-	layers = pickleFilesLayersAndOccurr()
-	recursionTypeCodeID(layers)
-	#recursionLayersPost(layers)
+	recursionLayerDic = pickleFilesLayersAndOccurr()
+	deletedCorrelatedLayers = pickleFilesLayersAndOccurr()
+
+	#recursionTypeCodeID(layers)
+	delLayerDictionary = []
+	temp, deletedCorrelatedLayers = removeCorrelatedLayers(recursionLayerDic, deletedCorrelatedLayers)
+
+	print type(deletedCorrelatedLayers)
 
 
 def pickleFilesLayersAndOccurr():
@@ -18,33 +23,20 @@ def pickleFilesLayersAndOccurr():
 	return LayerDictionary
 
 
-def recursionLayersPost(layerDictionary):
+def removeCorrelatedLayers(recursionLayerDic, deletedCorrelatedLayers):
 	'''The "postLayer" function allows you to post a new environmental layer to be used in your SDM experiments.'''
-
-	if type(layerDictionary)==type({}):
-		for key in layerDictionary:
-
-			if key == 'fullname':
-				print "cl.sdm.postLayer(name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s, description=layerName%s, isCategorical=False)" % (layerDictionary['fullname'], layerDictionary['epsgCode'], layerDictionary['typeCode'], layerDictionary['units'], layerDictionary['dataFormat'], layerDictionary['filePath'], layerDictionary['title'], layerDictionary['layerDescription'])
-				lyrObj = cl.sdm.postLayer(name=layerDictionary['fullname'],
-										  epsgCode=layerDictionary['epsgCode'],
-										  envLayerType=layerDictionary['typeCode'],
-										  units=layerDictionary['units'],
-										  dataFormat=layerDictionary['dataFormat'],
-										  fileName=layerDictionary['filePath'],
-										  title=layerDictionary['title'],
-										  description=layerDictionary['layerDescription']
-										  )
-				# Updating the layerDictionary with the new lifemapper ID for that layer
-				layerDictionary.update({'lyrID':lyrObj.id})
+	newDic = deletedCorrelatedLayers
+	print 'newDic', type(newDic)
+	if type(recursionLayerDic)==type({}):
+		for key in recursionLayerDic:
+			if key == 'Correlated' and recursionLayerDic[key] == 'yes':
+				del newDic[recursionLayerDic['model']][recursionLayerDic['bioclim']][recursionLayerDic['typeCode']]
+				#print 'deleting correlated layer...', recursionLayerDic['fullname']
 			else:
-				recursionLayersPost(layerDictionary[key])
-		#Save a pickle file of the layer IDs
-	with open('../views/pastPickleDictionaries/' + 'LayerDictionary' + '.pickle', 'wb') as f:
-		cPickle.dump(layerDictionary, f)
-	return layerDictionary
+				removeCorrelatedLayers(recursionLayerDic[key], deletedCorrelatedLayers)
+	return recursionLayerDic, deletedCorrelatedLayers
 
-def recursionTypeCodeID(typeCodeDictionary):
+def recursionTypeCodeID(typeCodeDictionary, typeCodeList):
 	if type(typeCodeDictionary)==type({}):
 		for key in typeCodeDictionary:
 			if key == 'typeCode':
@@ -55,6 +47,17 @@ def recursionTypeCodeID(typeCodeDictionary):
 	return typeCodeList
 
 
+def listRemoveCorrelatedLayers(layerDictionary, delLayerDictionary):
+	'''The "postLayer" function allows you to post a new environmental layer to be used in your SDM experiments.'''
+
+	if type(layerDictionary)==type({}):
+		for key in layerDictionary:
+			if key == 'Correlated' and layerDictionary[key] == 'yes':
+				if layerDictionary['fullname'] not in delLayerDictionary:
+					delLayerDictionary.append(layerDictionary['fullname'])
+			else:
+				listRemoveCorrelatedLayers(layerDictionary[key], delLayerDictionary)
+	return layerDictionary
 
 if __name__ == '__main__':
 	main()

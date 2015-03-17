@@ -284,24 +284,24 @@ clim.he8570.bio06,climate,bio06,Min Temperature of Coldest Month,Min Temperature
 clim.he8570.bio07,climate,bio07,Temperature Annual Range (BIO5-BIO6),Temperature Annual Range (BIO5-BIO6) HE RCP85 2070,2070,85,no
 clim.he8570.bio08,climate,bio08,Mean Temperature of Wettest Quarter,Mean Temperature of Wettest Quarter HE RCP85 2070,2070,85,no
 clim.he8570.bio09,climate,bio09,Mean Temperature of Driest Quarter,Mean Temperature of Driest Quarter HE RCP85 2070,2070,85,no
-env.gmted2010.elev_mean,environmental,elev_mean,USGS GMTED2010 Mean Elevation,USGS GMTED2010 Mean Elevation,current,current,yes
+env.gmted2010.elev_mean,environmental,elev_mean,USGS GMTED2010 Mean Elevation,USGS GMTED2010 Mean Elevation,current,current,no
 env.hwsd.t_caco3,environmental,t_caco3,HWSD topsoil CACO3,Harmonized World Soil Database topsoil CACO3 (% weight),current,current,yes
 env.hwsd.t_caso4,environmental,t_caso4,HWSD topsoil CASO4,Harmonized World Soil Database topsoil CASO4 (% weight),current,current,yes
-env.hwsd.t_cecsoil,environmental,t_cecsoil,HWSD topsoil CECsoil,Harmonized World Soil Database topsoil CECsoil (cmol/kg),current,current,yes
+env.hwsd.t_cecsoil,environmental,t_cecsoil,HWSD topsoil CECsoil,Harmonized World Soil Database topsoil CECsoil (cmol/kg),current,current,no
 env.hwsd.t_clay,environmental,t_clay,HWSD topsoil clay,Harmonized World Soil Database topsoil clay (% frac.),current,current,yes
 env.hwsd.t_ece,environmental,t_ece,HWSD topsoil ECE,Harmonized World Soil Database topsoil ECE (salinity dS/m),current,current,yes
-env.hwsd.t_gravel,environmental,t_gravel,HWSD topsoil gravel,Harmonized World Soil Database topsoil gravel (% vol.),current,current,yes
+env.hwsd.t_gravel,environmental,t_gravel,HWSD topsoil gravel,Harmonized World Soil Database topsoil gravel (% vol.),current,current,no
 env.hwsd.t_oc,environmental,t_oc,HWSD topsoil oc,Harmonized World Soil Database topsoil organic carbon (% weight),current,current,yes
-env.hwsd.t_ph,environmental,t_ph,HWSD topsoil pH,Harmonized World Soil Database topsoil pH (log[H+]),current,current,yes
-env.hwsd.t_sand,environmental,t_sand,HWSD topsoil sand,Harmonized World Soil Database topsoil sand (% frac.),current,current,yes
+env.hwsd.t_ph,environmental,t_ph,HWSD topsoil pH,Harmonized World Soil Database topsoil pH (log[H+]),current,current,no
+env.hwsd.t_sand,environmental,t_sand,HWSD topsoil sand,Harmonized World Soil Database topsoil sand (% frac.),current,current,no
 env.hwsd.t_silt,environmental,t_silt,HWSD topsoil silt,Harmonized World Soil Database topsoil silt (% frac.),current,current,yes
 spat.dist.pc1,spatial,pc1,PC Axis 1 of Distance Matrix,PC Axis 1 of Distance Matrix spatial,current,current,yes
-spat.dist.pc2,spatial,pc2,PC Axis 2 of Distance Matrix,PC Axis 2 of Distance Matrix spatial,current,current,yes
+spat.dist.pc2,spatial,pc2,PC Axis 2 of Distance Matrix,PC Axis 2 of Distance Matrix spatial,current,current,no
 spat.dist.pc3,spatial,pc3,PC Axis 3 of Distance Matrix,PC Axis 3 of Distance Matrix spatial,current,current,yes
-agclim.current.aridity,agclimate,aridity,CRU Metric of Mean Annual Aridity,CRU Metric of Mean Annual Aridity,current,current,yes
-agclim.current.bio06,agclimate,bio06,Min Temperature of Coldest Month,Min Temperature of Coldest Month,current,current,yes
-agclim.current.bio12,agclimate,bio12,Annual Precipitation,Annual Precipitation,current,current,yes
-agclim.current.gdd5,agclimate,gdd5,Growing Degree Days 5C Baseline,Growing Degree Days 5C Baseline,current,current,yes
+agclim.current.aridity,agclimate,aridity,CRU Metric of Mean Annual Aridity,CRU Metric of Mean Annual Aridity,current,current,no
+agclim.current.bio06,agclimate,bio06,Min Temperature of Coldest Month,Min Temperature of Coldest Month,current,current,no
+agclim.current.bio12,agclimate,bio12,Annual Precipitation,Annual Precipitation,current,current,no
+agclim.current.gdd5,agclimate,gdd5,Growing Degree Days 5C Baseline,Growing Degree Days 5C Baseline,current,current,no
 agclim.current.petmn,agclimate,petmn,CRU Mean Annual Evapotranspiration,CRU Mean Annual Evapotranspiration,current,current,yes
 agclim.he2650.aridity,agclimate,aridity,CRU Metric of Mean Annual Aridity,CRU Metric of Mean Annual Aridity,2050,26,no
 agclim.he2650.bio06,agclimate,bio06,Min Temperature of Coldest Month,Min Temperature of Coldest Month,2050,26,no
