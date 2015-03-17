@@ -7,8 +7,9 @@ def getArgs(parser):
 	parser.add_argument('-o', '--Occurrence', required=False, help='Use past occurrence data dictionary')
 	parser.add_argument('-family', '--Family', required=False, help='Select subset of families from past occurrence dictionary')
 	parser.add_argument('-group', '--Group', required=False, help='Select an integer batch from past occurrence dictionary')
-	parser.add_argument('-cleanlayers', '--CleanUpLayer', required=False, help='Recreate the .masterLayerDictionary')
-	parser.add_argument('-upocc', '--UpdateOccurrences', required=False, help='Create a new master or picklist dictionary for the occurrences')
+	parser.add_argument('-cleanlayers', '--CleanUpLayer', required=False, help='Recreate the .masterLayerDictionary ["yes"]')
+	parser.add_argument('-upocc', '--UpdateOccurrences', required=False, help='Create a new "master" or "picklist" dictionary for the occurrences')
+	parser.add_argument('-corlay', '--Correlatedlayers', required=False, help='Remove highly correlated layers ["yes" or "no"]')
 
 	args = parser.parse_args()
 
@@ -24,6 +25,7 @@ def getArgs(parser):
 			else:
 				environmentTest = True
 
+
 	if args.Spatial.lower() != 'add' and args.Spatial.lower() != 'del':
 		spatialTest = True
 		while spatialTest:
@@ -35,12 +37,12 @@ def getArgs(parser):
 
 	if args.Family:
 		FamilyTest = True
-		while spatialTest:
+		while FamilyTest:
 			if args.Family.lower()[-5:] == 'aceae':
 				print 'Selecting family from dictionary', args.Family
 				FamilyTest = False
 			else:
-				args.Spatial = raw_input('Enter a family name ending with "aceae": ')
+				args.Family = raw_input('Enter a family name ending with "aceae": ')
 				FamilyTest = True
 
 	if args.Group:
@@ -53,14 +55,25 @@ def getArgs(parser):
 				args.Group = raw_input('Enter integer to select set batch out of occurrence dictionary: ')
 				GroupTest = True
 
-	if args.UpdateOccurrences.lower() != 'master' and args.UpdateOccurrences.lower() != 'picklist':
-		updateOccurrencesTest = True
-		while updateOccurrencesTest:
-			args.Spatial = raw_input('Updating the master or picklist dictionary ("master" or "picklist")": ')
-			if args.UpdateOccurrences.lower() == 'master' or args.UpdateOccurrences.lower() == 'picklist':
-				updateOccurrencesTest = False
-			else:
-				updateOccurrencesTest = True
+	if args.UpdateOccurrences:
+		if args.UpdateOccurrences.lower() != 'master' and args.UpdateOccurrences.lower() != 'picklist':
+			updateOccurrencesTest = True
+			while updateOccurrencesTest:
+				args.UpdateOccurrences = raw_input('Updating the master or picklist dictionary ("master" or "picklist")": ')
+				if args.UpdateOccurrences.lower() == 'master' or args.UpdateOccurrences.lower() == 'picklist':
+					updateOccurrencesTest = False
+				else:
+					updateOccurrencesTest = True
+
+	if args.Correlatedlayers:
+		if args.Correlatedlayers.lower() != 'yes' and args.Correlatedlayers.lower() != 'no':
+			correlatedlayersTest = True
+			while updateOccurrencesTest:
+				args.Correlatedlayers = raw_input('Remove correlated layers "yes" or "no": ')
+				if args.Correlatedlayers.lower() == 'yes' or args.Correlatedlayers.lower() == 'no':
+					correlatedlayersTest = False
+				else:
+					correlatedlayersTest = True
 
 
 

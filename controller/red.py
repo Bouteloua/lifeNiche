@@ -2,8 +2,8 @@ import cPickle, os
 
 def main():
 	layers = pickleFilesLayersAndOccurr()
-
-	recursionLayersPost(layers)
+	recursionTypeCodeID(layers)
+	#recursionLayersPost(layers)
 
 
 def pickleFilesLayersAndOccurr():
@@ -44,7 +44,15 @@ def recursionLayersPost(layerDictionary):
 		cPickle.dump(layerDictionary, f)
 	return layerDictionary
 
-
+def recursionTypeCodeID(typeCodeDictionary):
+	if type(typeCodeDictionary)==type({}):
+		for key in typeCodeDictionary:
+			if key == 'typeCode':
+				if typeCodeDictionary[key] not in typeCodeList:
+					typeCodeList.append(typeCodeDictionary[key])
+			else:
+				recursionTypeCodeID(typeCodeDictionary[key], typeCodeList)
+	return typeCodeList
 
 
 

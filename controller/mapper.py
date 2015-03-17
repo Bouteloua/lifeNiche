@@ -449,7 +449,8 @@ def updateMasterOccurrence():
 	occurrenceObjs = cl.sdm.listOccurrenceSets(epsgCode=epsgCodeL, perPage=perPageTotal)
 
 	occurrenceDictionary = dict()
-	speciesMetaFile = readLayerMetaData()
+	speciesMetaFile = readOccurrenceMetaData()
+	print speciesMetaFile
 	countSpeciesMatch = 0
 	countNOSpeciesMatch = 0
 	for occurrenceObj in occurrenceObjs:
@@ -628,11 +629,19 @@ def getShapeFiles():
 			})
 	return shapefileDic
 
+def readOccurrenceMetaData():
+	'''Open the the file speciesDistributionmetaData.csv to get all the label meta data that cannot get out of the file name. Return a dictionary'''
+	with open('../views/layerDescriptions/speciesDistributionmetaData.csv', mode='r') as infile:
+		reader = c.reader(infile)
+		mydict = {rows[0].lower(): {'shapefile': rows[1], 'occurencesCount': rows[2], 'downloadedTime': rows[3], 'family': rows[4], 'bonapID': rows[5], 'group': rows[6]} for rows in reader}
+	return mydict
+
+
 def readLayerMetaData():
 	'''Open the the file layerMetaData.csv to get all the label meta data that cannot get out of the file name. Return a dictionary'''
 	with open('../views/layerDescriptions/layerMetaData.csv', mode='r') as infile:
 		reader = c.reader(infile)
-		mydict = {rows[0].lower(): {'filterType': rows[1], 'typeCode': rows[2], 'TypeCodeDescription': rows[3], 'LayerDescription': rows[4], 'ProjectionDate': rows[5], 'RCP': rows[6]} for rows in reader}
+		mydict = {rows[0].lower(): {'filterType': rows[1], 'typeCode': rows[2], 'TypeCodeDescription': rows[3], 'LayerDescription': rows[4], 'ProjectionDate': rows[5], 'RCP': rows[6], 'Correlated': rows[7]} for rows in reader}
 	return mydict
 
 def removeMetaDataFromDictionary(args, postDicLayers):
