@@ -62,32 +62,62 @@ def recursionTypeCodeID(typeCodeDictionary, typeCodeList):
 	return typeCodeList
 
 ############################## POST TYPECODE ###########################################
-################################# POST LAYERS ##########################################
-def recursionLayersPost(layerDictionary):
-	'''The "postLayer" function allows you to post a new environmental layer to be used in your SDM experiments.'''
 
-	if type(layerDictionary)==type({}):
-		for key in layerDictionary:
+def postLayers(layerDictionary):
+	'''The "postLayer" function allows you to post a new environmental layer to be used in your SDM experiments.
+	It takes a number of parameters. More information about these parameters is available in the code documentation.'''
 
-			if key == 'fullname':
-				print "cl.sdm.postLayer(name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s, description=layerName%s, isCategorical=False)" % (layerDictionary['fullname'], layerDictionary['epsgCode'], layerDictionary['typeCode'], layerDictionary['units'], layerDictionary['dataFormat'], layerDictionary['filePath'], layerDictionary['title'], layerDictionary['layerDescription'])
-				lyrObj = cl.sdm.postLayer(name=layerDictionary['fullname'],
-										  epsgCode=layerDictionary['epsgCode'],
-										  envLayerType=layerDictionary['typeCode'],
-										  units=layerDictionary['units'],
-										  dataFormat=layerDictionary['dataFormat'],
-										  fileName=layerDictionary['filePath'],
-										  title=layerDictionary['title'],
-										  description=layerDictionary['layerDescription']
+	#Iterate through all the unique layers and getting layer ID from lifemapper and updating the dictionary
+	for bioClimKey, value in layerDictionary.iteritems():
+		for scenarioKey, value1 in value.items():
+			for typeCodeKey, layerName in value1.items():
+				print "cl.sdm.postLayer(name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s, description=layerName%s, isCategorical=False)" % (layerName['fullname'], layerName['epsgCode'], layerName['typeCode'], layerName['units'], layerName['dataFormat'], layerName['filePath'], layerName['title'], layerName['layerDescription'])
+				#posting the unique layer
+				lyrObj = cl.sdm.postLayer(name=layerName['fullname'],
+										  epsgCode=layerName['epsgCode'],
+										  envLayerType=layerName['typeCode'],
+										  units=layerName['units'],
+										  dataFormat=layerName['dataFormat'],
+										  fileName=layerName['filePath'],
+										  title=layerName['title'],
+										  description=layerName['layerDescription']
 										  )
-				# Updating the layerDictionary with the new lifemapper ID for that layer
-				layerDictionary.update({'lyrID':lyrObj.id})
-			else:
-				recursionLayersPost(layerDictionary[key])
-		#Save a pickle file of the layer IDs
-	with open('../views/pastPickleDictionaries/' + 'LayerDictionary.pickle', 'wb') as f:
+				# Updating the dictionary with the new lifemapper ID for that layer
+				layerDictionary[bioClimKey][scenarioKey][typeCodeKey].update({'lyrID':lyrObj.id})
+	#Save a pickle file of the layer IDs
+	with open('../views/pastPickleDictionaries/' + 'LayerDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(layerDictionary, f)
+
+	print '####### Completed loadup of layer IDs and TypeCode IDs see file layerName_dict.pickle for input ############\n'
 	return layerDictionary
+
+
+################################# POST LAYERS ##########################################
+# def recursionLayersPost(layerDictionary):
+# 	'''The "postLayer" function allows you to post a new environmental layer to be used in your SDM experiments.'''
+
+# 	if type(layerDictionary)==type({}):
+# 		for key in layerDictionary:
+
+# 			if key == 'fullname':
+# 				print "cl.sdm.postLayer(name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s, description=layerName%s, isCategorical=False)" % (layerDictionary['fullname'], layerDictionary['epsgCode'], layerDictionary['typeCode'], layerDictionary['units'], layerDictionary['dataFormat'], layerDictionary['filePath'], layerDictionary['title'], layerDictionary['layerDescription'])
+# 				lyrObj = cl.sdm.postLayer(name=layerDictionary['fullname'],
+# 										  epsgCode=layerDictionary['epsgCode'],
+# 										  envLayerType=layerDictionary['typeCode'],
+# 										  units=layerDictionary['units'],
+# 										  dataFormat=layerDictionary['dataFormat'],
+# 										  fileName=layerDictionary['filePath'],
+# 										  title=layerDictionary['title'],
+# 										  description=layerDictionary['layerDescription']
+# 										  )
+# 				# Updating the layerDictionary with the new lifemapper ID for that layer
+# 				layerDictionary.update({'lyrID':lyrObj.id})
+# 			else:
+# 				recursionLayersPost(layerDictionary[key])
+# 		#Save a pickle file of the layer IDs
+# 	with open('../views/pastPickleDictionaries/' + 'LayerDictionary.pickle', 'wb') as f:
+# 		cPickle.dump(layerDictionary, f)
+# 	return layerDictionary
 
 ############################## END POST LAYERS ##########################################
 
@@ -726,8 +756,8 @@ def newOrOldFiles():
 		if inputType.lower() == 'new':
 			rawDataDictionary = rawMetaData()
 			postTypeCode(rawDataDictionary)
-			layersdictionary = recursionLayersPost(rawDataDictionary)
-			print layersdictionary
+			layersdictionary = postLayers(rawDataDictionary)
+			#layersdictionary = recursionLayersPost(rawDataDictionary)
 			whilePostLayers = False
 		elif inputType.lower() == 'past':
 			layersdictionary = removeMetaDataFromDictionary(args, pickleFilesLayersAndOccurr())
