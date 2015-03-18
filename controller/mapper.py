@@ -659,11 +659,6 @@ def removeMetaDataFromDictionary(args, postDicLayers):
 	if args.Environment.lower() == 'del':
 		del postDicLayers['env']
 		print 'Deleting Environment layers'
-	# if args.Environment.lower() == 'add':
-	# 	if 'env.hwsd.t_cecsoil' in postDicLayers['env']['hwsd']['t_cecsoil'].values():
-	# 		temp = postDicLayers['env']['hwsd']['t_cecsoil']['envLayerType']
-	# 		del postDicLayers['env']['hwsd']['t_cecsoil']
-	# 		print 'Deleting environmental layer', temp, 'because of correlating issues'
 	if args.Spatial.lower() == 'del':
 		print 'Deleting Spatial layers'
 		del postDicLayers['spat']

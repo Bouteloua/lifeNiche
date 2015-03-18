@@ -3,16 +3,18 @@ import glob, sys, os
 def main():
 	createFolders()
 	'''Creates a dictionary off the metadata in the filename of the GTiff'''
-	folderFiles = glob.glob('../../GTiff/*.tif')
+	folderFiles = glob.glob('../../views/GTiff/*.tif')
 
 	for folderFile in folderFiles:
-		path = 'touch ../views/GTiff/' + folderFile.split('/')[3] 
+		print folderFile
+		path = 'touch ../../views/BFF_FILES/' + folderFile.split('/')[4] 
 		os.system(path)
 
 def createFolders():
-	requiredFolders = ('shapefiles', 'GTiff')
-	path = '../views/'
+	requiredFolders = (['BFF_FILES'])
+	path = '../../views/'
 	for folders in requiredFolders:
+		print folders
 	#Check if required folders have been created
 		try:
 			os.stat(path + folders)
