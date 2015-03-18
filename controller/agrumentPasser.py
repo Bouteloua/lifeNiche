@@ -13,8 +13,15 @@ def getArgs(parser):
 
 	args = parser.parse_args()
 
-	if not args.Climate:
-		args.Climate = raw_input('Use "Climate" or "Agclim" layers: ')
+	if args.Climate.lower() != 'clim' and args.Climate.lower() != 'agclim':
+		print args.Climate.lower()
+		ClimateTest = True
+		while ClimateTest:
+			args.Climate = raw_input('Use "Climate" or "Agclim" layers ["clim or agclim"]: ')
+			if args.Climate.lower() == 'clim' or args.Climate.lower() == 'agclim':
+				ClimateTest = False
+			else:
+				ClimateTest = True
 
 	if args.Environment.lower() != 'add' and args.Environment.lower() != 'del':
 		environmentTest = True
