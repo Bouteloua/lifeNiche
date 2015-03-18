@@ -197,7 +197,7 @@ def postScenario(postDicLayers,uniqid):
 				model = postDicLayers[bioClimKey][scenarioKey][typeCodeKey]['model']
 
 			#Do not let set variable get posted to the Dictionary
-			if scenarioKey == 'dist' or scenarioKey =='hwsd' or scenarioKey == 'gmted2010':
+			if scenarioKey == 'svd' or scenarioKey =='hwsd' or scenarioKey == 'gmted2010':
 				continue
 			uniqueScenarioName = 'Scenario' + uniqid + '-' + scenarioKey
 
