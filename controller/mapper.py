@@ -80,7 +80,7 @@ def recursionLayersPost(recurSearchLayerDic, masterLayersDic):
 										  description=recurSearchLayerDic['layerDescription']
 										  )
 				#Updating the recurSearchLayerDic with the new lifemapper ID for that layer
-				fullMasterLayersDic[recurSearchLayerDic['model']][recurSearchLayerDic['bioclim']][recurSearchLayerDic['typeCode']].update({'lyrID':9999999999})
+				fullMasterLayersDic[recurSearchLayerDic['model']][recurSearchLayerDic['bioclim']][recurSearchLayerDic['typeCode']].update({'lyrID':lyrObj.id})
 
 			else:
 				recursionLayersPost(recurSearchLayerDic[key], masterLayersDic)
