@@ -1,0 +1,83 @@
+(dp1
+S'Bupleurum_odontites'
+p2
+(dp3
+S'metadataUrl'
+p4
+S'http://lifemapper.org/services/sdm/experiments/1400195'
+p5
+sS'speciesName'
+p6
+g2
+sS'description'
+p7
+S'Test run2'
+p8
+sS'statusModTime'
+p9
+S'2015-03-18 19:25:46'
+p10
+sS'bbox'
+p11
+S'(-179.0, 14.5, -45.0, 83.5)'
+p12
+sS'id'
+p13
+S'1400195'
+p14
+sS'modTime'
+p15
+S'2015-03-18 19:25:46'
+p16
+sS'created_at'
+p17
+S'2015-03-18 20:55:50'
+p18
+sS'createTime'
+p19
+S'2015-03-18 19:25:46'
+p20
+sS'epsgcode'
+p21
+S'4326'
+p22
+sS'user'
+p23
+S'cgwillis'
+p24
+ssS'Eriogonum_alpinum'
+p25
+(dp26
+g4
+S'http://lifemapper.org/services/sdm/experiments/1400196'
+p27
+sg6
+g25
+sg7
+S'Test run2'
+p28
+sg9
+S'2015-03-18 19:11:48'
+p29
+sg11
+S'(-179.0, 14.5, -45.0, 83.5)'
+p30
+sg13
+S'1400196'
+p31
+sg15
+S'2015-03-18 19:11:48'
+p32
+sg17
+S'2015-03-18 20:55:59'
+p33
+sg19
+S'2015-03-18 19:11:48'
+p34
+sg21
+S'4326'
+p35
+sg23
+S'cgwillis'
+p36
+ss.

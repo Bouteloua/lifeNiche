@@ -19,7 +19,7 @@ def passwordSetAndUqiValue():
 	#Setup your client ID and password in the file named password.py
 	cl = LMClient(userId=userName, pwd=password)
 	#Need to be an unique number within accout index
-	uniqid = 'bf006'
+	uniqid = 'bf009'
 	return uniqid
 ############################## POST TYPECODE ############################################
 def postTypeCode(postDicLayers):
@@ -46,7 +46,7 @@ def postTypeCode(postDicLayers):
 		})
 
 	#Save a pickle dictionary of all the typecodes
-	
+
 	print typeCodeDictionary
 	with open('../views/pastPickleDictionaries/' + 'typeCodeDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(typeCodeDictionary, f)
@@ -274,9 +274,9 @@ def newPostExperiment(scenarioDic, currentID, occurrences):
 			'occSetId': occurrence['occurrenceID'],
 			'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 			})
-	postTime = datetime.datetime.strftime(datetime.datetime.now(), '_%Y-%m-%d|%H:%M:%S')
-	with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + postTime + '.pickle', 'wb') as f:
-		cPickle.dump(expDic, f)
+		postTime = datetime.datetime.strftime(datetime.datetime.now(), '_%Y-%m')
+		with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + postTime + '.pickle', 'wb') as f:
+			cPickle.dump(expDic, f)
 
 	print '####### Completed loadup of Experiment IDs see file expDic.pickle for input ############\n'
 
@@ -336,9 +336,9 @@ def oldPostExperiment(scenarioDic, occurrences):
 			'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 			})
 
-	postTime = datetime.datetime.strftime(datetime.datetime.now(), '_%Y-%m-%d|%H:%M:%S')
-	with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + postTime +'.pickle', 'wb') as f:
-		cPickle.dump(expDic, f)
+		postTime = datetime.datetime.strftime(datetime.datetime.now(), '_%Y-%m')
+		with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + postTime +'.pickle', 'wb') as f:
+			cPickle.dump(expDic, f)
 
 	print '####### Completed loadup of Experiment IDs see file expDic.pickle for input ############\n'
 
@@ -580,11 +580,10 @@ def updateLyrsIDs(rawData):
 	if LifeMapperCount == updateCounter:
 		print "\nLifemapper and your personal dictionaries are in sync!!!, it's safe to post experiments now\n"
 	else:
-		print "\nLifemapper and your personal dictionaries are out of sync!!!!. Something is wrong"
-		print "This could be correct if your doing this for a set purpose to remove layers\n"
+		print "\nLifemapper and your personal dictionaries are out of sync!"
 
-	print 'Current total of layers uploaded on lifemapper:', LifeMapperCount
-	print 'Current total of layers uploaded on .masterLayerDictionary.pickle file', updateCounter
+	print 'Total layers uploaded on lifemapper:', LifeMapperCount
+	print 'Total layers uploaded on .masterLayerDictionary.pickle file', updateCounter
 
 #Take a csv file and makes returns shapefile for each unique species. Then returns a dictionary name, file path, and will add occurrence ID later
 def csvToShapefile():
