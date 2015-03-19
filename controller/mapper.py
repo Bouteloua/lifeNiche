@@ -215,15 +215,16 @@ def newPostExperiment(scenarioDic, currentID, occurrences):
 		prjScns_input.append(value['ScenarioID'])
 
 	expDic = dict()
+	descriptionName = 'Climate layers Used:', args.Climate, 'Spatial layers used:', args.Spatial, 'Environment layers used', args.Environment
 	print 'Current ID', scenarioDic[currentID]['ScenarioID']
 	for key, occurrence in occurrences.iteritems():
-		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentID]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, 'Test Experiment2', 'Test run2')
+		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentID]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, 'CGW Experiment', descriptionName)
 		exp = cl.sdm.postExperiment(algorithm=alg,
 									mdlScn=scenarioDic[currentID]['ScenarioID'],
 									occSetId=occurrence['occurrenceID'],
 									prjScns=prjScns_input,
-									name='Experiment Name',
-									description='Description data')
+									name='CGW Experiment',
+									description=descriptionName)
 
 		expDic.setdefault(key, {
 			'bbox': exp.bbox,
@@ -280,15 +281,16 @@ def oldPostExperiment(scenarioDic, occurrences):
 			currentLayerName = keyOfLayerName
 
 	expDic = dict()
+	descriptionName = 'Climate layers Used:', args.Climate, 'Spatial layers used:', args.Spatial, 'Environment layers used', args.Environment
 	for key, occurrence in occurrences.iteritems():
 		print prjScns_input
-		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentLayerName]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, 'Test Experiment2', 'Test run2')
+		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentLayerName]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, 'CGW Experiment', descriptionName)
 		exp = cl.sdm.postExperiment(algorithm=alg,
 									mdlScn=scenarioDic[currentLayerName]['ScenarioID'],
 									occSetId=occurrence['occurrenceID'],
 									prjScns=prjScns_input,
-									name='Test Experiment2',
-									description='Test run2')
+									name='CGW Experiment',
+									description=descriptionName)
 
 		expDic.setdefault(key, {
 			'bbox': exp.bbox,
