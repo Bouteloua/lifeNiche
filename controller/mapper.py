@@ -63,63 +63,31 @@ def recursionTypeCodeID(typeCodeDictionary, typeCodeList):
 
 ############################## POST TYPECODE ###########################################
 
-def postLayers(layerDictionary):
-	'''The "postLayer" function allows you to post a new environmental layer to be used in your SDM experiments.
-	It takes a number of parameters. More information about these parameters is available in the code documentation.'''
-
-	#Iterate through all the unique layers and getting layer ID from lifemapper and updating the dictionary
-	for bioClimKey, value in layerDictionary.iteritems():
-		for scenarioKey, value1 in value.items():
-			for typeCodeKey, layerName in value1.items():
-				print "cl.sdm.postLayer(name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s, description=layerName%s, isCategorical=False)" % (layerName['fullname'], layerName['epsgCode'], layerName['typeCode'], layerName['units'], layerName['dataFormat'], layerName['filePath'], layerName['title'], layerName['layerDescription'])
-				#posting the unique layer
-				lyrObj = cl.sdm.postLayer(name=layerName['fullname'],
-										  epsgCode=layerName['epsgCode'],
-										  envLayerType=layerName['typeCode'],
-										  units=layerName['units'],
-										  dataFormat=layerName['dataFormat'],
-										  fileName=layerName['filePath'],
-										  title=layerName['title'],
-										  description=layerName['layerDescription']
+def recursionLayersPost(recurSearchLayerDic, masterLayersDic):
+	'''The "postLayer" function allows you to post a new environmental layer to be used in your SDM experiments.'''
+	fullMasterLayersDic = masterLayersDic
+	if type(recurSearchLayerDic)==type({}):
+		for key in recurSearchLayerDic:
+			if key == 'fullname':
+				print "cl.sdm.postLayer(name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s, description=layerName%s, isCategorical=False)" % (recurSearchLayerDic['fullname'], recurSearchLayerDic['epsgCode'], recurSearchLayerDic['typeCode'], recurSearchLayerDic['units'], recurSearchLayerDic['dataFormat'], recurSearchLayerDic['filePath'], recurSearchLayerDic['title'], recurSearchLayerDic['layerDescription'])
+				lyrObj = cl.sdm.postLayer(name=recurSearchLayerDic['fullname'],
+										  epsgCode=recurSearchLayerDic['epsgCode'],
+										  envLayerType=recurSearchLayerDic['typeCode'],
+										  units=recurSearchLayerDic['units'],
+										  dataFormat=recurSearchLayerDic['dataFormat'],
+										  fileName=recurSearchLayerDic['filePath'],
+										  title=recurSearchLayerDic['title'],
+										  description=recurSearchLayerDic['layerDescription']
 										  )
-				# Updating the dictionary with the new lifemapper ID for that layer
-				layerDictionary[bioClimKey][scenarioKey][typeCodeKey].update({'lyrID':lyrObj.id})
+				#Updating the recurSearchLayerDic with the new lifemapper ID for that layer
+				fullMasterLayersDic[recurSearchLayerDic['model']][recurSearchLayerDic['bioclim']][recurSearchLayerDic['typeCode']].update({'lyrID':9999999999})
+
+			else:
+				recursionLayersPost(recurSearchLayerDic[key], masterLayersDic)
 	#Save a pickle file of the layer IDs
-	with open('../views/pastPickleDictionaries/' + 'LayerDictionary' + '.pickle', 'wb') as f:
-		cPickle.dump(layerDictionary, f)
-
-	print '####### Completed loadup of layer IDs and TypeCode IDs see file layerName_dict.pickle for input ############\n'
-	return layerDictionary
-
-
-################################# POST LAYERS ##########################################
-# def recursionLayersPost(layerDictionary):
-# 	'''The "postLayer" function allows you to post a new environmental layer to be used in your SDM experiments.'''
-
-# 	if type(layerDictionary)==type({}):
-# 		for key in layerDictionary:
-
-# 			if key == 'fullname':
-# 				print "cl.sdm.postLayer(name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s, description=layerName%s, isCategorical=False)" % (layerDictionary['fullname'], layerDictionary['epsgCode'], layerDictionary['typeCode'], layerDictionary['units'], layerDictionary['dataFormat'], layerDictionary['filePath'], layerDictionary['title'], layerDictionary['layerDescription'])
-# 				lyrObj = cl.sdm.postLayer(name=layerDictionary['fullname'],
-# 										  epsgCode=layerDictionary['epsgCode'],
-# 										  envLayerType=layerDictionary['typeCode'],
-# 										  units=layerDictionary['units'],
-# 										  dataFormat=layerDictionary['dataFormat'],
-# 										  fileName=layerDictionary['filePath'],
-# 										  title=layerDictionary['title'],
-# 										  description=layerDictionary['layerDescription']
-# 										  )
-# 				# Updating the layerDictionary with the new lifemapper ID for that layer
-# 				layerDictionary.update({'lyrID':lyrObj.id})
-# 			else:
-# 				recursionLayersPost(layerDictionary[key])
-# 		#Save a pickle file of the layer IDs
-# 	with open('../views/pastPickleDictionaries/' + 'LayerDictionary.pickle', 'wb') as f:
-# 		cPickle.dump(layerDictionary, f)
-# 	return layerDictionary
-
-############################## END POST LAYERS ##########################################
+	with open('../views/pastPickleDictionaries/' + 'LayerDictionary.pickle', 'wb') as f:
+		cPickle.dump(fullMasterLayersDic, f)
+	return fullMasterLayersDic
 
 ############################## POST OCCURRENCE ##########################################
 def postOccurrence():
@@ -755,7 +723,8 @@ def newOrOldFiles():
 		if inputType.lower() == 'new':
 			rawDataDictionary = rawMetaData()
 			postTypeCode(rawDataDictionary)
-			layersdictionary = postLayers(rawDataDictionary)
+			layersdictionary = postLayers(rawDataDictionary, rawMetaData())
+			del rawDataDictionary
 			#layersdictionary = recursionLayersPost(rawDataDictionary)
 			whilePostLayers = False
 		elif inputType.lower() == 'past':
@@ -781,6 +750,7 @@ def newOrOldFiles():
 		inputScenario = raw_input('Post new SCENARIO to lifemapper or use a past snapshot dictionary IDs ("new" or "past"): ')
 		if inputScenario.lower() == 'new':
 			scenarioDic, sceKey = postScenario(layersdictionary, uniqid)
+			del layersdictionary
 			newPostExperiment(scenarioDic, sceKey, occurs)
 			whileScenario = False
 		elif inputScenario.lower() == 'past':
