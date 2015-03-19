@@ -19,7 +19,7 @@ def passwordSetAndUqiValue():
 	#Setup your client ID and password in the file named password.py
 	cl = LMClient(userId=userName, pwd=password)
 	#Need to be an unique number within accout index
-	uniqid = 'bf009'
+	uniqid = 'bf010'
 	return uniqid
 ############################## POST TYPECODE ############################################
 def postTypeCode(postDicLayers):
@@ -204,7 +204,7 @@ def postScenario(postDicLayers,uniqid):
 ############################## END POST Scenario #########################################
 
 ############################## New POST Experiment ########################################
-def newPostExperiment(scenarioDic, currentID, occurrences):
+def newPostExperiment(scenarioDic, currentID, occurrences, args):
 	'''The "postExperiment" function allows you to post a new Lifemapper SDM experiment.'''
 
 	#Set the algorithm to be used niche model(s)
@@ -215,7 +215,7 @@ def newPostExperiment(scenarioDic, currentID, occurrences):
 		prjScns_input.append(value['ScenarioID'])
 
 	expDic = dict()
-	descriptionName = 'Climate layers Used:', args.Climate, 'Spatial layers used:', args.Spatial, 'Environment layers used', args.Environment
+	descriptionName = 'Climate layers Used: '+ str(args.Climate) + 'Spatial layers used: ' + str(args.Spatial) + ' Environment layers used: ' + str(args.Environment)
 	print 'Current ID', scenarioDic[currentID]['ScenarioID']
 	for key, occurrence in occurrences.iteritems():
 		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentID]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, 'CGW Experiment', descriptionName)
@@ -265,7 +265,7 @@ def settingMaxent():
 
 
 ############################## old POST Experiment ########################################
-def oldPostExperiment(scenarioDic, occurrences):
+def oldPostExperiment(scenarioDic, occurrences, args):
 	'''The "postExperiment" function allows you to post a new Lifemapper SDM experiment.'''
 	#Set the algorithm to be used niche model(s)
 	alg = settingMaxent()
@@ -281,7 +281,7 @@ def oldPostExperiment(scenarioDic, occurrences):
 			currentLayerName = keyOfLayerName
 
 	expDic = dict()
-	descriptionName = 'Climate layers Used:', args.Climate, 'Spatial layers used:', args.Spatial, 'Environment layers used', args.Environment
+	descriptionName = 'Climate layers Used: '+ str(args.Climate) + 'Spatial layers used: ' + str(args.Spatial) + ' Environment layers used: ' + str(args.Environment)
 	for key, occurrence in occurrences.iteritems():
 		print prjScns_input
 		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentLayerName]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, 'CGW Experiment', descriptionName)
@@ -753,10 +753,10 @@ def newOrOldFiles():
 		if inputScenario.lower() == 'new':
 			scenarioDic, sceKey = postScenario(layersdictionary, uniqid)
 			del layersdictionary
-			newPostExperiment(scenarioDic, sceKey, occurs)
+			newPostExperiment(scenarioDic, sceKey, occurs, args)
 			whileScenario = False
 		elif inputScenario.lower() == 'past':
-			oldPostExperiment(pickleFileScenario(), occurs)
+			oldPostExperiment(pickleFileScenario(), occurs, args)
 			whileScenario = False
 		else:
 			whileScenario = True
