@@ -1,4 +1,4 @@
-import argparse
+import argparse, sys
 
 def getArgs(parser):
 	parser.add_argument('-c', '--Climate', required=True, help='Use Climate Clim or Agclim')
@@ -10,8 +10,12 @@ def getArgs(parser):
 	parser.add_argument('-cleanlayers', '--CleanUpLayer', required=False, help='Recreate the .masterLayerDictionary ["yes"]')
 	parser.add_argument('-upocc', '--UpdateOccurrences', required=False, help='Create a new "master" or "picklist" dictionary for the occurrences')
 	parser.add_argument('-corlay', '--Correlatedlayers', required=False, help='Remove highly correlated layers ["yes" or "no"]')
+	parser.add_argument('-title', '--Title', required=False, help='Add a title to Post Experiment')
 
 	args = parser.parse_args()
+	if args.Title:
+		args.Title = str(raw_input('Enter a title name for all the post experiments: '))
+
 
 	if args.Climate.lower() != 'clim' and args.Climate.lower() != 'agclim':
 		print args.Climate.lower()
@@ -41,6 +45,7 @@ def getArgs(parser):
 				spatialTest = False
 			else:
 				spatialTest = True
+
 
 	if args.Family:
 		FamilyTest = True

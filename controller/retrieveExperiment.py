@@ -45,12 +45,12 @@ def getExperimentAndProj(experimentDict, path):
 				except:
 					projLifeMapperTime = experiment['statusModTime']
 					tdeltaProj = datetime.datetime.strptime(currentTime, FMT) - datetime.datetime.strptime(projLifeMapperTime, FMT)
-					print '\t\tFAILED cannot download projection:', expProj.scenarioCode.split('-')[1], "->" , expProj.id, '\n\tLapses in time from posted projections onto lifemapper', str(tdeltaProj)
+					print '\t\tFAILED cannot download projection:', expProj.scenarioCode.split('-')[1], "->" , expProj.id, '\n\tLAPSES in time from posted projections to lifemapper ->', str(tdeltaProj)
 
 		except:
 			ExpLifemapperTime = experiment['createTime']
 			tdeltaExp = datetime.datetime.strptime(currentTime, FMT) - datetime.datetime.strptime(ExpLifemapperTime, FMT)
-			print '\tFAILED cannot download experiment:', key, "->", experiment['id'],'\n\tLapses in time from posted experiment onto lifemapper', str(tdeltaExp)
+			print '\tFAILED cannot download experiment:', key, "->", experiment['id'],'\n\tLAPSES in time from posted experiment to lifemapper ->', str(tdeltaExp)
 			pass
 		count += 1
 

@@ -203,23 +203,23 @@ def postScenario(postDicLayers,uniqid):
 	print '#############################################################################################\n'
 ############################## END POST Scenario #########################################
 
-############################## New POST Experiment ########################################
+############################# New POST Experiment ########################################
 def newPostExperiment(scenarioDic, currentID, occurrences, args):
 	'''The "postExperiment" function allows you to post a new Lifemapper SDM experiment.'''
 
 	#Set the algorithm to be used niche model(s)
 	alg = settingMaxent()
-
+	expTitle = str(args.Title)
+	descriptionName = 'Climate layers Used: '+ str(args.Climate) + ' Spatial layers used: ' + str(args.Spatial) + ' Environment layers used: ' + str(args.Environment)
 	prjScns_input = []
 	for key, value in scenarioDic.iteritems():
 		prjScns_input.append(value['ScenarioID'])
 
 	expDic = dict()
 	
-	descriptionName = 'Climate layers Used: '+ str(args.Climate) + 'Spatial layers used: ' + str(args.Spatial) + ' Environment layers used: ' + str(args.Environment)
 	print 'Current ID', scenarioDic[currentID]['ScenarioID']
 	for key, occurrence in occurrences.iteritems():
-		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentID]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, 'CGW Experiment', descriptionName)
+		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentID]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, expTitle, descriptionName)
 		exp = cl.sdm.postExperiment(algorithm=alg,
 									mdlScn=scenarioDic[currentID]['ScenarioID'],
 									occSetId=occurrence['occurrenceID'],
@@ -253,7 +253,7 @@ def newPostExperiment(scenarioDic, currentID, occurrences, args):
 	print '\n*********ATT_MAXENT setting**********\n'
 	for i in alg.parameters:
 		print i.__dict__
-############################## new END POST Experiment ####################################
+############################# new END POST Experiment ####################################
 
 def settingMaxent():
 	alg = cl.sdm.getAlgorithmFromCode('ATT_MAXENT')
@@ -282,10 +282,11 @@ def oldPostExperiment(scenarioDic, occurrences, args):
 			currentLayerName = keyOfLayerName
 
 	expDic = dict()
-	descriptionName = 'Climate layers Used: '+ str(args.Climate) + 'Spatial layers used: ' + str(args.Spatial) + ' Environment layers used: ' + str(args.Environment)
+	descriptionName = 'Climate layers Used: '+ str(args.Climate) + ' Spatial layers used: ' + str(args.Spatial) + ' Environment layers used: ' + str(args.Environment)
+	expTitle = str(args.Title)
 	for key, occurrence in occurrences.iteritems():
 		print prjScns_input
-		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentLayerName]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, 'CGW Experiment', descriptionName)
+		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentLayerName]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, expTitle, descriptionName)
 		exp = cl.sdm.postExperiment(algorithm=alg,
 									mdlScn=scenarioDic[currentLayerName]['ScenarioID'],
 									occSetId=occurrence['occurrenceID'],
