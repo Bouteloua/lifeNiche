@@ -1,0 +1,163 @@
+20 Mar 2015 13:04 DEBUG    Job start time: 2015-03-20 13:04:16.042186
+20 Mar 2015 13:04 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:04 DEBUG    Job Id: 11044446
+20 Mar 2015 13:04 DEBUG    User Id: cgwillis
+20 Mar 2015 13:04 DEBUG    Parent URL: http://lifemapper.org/services/sdm/experiments/1400229
+20 Mar 2015 13:04 DEBUG    Object URL: http://lifemapper.org/services/sdm/experiments/1400229
+20 Mar 2015 13:04 DEBUG    Institution: University of Kansas Biodiversity Institute
+20 Mar 2015 13:04 DEBUG    Admin: CJ Grady
+20 Mar 2015 13:04 DEBUG    Admin Email: cjgrady@ku.edu
+20 Mar 2015 13:04 DEBUG    Local Machine ID: acf.ku.edu
+20 Mar 2015 13:04 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:04 DEBUG    Process Id: 28851
+20 Mar 2015 13:04 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:04 DEBUG    MaxEnt Version: 3.3.3k
+20 Mar 2015 13:04 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:04 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:04 DEBUG    Machine Name: n051
+20 Mar 2015 13:04 DEBUG    Machine IP: 10.123.130.51
+20 Mar 2015 13:04 DEBUG    Architecture: x86_64
+20 Mar 2015 13:04 DEBUG    OS: Linux
+20 Mar 2015 13:04 DEBUG    Total Memory: 16393036 kB
+20 Mar 2015 13:04 DEBUG    CPU Info: 0 - Quad-Core AMD Opteron(tm) Processor 2378
+1 - Quad-Core AMD Opteron(tm) Processor 2378
+2 - Quad-Core AMD Opteron(tm) Processor 2378
+3 - Quad-Core AMD Opteron(tm) Processor 2378
+4 - Quad-Core AMD Opteron(tm) Processor 2378
+5 - Quad-Core AMD Opteron(tm) Processor 2378
+6 - Quad-Core AMD Opteron(tm) Processor 2378
+7 - Quad-Core AMD Opteron(tm) Processor 2378
+20 Mar 2015 13:04 DEBUG    Python Version: 2.7.3
+20 Mar 2015 13:04 DEBUG    Linux Version: Red Hat Enterprise Linux Server 6.4 Santiago
+20 Mar 2015 13:04 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:04 DEBUG    Acquiring inputs...
+20 Mar 2015 13:04 DEBUG    Inputs acquired...
+20 Mar 2015 13:04 DEBUG    [Errno 2] No such file or directory: '/scratch/cjgrady/lm/jobs/job-110-11044446/Eranthemum_pulchellum.lambdas'
+20 Mar 2015 13:28 DEBUG    Job start time: 2015-03-20 13:28:59.822225
+20 Mar 2015 13:28 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:28 DEBUG    Job Id: 11044446
+20 Mar 2015 13:28 DEBUG    User Id: cgwillis
+20 Mar 2015 13:28 DEBUG    Parent URL: http://lifemapper.org/services/sdm/experiments/1400229
+20 Mar 2015 13:28 DEBUG    Object URL: http://lifemapper.org/services/sdm/experiments/1400229
+20 Mar 2015 13:28 DEBUG    Institution: University of Kansas Biodiversity Institute
+20 Mar 2015 13:28 DEBUG    Admin: CJ Grady
+20 Mar 2015 13:28 DEBUG    Admin Email: cjgrady@ku.edu
+20 Mar 2015 13:28 DEBUG    Local Machine ID: acf.ku.edu
+20 Mar 2015 13:28 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:28 DEBUG    Process Id: 1673
+20 Mar 2015 13:28 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:28 DEBUG    MaxEnt Version: 3.3.3k
+20 Mar 2015 13:28 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:28 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:28 DEBUG    Machine Name: n060
+20 Mar 2015 13:28 DEBUG    Machine IP: 10.123.130.60
+20 Mar 2015 13:28 DEBUG    Architecture: x86_64
+20 Mar 2015 13:28 DEBUG    OS: Linux
+20 Mar 2015 13:28 DEBUG    Total Memory: 16393036 kB
+20 Mar 2015 13:28 DEBUG    CPU Info: 0 - Quad-Core AMD Opteron(tm) Processor 2378
+1 - Quad-Core AMD Opteron(tm) Processor 2378
+2 - Quad-Core AMD Opteron(tm) Processor 2378
+3 - Quad-Core AMD Opteron(tm) Processor 2378
+4 - Quad-Core AMD Opteron(tm) Processor 2378
+5 - Quad-Core AMD Opteron(tm) Processor 2378
+6 - Quad-Core AMD Opteron(tm) Processor 2378
+7 - Quad-Core AMD Opteron(tm) Processor 2378
+20 Mar 2015 13:28 DEBUG    Python Version: 2.7.3
+20 Mar 2015 13:28 DEBUG    Linux Version: Red Hat Enterprise Linux Server 6.4 Santiago
+20 Mar 2015 13:28 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:28 DEBUG    Acquiring inputs...
+20 Mar 2015 13:28 DEBUG    Inputs acquired...
+20 Mar 2015 13:29 DEBUG    [Errno 2] No such file or directory: '/scratch/cjgrady/lm/jobs/job-110-11044446/Eranthemum_pulchellum.lambdas'
+20 Mar 2015 13:43 DEBUG    Job start time: 2015-03-20 13:43:59.326702
+20 Mar 2015 13:43 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:43 DEBUG    Job Id: 11044446
+20 Mar 2015 13:43 DEBUG    User Id: cgwillis
+20 Mar 2015 13:43 DEBUG    Parent URL: http://lifemapper.org/services/sdm/experiments/1400229
+20 Mar 2015 13:43 DEBUG    Object URL: http://lifemapper.org/services/sdm/experiments/1400229
+20 Mar 2015 13:43 DEBUG    Institution: University of Kansas Biodiversity Institute
+20 Mar 2015 13:43 DEBUG    Admin: CJ Grady
+20 Mar 2015 13:43 DEBUG    Admin Email: cjgrady@ku.edu
+20 Mar 2015 13:43 DEBUG    Local Machine ID: acf.ku.edu
+20 Mar 2015 13:43 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:43 DEBUG    Process Id: 44916
+20 Mar 2015 13:43 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:43 DEBUG    MaxEnt Version: 3.3.3k
+20 Mar 2015 13:43 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:43 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:43 DEBUG    Machine Name: n385
+20 Mar 2015 13:43 DEBUG    Machine IP: 10.123.131.131
+20 Mar 2015 13:43 DEBUG    Architecture: x86_64
+20 Mar 2015 13:43 DEBUG    OS: Linux
+20 Mar 2015 13:43 DEBUG    Total Memory: 132064808 kB
+20 Mar 2015 13:43 DEBUG    CPU Info: 0 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+1 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+2 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+3 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+4 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+5 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+6 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+7 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+8 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+9 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+10 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+11 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+12 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+13 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+14 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+15 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+16 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+17 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+18 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+19 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+20 Mar 2015 13:43 DEBUG    Python Version: 2.7.3
+20 Mar 2015 13:43 DEBUG    Linux Version: Red Hat Enterprise Linux Server 6.4 Santiago
+20 Mar 2015 13:43 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:43 DEBUG    Acquiring inputs...
+20 Mar 2015 13:43 DEBUG    Inputs acquired...
+20 Mar 2015 13:44 DEBUG    [Errno 2] No such file or directory: '/scratch/cjgrady/lm/jobs/job-110-11044446/Eranthemum_pulchellum.lambdas'
+20 Mar 2015 13:59 DEBUG    Job start time: 2015-03-20 13:59:24.618645
+20 Mar 2015 13:59 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:59 DEBUG    Job Id: 11044446
+20 Mar 2015 13:59 DEBUG    User Id: cgwillis
+20 Mar 2015 13:59 DEBUG    Parent URL: http://lifemapper.org/services/sdm/experiments/1400229
+20 Mar 2015 13:59 DEBUG    Object URL: http://lifemapper.org/services/sdm/experiments/1400229
+20 Mar 2015 13:59 DEBUG    Institution: University of Kansas Biodiversity Institute
+20 Mar 2015 13:59 DEBUG    Admin: CJ Grady
+20 Mar 2015 13:59 DEBUG    Admin Email: cjgrady@ku.edu
+20 Mar 2015 13:59 DEBUG    Local Machine ID: acf.ku.edu
+20 Mar 2015 13:59 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:59 DEBUG    Process Id: 92128
+20 Mar 2015 13:59 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:59 DEBUG    MaxEnt Version: 3.3.3k
+20 Mar 2015 13:59 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:59 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:59 DEBUG    Machine Name: n377
+20 Mar 2015 13:59 DEBUG    Machine IP: 10.123.131.123
+20 Mar 2015 13:59 DEBUG    Architecture: x86_64
+20 Mar 2015 13:59 DEBUG    OS: Linux
+20 Mar 2015 13:59 DEBUG    Total Memory: 132064808 kB
+20 Mar 2015 13:59 DEBUG    CPU Info: 0 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+1 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+2 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+3 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+4 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+5 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+6 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+7 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+8 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+9 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+10 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+11 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+12 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+13 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+14 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+15 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+16 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+17 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+18 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+19 - Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+20 Mar 2015 13:59 DEBUG    Python Version: 2.7.3
+20 Mar 2015 13:59 DEBUG    Linux Version: Red Hat Enterprise Linux Server 6.4 Santiago
+20 Mar 2015 13:59 DEBUG    -------------------------------------------------------
+20 Mar 2015 13:59 DEBUG    Acquiring inputs...
+20 Mar 2015 13:59 DEBUG    Inputs acquired...

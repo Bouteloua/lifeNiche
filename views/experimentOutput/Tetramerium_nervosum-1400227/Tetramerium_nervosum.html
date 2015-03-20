@@ -1,0 +1,45 @@
+<title>Maxent model for Tetramerium_nervosum</title>
+<CENTER><H1>Maxent model for Tetramerium_nervosum</H1></CENTER>
+<br> This page contains some analysis of the Maxent model for Tetramerium_nervosum, created Fri Mar 20 14:11:01 CDT 2015 using Maxent version 3.3.3k.  If you would like to do further analyses, the raw data used here is linked to at the end of this page.<br>
+<br><HR><H2>Analysis of omission/commission</H2>
+The following picture shows the omission rate and predicted area as a function of the cumulative threshold.  The omission rate is is calculated both on the training presence records, and (if test data are used) on the test records.  The omission rate should be close to the predicted omission, because of the definition of the cumulative threshold.
+<br><img src="plots/Tetramerium_nervosum_omission.png"><br>
+<br> The next picture is the receiver operating characteristic (ROC) curve for the same data.  Note that the specificity is defined using predicted area, rather than true commission (see the paper by Phillips, Anderson and Schapire cited on the help page for discussion of what this means).  This implies that the maximum achievable AUC is less than 1.  If test data is drawn from the Maxent distribution itself, then the maximum possible test AUC would be 0.967 rather than 1; in practice the test AUC may exceed this bound.
+<br><img src="plots/Tetramerium_nervosum_roc.png"><br>
+<br>
+<br>
+Some common thresholds and corresponding omission rates are as follows.  If test data are available, binomial probabilities are calculated exactly if the number of test samples is at most 25, otherwise using a normal approximation to the binomial.  These are 1-sided p-values for the null hypothesis that test points are predicted no better than by a random prediction with the same fractional predicted area.  The "Balance" threshold minimizes 6 * training omission rate + .04 * cumulative threshold + 1.6 * fractional predicted area.<br>
+<br><table border cols=4 cellpadding=3><tr><th>Cumulative threshold</th><th>Logistic threshold</th><th>Description</th><th>Fractional predicted area</th><th>Training omission rate</th><tr align=center><td>1.000</td><td>0.035</td><td>Fixed cumulative value 1</td><td>0.106</td><td>0.002</td><tr align=center><td>5.000</td><td>0.200</td><td>Fixed cumulative value 5</td><td>0.079</td><td>0.023</td><tr align=center><td>10.000</td><td>0.302</td><td>Fixed cumulative value 10</td><td>0.067</td><td>0.055</td><tr align=center><td>0.744</td><td>0.021</td><td>Minimum training presence</td><td>0.114</td><td>0.000</td><tr align=center><td>15.353</td><td>0.380</td><td>10 percentile training presence</td><td>0.058</td><td>0.099</td><tr align=center><td>11.243</td><td>0.329</td><td>Equal training sensitivity and specificity</td><td>0.064</td><td>0.064</td><tr align=center><td>2.972</td><td>0.142</td><td>Maximum training sensitivity plus specificity</td><td>0.087</td><td>0.005</td><tr align=center><td>0.744</td><td>0.021</td><td>Balance training omission, predicted area and threshold value</td><td>0.114</td><td>0.000</td><tr align=center><td>3.677</td><td>0.163</td><td>Equate entropy of thresholded and original distributions</td><td>0.084</td><td>0.014</td></table><br>
+<br><HR><H2>Pictures of the model</H2>
+This is a representation of the Maxent model for Tetramerium_nervosum.  Warmer colors show areas with better predicted conditions.  White dots show the presence locations used for training, while violet dots show test locations.  Click on the image for a full-size version.<br>
+<br><a href = "plots/Tetramerium_nervosum.png"> <img src="plots/Tetramerium_nervosum.png" width=600></a><br>
+<br>(A link to the Explain tool was not made for this model.  The model uses product features, while the Explain tool can only be used for additive models.)<br><br>
+<br><HR><H2>Analysis of variable contributions</H2><br>
+The following table gives estimates of relative contributions of the environmental variables to the Maxent model.  To determine the first estimate, in each iteration of the training algorithm, the increase in regularized gain is added to the contribution of the corresponding variable, or subtracted from it if the change to the absolute value of lambda is negative.  For the second estimate, for each environmental variable in turn, the values of that variable on training presence and background data are randomly permuted.  The model is reevaluated on the permuted data, and the resulting drop in training AUC is shown in the table, normalized to percentages.  As with the variable jackknife, variable contributions should be interpreted with caution when the predictor variables are correlated.<br>
+<br><table border cols=3><tr><th>Variable</th><th>Percent contribution</th><th>Permutation importance</th><tr align=right><td>layer10</td><td>47.6</td><td>24.8</td></tr><tr align=right><td>layer4</td><td>28.2</td><td>28.7</td></tr><tr align=right><td>layer9</td><td>10.2</td><td>9.4</td></tr><tr align=right><td>layer12</td><td>4.1</td><td>2.1</td></tr><tr align=right><td>layer5</td><td>2.5</td><td>6.8</td></tr><tr align=right><td>layer15</td><td>2</td><td>2.2</td></tr><tr align=right><td>layer13</td><td>1.6</td><td>7.9</td></tr><tr align=right><td>layer3</td><td>0.9</td><td>2.7</td></tr><tr align=right><td>layer2</td><td>0.9</td><td>3.4</td></tr><tr align=right><td>layer16</td><td>0.7</td><td>0.4</td></tr><tr align=right><td>layer14</td><td>0.4</td><td>5.1</td></tr><tr align=right><td>layer11</td><td>0.3</td><td>2.3</td></tr><tr align=right><td>layer7</td><td>0.2</td><td>1.4</td></tr><tr align=right><td>layer1</td><td>0.2</td><td>0.6</td></tr><tr align=right><td>layer6</td><td>0.1</td><td>0.6</td></tr><tr align=right><td>layer0</td><td>0.1</td><td>0.1</td></tr><tr align=right><td>layer8</td><td>0</td><td>1.4</td></tr><tr align=right><td>mask</td><td>0</td><td>0.2</td></tr></table><br><br>
+<br><HR><H2>Raw data outputs and control parameters</H2><br>
+The data used in the above analysis is contained in the next links.  Please see the Help button for more information on these.<br>
+<a href = "Tetramerium_nervosum.asc">The model applied to the training environmental layers</a><br>
+<a href = "Tetramerium_nervosum.lambdas">The coefficients of the model</a><br>
+<a href = "Tetramerium_nervosum_omission.csv">The omission and predicted area for varying cumulative and raw thresholds</a><br>
+<a href = "Tetramerium_nervosum_samplePredictions.csv">The prediction strength at the training and (optionally) test presence sites</a><br>
+<a href = "maxentResults.csv">Results for all species modeled in the same Maxent run, with summary statistics and (optionally) jackknife results</a><br>
+<br><br>
+Regularized training gain is 2.491, training AUC is 0.971, unregularized training gain is 2.595.<br>
+Algorithm terminated after 500 iterations (16 seconds).<br>
+<br>
+The follow settings were used during the run:<br>
+435 presence records used for training.<br>
+10435 points used to determine the Maxent distribution (background points and presence points).<br>
+Environmental layers used (all continuous): layer0 layer1 layer10 layer11 layer12 layer13 layer14 layer15 layer16 layer2 layer3 layer4 layer5 layer6 layer7 layer8 layer9 mask<br>
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500<br>
+Feature types used: product linear quadratic hinge threshold<br>
+outputdirectory: /scratch/cjgrady/lm/jobs/job-110-11044414<br>
+samplesfile: /scratch/cjgrady/lm/jobs/job-110-11044414/samples.csv<br>
+environmentallayers: /scratch/cjgrady/lm/jobs/job-110-11044414/layers<br>
+warnings: false<br>
+autorun: true<br>
+visible: false<br>
+Command line used:  -s /scratch/cjgrady/lm/jobs/job-110-11044414/samples.csv -e /scratch/cjgrady/lm/jobs/job-110-11044414/layers -o /scratch/cjgrady/lm/jobs/job-110-11044414 --responsecurves=false --jackknife=true --threshold=false --maximumiterations=500 --outputformat=raw --convergencethreshold=1e-05 nowarnings autorun -z<br>
+<br>
+Command line to repeat this species model: java density.MaxEnt nowarnings noprefixes -E "" -E Tetramerium_nervosum outputdirectory=/scratch/cjgrady/lm/jobs/job-110-11044414 samplesfile=/scratch/cjgrady/lm/jobs/job-110-11044414/samples.csv environmentallayers=/scratch/cjgrady/lm/jobs/job-110-11044414/layers nowarnings autorun novisible<br>

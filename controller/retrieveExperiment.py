@@ -39,7 +39,6 @@ def getExperimentAndProj(experimentDict, path):
 			expProjs = cl.sdm.getExperiment(experiment['id'])
 			for expProj in expProjs.projections:
 				print '\tDownloading projections...', expProj.scenarioCode.split('-')[1], '->', expProj.id
-				continue
 				try:
 					cl.sdm.getProjectionTiff(expProj.id, filename=projPath + expProj.speciesName +'-'+  expProj.id +'-'+ expProj.scenarioCode +'.tif')
 				except:

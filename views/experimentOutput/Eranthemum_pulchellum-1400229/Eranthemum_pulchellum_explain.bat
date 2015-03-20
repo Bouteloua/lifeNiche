@@ -1,0 +1,1 @@
+java -mx4551m -cp "/panfs/pfs.acf.ku.edu/cluster/6.2/lifemapper/bin/maxent.jar:/tools/cluster/6.2/lifemapper/bin/maxent.jar" density.Explain -l /scratch/cjgrady/lm/jobs/job-110-11044446/Eranthemum_pulchellum.lambdas /scratch/cjgrady/lm/jobs/job-110-11044446/Eranthemum_pulchellum.asc /scratch/cjgrady/lm/jobs/job-110-11044446/layers

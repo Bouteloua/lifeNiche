@@ -1,0 +1,10 @@
+algorithm: MAXENT
+ip address: 10.123.131.123
+processType: 110
+elapsed time: 0:23:03.987822
+numPoints: 2
+start time: 2015-03-20 13:59:24.618645
+jobId: 11044446
+uname: n377
+end time: 2015-03-20 14:22:28.606467
+machine id: acf.ku.edu
