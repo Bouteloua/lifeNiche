@@ -210,7 +210,7 @@ def newPostExperiment(scenarioDic, currentID, occurrences, args):
 	#Set the algorithm to be used niche model(s)
 	alg = settingMaxent()
 	expTitle = str(args.Title)
-	descriptionName = 'Climate layers Used: '+ str(args.Climate) + ' Spatial layers used: ' + str(args.Spatial) + ' Environment layers used: ' + str(args.Environment)
+	descriptionName = 'Climate layers: '+ str(args.Climate) + ' Spatial layers: ' + str(args.Spatial) + ' Environment layers: ' + str(args.Environment)
 	prjScns_input = []
 	for key, value in scenarioDic.iteritems():
 		prjScns_input.append(value['ScenarioID'])
@@ -282,7 +282,7 @@ def oldPostExperiment(scenarioDic, occurrences, args):
 			currentLayerName = keyOfLayerName
 
 	expDic = dict()
-	descriptionName = 'Climate layers Used: '+ str(args.Climate) + ' Spatial layers used: ' + str(args.Spatial) + ' Environment layers used: ' + str(args.Environment)
+	descriptionName = 'Climate layers: '+ str(args.Climate) + ' Spatial layers: ' + str(args.Spatial) + ' Environment layers: ' + str(args.Environment)
 	expTitle = str(args.Title)
 	for key, occurrence in occurrences.iteritems():
 		print prjScns_input
