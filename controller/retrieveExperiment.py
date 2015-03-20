@@ -43,14 +43,13 @@ def getExperimentAndProj(experimentDict, path):
 
 		except:
 			print '\tFAILED cannot download experiment:', key, "->", experiment['id']
-			count += 1
 			pass
 		count += 1
 
 
 def loadExperiments():
 	'''Load the pickle file of scenario'''
-	with open('../views/pastPickleDictionaries/experimentDictionary.pickle') as f:
+	with open('../views/pastPickleDictionaries/experimentDictionary_2015-03.pickle') as f:
 		expDic = cPickle.load(f)
 	return expDic
 
