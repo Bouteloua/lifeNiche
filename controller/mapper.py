@@ -215,6 +215,7 @@ def newPostExperiment(scenarioDic, currentID, occurrences, args):
 		prjScns_input.append(value['ScenarioID'])
 
 	expDic = dict()
+	
 	descriptionName = 'Climate layers Used: '+ str(args.Climate) + 'Spatial layers used: ' + str(args.Spatial) + ' Environment layers used: ' + str(args.Environment)
 	print 'Current ID', scenarioDic[currentID]['ScenarioID']
 	for key, occurrence in occurrences.iteritems():

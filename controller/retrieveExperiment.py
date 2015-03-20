@@ -1,7 +1,8 @@
-import cPickle
+import cPickle, datetime
 import sys, os, glob
 from lifemapper.lmClientLib import LMClient
 from password import *
+
 
 def main():
 	global cl
@@ -19,6 +20,9 @@ def getExperimentAndProj(experimentDict, path):
 	count = 1
 	for key, experiment in experimentDict.iteritems():
 		experimentID = experiment['id']
+		currentTime = datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S')
+		FMT = '%Y-%m-%d %H:%M:%S'
+
 		try:
 			experimentPath = path + key +'-'+ experimentID + '.zip'
 			print 'Downloading', count, 'out of', lenPastExperiments, 'experiments:', key, '->', experiment['id']
@@ -39,10 +43,14 @@ def getExperimentAndProj(experimentDict, path):
 				try:
 					cl.sdm.getProjectionTiff(expProj.id, filename=projPath + expProj.speciesName +'-'+  expProj.id +'-'+ expProj.scenarioCode +'.tif')
 				except:
-					print '\t\tFAILED cannot download projection:', expProj.scenarioCode.split('-')[1], "->" , expProj.id
+					projLifeMapperTime = experiment['statusModTime']
+					tdeltaProj = datetime.datetime.strptime(currentTime, FMT) - datetime.datetime.strptime(projLifeMapperTime, FMT)
+					print '\t\tFAILED cannot download projection:', expProj.scenarioCode.split('-')[1], "->" , expProj.id, '\n\tLapses in time from posted projections onto lifemapper', str(tdeltaProj)
 
 		except:
-			print '\tFAILED cannot download experiment:', key, "->", experiment['id']
+			ExpLifemapperTime = experiment['createTime']
+			tdeltaExp = datetime.datetime.strptime(currentTime, FMT) - datetime.datetime.strptime(ExpLifemapperTime, FMT)
+			print '\tFAILED cannot download experiment:', key, "->", experiment['id'],'\n\tLapses in time from posted experiment onto lifemapper', str(tdeltaExp)
 			pass
 		count += 1
 

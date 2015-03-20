@@ -1,83 +1,4636 @@
 (dp1
-S'Bupleurum_odontites'
+S'Tetramerium_nervosum'
 p2
 (dp3
-S'metadataUrl'
+S'prjScns'
 p4
-S'http://lifemapper.org/services/sdm/experiments/1400215'
-p5
-sS'speciesName'
+(lp5
+S'1418'
 p6
+aS'1417'
+p7
+aS'1424'
+p8
+aS'1419'
+p9
+aS'1416'
+p10
+aS'1425'
+p11
+aS'1420'
+p12
+aS'1422'
+p13
+aS'1415'
+p14
+aS'1423'
+p15
+aS'1414'
+p16
+aS'1426'
+p17
+aS'1412'
+p18
+aS'1413'
+p19
+aS'1421'
+p20
+asS'metadataUrl'
+p21
+S'http://lifemapper.org/services/sdm/experiments/1400227'
+p22
+sS'speciesName'
+p23
 g2
 sS'description'
-p7
-S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
-p8
-sS'statusModTime'
-p9
-S'2015-03-19 11:56:40'
-p10
-sS'bbox'
-p11
-S'(-179.0, 14.5, -45.0, 83.5)'
-p12
-sS'id'
-p13
-S'1400215'
-p14
-sS'modTime'
-p15
-S'2015-03-19 11:56:40'
-p16
-sS'created_at'
-p17
-S'2015-03-19 18:00:57'
-p18
-sS'createTime'
-p19
-S'2015-03-19 11:56:40'
-p20
-sS'epsgcode'
-p21
-S'4326'
-p22
-sS'user'
-p23
-S'cgwillis'
 p24
-ssS'Eriogonum_alpinum'
-p25
-(dp26
-g4
-S'http://lifemapper.org/services/sdm/experiments/1400216'
-p27
-sg6
-g25
-sg7
 S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p25
+sS'statusModTime'
+p26
+S'2015-03-19 22:07:04'
+p27
+sS'occSetId'
 p28
-sg9
-S'2015-03-19 11:58:39'
+S'5672142'
 p29
-sg11
-S'(-179.0, 14.5, -45.0, 83.5)'
+sS'mdlScn'
 p30
-sg13
-S'1400216'
+g15
+sS'bbox'
 p31
-sg15
-S'2015-03-19 11:58:39'
+S'(-179.0, 14.5, -45.0, 83.5)'
 p32
-sg17
-S'2015-03-19 18:01:07'
+sS'id'
 p33
-sg19
-S'2015-03-19 11:58:39'
+S'1400227'
 p34
-sg21
-S'4326'
+sS'modTime'
 p35
-sg23
-S'cgwillis'
+S'2015-03-19 22:07:04'
 p36
+sS'algorithm'
+p37
+ccopy_reg
+_reconstructor
+p38
+(clifemapper.sdm
+Algorithm
+p39
+c__builtin__
+object
+p40
+NtRp41
+(dp42
+S'code'
+p43
+S'ATT_MAXENT'
+p44
+sS'name'
+p45
+S'Maximum Entropy - ATT Implementation'
+p46
+sS'parameters'
+p47
+(lp48
+g38
+(clifemapper.sdm
+AlgorithmParameter
+p49
+g40
+NtRp50
+(dp51
+g45
+S'adjustsampleradius'
+p52
+sS'min'
+p53
+S'0'
+sS'default'
+p54
+S'0'
+sS'max'
+p55
+NsS'value'
+p56
+S'0'
+sS'type'
+p57
+S'Integer'
+p58
+sbag38
+(g49
+g40
+NtRp59
+(dp60
+g45
+S'appendtoresultsfile'
+p61
+sg53
+S'0'
+sg54
+S'0'
+sg55
+S'1'
+sg56
+S'0'
+sg57
+S'Integer'
+p62
+sbag38
+(g49
+g40
+NtRp63
+(dp64
+g45
+S'autofeature'
+p65
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p66
+sbag38
+(g49
+g40
+NtRp67
+(dp68
+g45
+S'beta_categorical'
+p69
+sg53
+Nsg54
+S'-1.0'
+p70
+sg55
+Nsg56
+g70
+sg57
+S'Float'
+p71
+sbag38
+(g49
+g40
+NtRp72
+(dp73
+g45
+S'beta_hinge'
+p74
+sg53
+Nsg54
+S'-1.0'
+p75
+sg55
+Nsg56
+g75
+sg57
+S'Float'
+p76
+sbag38
+(g49
+g40
+NtRp77
+(dp78
+g45
+S'beta_lqp'
+p79
+sg53
+Nsg54
+S'-1.0'
+p80
+sg55
+Nsg56
+g80
+sg57
+S'Float'
+p81
+sbag38
+(g49
+g40
+NtRp82
+(dp83
+g45
+S'beta_threshold'
+p84
+sg53
+Nsg54
+S'-1.0'
+p85
+sg55
+Nsg56
+g85
+sg57
+S'Float'
+p86
+sbag38
+(g49
+g40
+NtRp87
+(dp88
+g45
+S'betamultiplier'
+p89
+sg53
+S'0'
+sg54
+S'1.0'
+p90
+sg55
+Nsg56
+g90
+sg57
+S'Float'
+p91
+sbag38
+(g49
+g40
+NtRp92
+(dp93
+g45
+S'convergencethreshold'
+p94
+sg53
+S'0'
+sg54
+S'0.00001'
+p95
+sg55
+Nsg56
+g95
+sg57
+S'Float'
+p96
+sbag38
+(g49
+g40
+NtRp97
+(dp98
+g45
+S'defaultprevalence'
+p99
+sg53
+S'0.0'
+p100
+sg54
+S'0.5'
+p101
+sg55
+S'1.0'
+p102
+sg56
+g101
+sg57
+S'Float'
+p103
+sbag38
+(g49
+g40
+NtRp104
+(dp105
+g45
+S'doclamp'
+p106
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p107
+sbag38
+(g49
+g40
+NtRp108
+(dp109
+g45
+S'extrapolate'
+p110
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p111
+sbag38
+(g49
+g40
+NtRp112
+(dp113
+g45
+S'fadebyclamping'
+p114
+sg53
+S'0'
+sg54
+S'0'
+sg55
+S'1'
+sg56
+S'0'
+sg57
+S'Integer'
+p115
+sbag38
+(g49
+g40
+NtRp116
+(dp117
+g45
+S'hinge'
+p118
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p119
+sbag38
+(g49
+g40
+NtRp120
+(dp121
+g45
+S'hingethreshold'
+p122
+sg53
+S'0'
+sg54
+S'15'
+p123
+sg55
+Nsg56
+g123
+sg57
+S'Integer'
+p124
+sbag38
+(g49
+g40
+NtRp125
+(dp126
+g45
+S'jackknife'
+p127
+sg53
+S'0'
+sg54
+S'0'
+sg55
+S'1'
+sg56
+I1
+sg57
+S'Integer'
+p128
+sbag38
+(g49
+g40
+NtRp129
+(dp130
+g45
+S'l2lqthreshold'
+p131
+sg53
+S'0'
+sg54
+S'10'
+p132
+sg55
+Nsg56
+g132
+sg57
+S'Integer'
+p133
+sbag38
+(g49
+g40
+NtRp134
+(dp135
+g45
+S'linear'
+p136
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p137
+sbag38
+(g49
+g40
+NtRp138
+(dp139
+g45
+S'logscale'
+p140
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p141
+sbag38
+(g49
+g40
+NtRp142
+(dp143
+g45
+S'lq2lqptthreshold'
+p144
+sg53
+S'0'
+sg54
+S'80'
+p145
+sg55
+Nsg56
+g145
+sg57
+S'Integer'
+p146
+sbag38
+(g49
+g40
+NtRp147
+(dp148
+g45
+S'maximumbackground'
+p149
+sg53
+S'0'
+sg54
+S'10000'
+p150
+sg55
+Nsg56
+g150
+sg57
+S'Integer'
+p151
+sbag38
+(g49
+g40
+NtRp152
+(dp153
+g45
+S'maximumiterations'
+p154
+sg53
+S'0'
+sg54
+S'500'
+p155
+sg55
+Nsg56
+g155
+sg57
+S'Integer'
+p156
+sbag38
+(g49
+g40
+NtRp157
+(dp158
+g45
+S'outputformat'
+p159
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'2'
+sg56
+I0
+sg57
+S'Integer'
+p160
+sbag38
+(g49
+g40
+NtRp161
+(dp162
+g45
+S'outputgrids'
+p163
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p164
+sbag38
+(g49
+g40
+NtRp165
+(dp166
+g45
+S'perspeciesresults'
+p167
+sg53
+S'0'
+sg54
+S'0'
+sg55
+S'1'
+sg56
+S'0'
+sg57
+S'Integer'
+p168
+sbag38
+(g49
+g40
+NtRp169
+(dp170
+g45
+S'pictures'
+p171
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p172
+sbag38
+(g49
+g40
+NtRp173
+(dp174
+g45
+S'plots'
+p175
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p176
+sbag38
+(g49
+g40
+NtRp177
+(dp178
+g45
+S'product'
+p179
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p180
+sbag38
+(g49
+g40
+NtRp181
+(dp182
+g45
+S'quadratic'
+p183
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p184
+sbag38
+(g49
+g40
+NtRp185
+(dp186
+g45
+S'randomseed'
+p187
+sg53
+S'0'
+sg54
+S'0'
+sg55
+S'1'
+sg56
+S'0'
+sg57
+S'Integer'
+p188
+sbag38
+(g49
+g40
+NtRp189
+(dp190
+g45
+S'randomtestpoints'
+p191
+sg53
+S'0'
+sg54
+S'0'
+sg55
+S'100'
+p192
+sg56
+S'0'
+sg57
+S'Integer'
+p193
+sbag38
+(g49
+g40
+NtRp194
+(dp195
+g45
+S'replicates'
+p196
+sg53
+S'1'
+sg54
+S'1'
+sg55
+Nsg56
+S'1'
+sg57
+S'Integer'
+p197
+sbag38
+(g49
+g40
+NtRp198
+(dp199
+g45
+S'replicatetype'
+p200
+sg53
+S'0'
+sg54
+S'0'
+sg55
+S'2'
+sg56
+S'0'
+sg57
+S'Integer'
+p201
+sbag38
+(g49
+g40
+NtRp202
+(dp203
+g45
+S'removeduplicates'
+p204
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+I1
+sg57
+S'Integer'
+p205
+sbag38
+(g49
+g40
+NtRp206
+(dp207
+g45
+S'responsecurves'
+p208
+sg53
+S'0'
+sg54
+S'0'
+sg55
+S'1'
+sg56
+S'0'
+sg57
+S'Integer'
+p209
+sbag38
+(g49
+g40
+NtRp210
+(dp211
+g45
+S'responsecurvesexponent'
+p212
+sg53
+S'0'
+sg54
+S'0'
+sg55
+S'1'
+sg56
+S'0'
+sg57
+S'Integer'
+p213
+sbag38
+(g49
+g40
+NtRp214
+(dp215
+g45
+S'threshold'
+p216
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+I0
+sg57
+S'Integer'
+p217
+sbag38
+(g49
+g40
+NtRp218
+(dp219
+g45
+S'writebackgroundpredictions'
+p220
+sg53
+S'0'
+sg54
+S'0'
+sg55
+S'1'
+sg56
+S'0'
+sg57
+S'Integer'
+p221
+sbag38
+(g49
+g40
+NtRp222
+(dp223
+g45
+S'writeclampgrid'
+p224
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p225
+sbag38
+(g49
+g40
+NtRp226
+(dp227
+g45
+S'writemess'
+p228
+sg53
+S'0'
+sg54
+S'1'
+sg55
+S'1'
+sg56
+S'1'
+sg57
+S'Integer'
+p229
+sbag38
+(g49
+g40
+NtRp230
+(dp231
+g45
+S'writeplotdata'
+p232
+sg53
+S'0'
+sg54
+S'0'
+sg55
+S'1'
+sg56
+S'0'
+sg57
+S'Integer'
+p233
+sbasbsS'epsgcode'
+p234
+S'4326'
+p235
+sS'createTime'
+p236
+S'2015-03-19 22:07:04'
+p237
+sS'created_at'
+p238
+S'2015-03-19 17:52:02'
+p239
+sS'user'
+p240
+S'cgwillis'
+p241
+ssS'Anisacanthus_thurberi'
+p242
+(dp243
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400228'
+p244
+sg23
+g242
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p245
+sg26
+S'2015-03-19 22:06:29'
+p246
+sg28
+S'5675300'
+p247
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p248
+sg33
+S'1400228'
+p249
+sg35
+S'2015-03-19 22:06:29'
+p250
+sg37
+g41
+sg234
+S'4326'
+p251
+sg236
+S'2015-03-19 22:06:29'
+p252
+sg238
+S'2015-03-19 17:52:14'
+p253
+sg240
+S'cgwillis'
+p254
+ssS'Eranthemum_pulchellum'
+p255
+(dp256
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400229'
+p257
+sg23
+g255
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p258
+sg26
+S'2015-03-19 22:08:17'
+p259
+sg28
+S'5670543'
+p260
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p261
+sg33
+S'1400229'
+p262
+sg35
+S'2015-03-19 22:08:17'
+p263
+sg37
+g41
+sg234
+S'4326'
+p264
+sg236
+S'2015-03-19 22:08:17'
+p265
+sg238
+S'2015-03-19 17:52:23'
+p266
+sg240
+S'cgwillis'
+p267
+ssS'Ruellia_pedunculata'
+p268
+(dp269
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400230'
+p270
+sg23
+g268
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p271
+sg26
+S'2015-03-19 22:06:05'
+p272
+sg28
+S'5674561'
+p273
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p274
+sg33
+S'1400230'
+p275
+sg35
+S'2015-03-19 22:06:05'
+p276
+sg37
+g41
+sg234
+S'4326'
+p277
+sg236
+S'2015-03-19 22:06:05'
+p278
+sg238
+S'2015-03-19 17:52:32'
+p279
+sg240
+S'cgwillis'
+p280
+ssS'Elytraria_caroliniensis'
+p281
+(dp282
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400231'
+p283
+sg23
+g281
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p284
+sg26
+S'2015-03-19 22:07:00'
+p285
+sg28
+S'5676185'
+p286
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p287
+sg33
+S'1400231'
+p288
+sg35
+S'2015-03-19 22:07:00'
+p289
+sg37
+g41
+sg234
+S'4326'
+p290
+sg236
+S'2015-03-19 22:07:00'
+p291
+sg238
+S'2015-03-19 17:52:42'
+p292
+sg240
+S'cgwillis'
+p293
+ssS'Ruellia_simplex'
+p294
+(dp295
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400232'
+p296
+sg23
+g294
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p297
+sg26
+S'2015-03-19 22:05:56'
+p298
+sg28
+S'5679783'
+p299
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p300
+sg33
+S'1400232'
+p301
+sg35
+S'2015-03-19 22:05:56'
+p302
+sg37
+g41
+sg234
+S'4326'
+p303
+sg236
+S'2015-03-19 22:05:56'
+p304
+sg238
+S'2015-03-19 17:52:51'
+p305
+sg240
+S'cgwillis'
+p306
+ssS'Carlowrightia_texana'
+p307
+(dp308
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400233'
+p309
+sg23
+g307
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p310
+sg26
+S'2015-03-19 22:06:55'
+p311
+sg28
+S'5677467'
+p312
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p313
+sg33
+S'1400233'
+p314
+sg35
+S'2015-03-19 22:06:55'
+p315
+sg37
+g41
+sg234
+S'4326'
+p316
+sg236
+S'2015-03-19 22:06:55'
+p317
+sg238
+S'2015-03-19 17:53:01'
+p318
+sg240
+S'cgwillis'
+p319
+ssS'Avicennia_germinans'
+p320
+(dp321
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400235'
+p322
+sg23
+g320
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p323
+sg26
+S'2015-03-19 22:04:08'
+p324
+sg28
+S'5669851'
+p325
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p326
+sg33
+S'1400235'
+p327
+sg35
+S'2015-03-19 22:04:08'
+p328
+sg37
+g41
+sg234
+S'4326'
+p329
+sg236
+S'2015-03-19 22:04:08'
+p330
+sg238
+S'2015-03-19 17:53:11'
+p331
+sg240
+S'cgwillis'
+p332
+ssS'Anisacanthus_puberulus'
+p333
+(dp334
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400236'
+p335
+sg23
+g333
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p336
+sg26
+S'2015-03-19 22:07:17'
+p337
+sg28
+S'5679927'
+p338
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p339
+sg33
+S'1400236'
+p340
+sg35
+S'2015-03-19 22:07:17'
+p341
+sg37
+g41
+sg234
+S'4326'
+p342
+sg236
+S'2015-03-19 22:07:17'
+p343
+sg238
+S'2015-03-19 17:53:23'
+p344
+sg240
+S'cgwillis'
+p345
+ssS'Justicia_sonorae'
+p346
+(dp347
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400237'
+p348
+sg23
+g346
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p349
+sg26
+S'2015-03-19 22:04:08'
+p350
+sg28
+S'5669509'
+p351
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p352
+sg33
+S'1400237'
+p353
+sg35
+S'2015-03-19 22:04:08'
+p354
+sg37
+g41
+sg234
+S'4326'
+p355
+sg236
+S'2015-03-19 22:04:08'
+p356
+sg238
+S'2015-03-19 17:53:33'
+p357
+sg240
+S'cgwillis'
+p358
+ssS'Dicliptera_brachiata'
+p359
+(dp360
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400238'
+p361
+sg23
+g359
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p362
+sg26
+S'2015-03-19 22:07:16'
+p363
+sg28
+S'5668248'
+p364
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p365
+sg33
+S'1400238'
+p366
+sg35
+S'2015-03-19 22:07:16'
+p367
+sg37
+g41
+sg234
+S'4326'
+p368
+sg236
+S'2015-03-19 22:07:16'
+p369
+sg238
+S'2015-03-19 17:53:43'
+p370
+sg240
+S'cgwillis'
+p371
+ssS'Justicia_crassifolia'
+p372
+(dp373
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400239'
+p374
+sg23
+g372
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p375
+sg26
+S'2015-03-19 22:05:14'
+p376
+sg28
+S'5675982'
+p377
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p378
+sg33
+S'1400239'
+p379
+sg35
+S'2015-03-19 22:05:14'
+p380
+sg37
+g41
+sg234
+S'4326'
+p381
+sg236
+S'2015-03-19 22:05:14'
+p382
+sg238
+S'2015-03-19 17:53:52'
+p383
+sg240
+S'cgwillis'
+p384
+ssS'Ruellia_brevifolia'
+p385
+(dp386
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400312'
+p387
+sg23
+g385
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p388
+sg26
+S'2015-03-19 22:06:29'
+p389
+sg28
+S'5672136'
+p390
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p391
+sg33
+S'1400312'
+p392
+sg35
+S'2015-03-19 22:06:29'
+p393
+sg37
+g41
+sg234
+S'4326'
+p394
+sg236
+S'2015-03-19 22:06:29'
+p395
+sg238
+S'2015-03-19 18:04:55'
+p396
+sg240
+S'cgwillis'
+p397
+ssS'Justicia_candicans'
+p398
+(dp399
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400241'
+p400
+sg23
+g398
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p401
+sg26
+S'2015-03-19 22:04:41'
+p402
+sg28
+S'5671912'
+p403
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p404
+sg33
+S'1400241'
+p405
+sg35
+S'2015-03-19 22:04:41'
+p406
+sg37
+g41
+sg234
+S'4326'
+p407
+sg236
+S'2015-03-19 22:04:41'
+p408
+sg238
+S'2015-03-19 17:54:12'
+p409
+sg240
+S'cgwillis'
+p410
+ssS'Acanthus_mollis'
+p411
+(dp412
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400242'
+p413
+sg23
+g411
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p414
+sg26
+S'2015-03-19 22:03:28'
+p415
+sg28
+S'5680933'
+p416
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p417
+sg33
+S'1400242'
+p418
+sg35
+S'2015-03-19 22:03:28'
+p419
+sg37
+g41
+sg234
+S'4326'
+p420
+sg236
+S'2015-03-19 22:03:28'
+p421
+sg238
+S'2015-03-19 17:54:21'
+p422
+sg240
+S'cgwillis'
+p423
+ssS'Carlowrightia_parviflora'
+p424
+(dp425
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400243'
+p426
+sg23
+g424
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p427
+sg26
+S'2015-03-19 22:07:03'
+p428
+sg28
+S'5679541'
+p429
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p430
+sg33
+S'1400243'
+p431
+sg35
+S'2015-03-19 22:07:03'
+p432
+sg37
+g41
+sg234
+S'4326'
+p433
+sg236
+S'2015-03-19 22:07:03'
+p434
+sg238
+S'2015-03-19 17:54:30'
+p435
+sg240
+S'cgwillis'
+p436
+ssS'Thunbergia_fragrans'
+p437
+(dp438
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400244'
+p439
+sg23
+g437
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p440
+sg26
+S'2015-03-19 22:06:03'
+p441
+sg28
+S'5675341'
+p442
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p443
+sg33
+S'1400244'
+p444
+sg35
+S'2015-03-19 22:06:03'
+p445
+sg37
+g41
+sg234
+S'4326'
+p446
+sg236
+S'2015-03-19 22:06:03'
+p447
+sg238
+S'2015-03-19 17:54:40'
+p448
+sg240
+S'cgwillis'
+p449
+ssS'Justicia_lanceolata'
+p450
+(dp451
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400245'
+p452
+sg23
+g450
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p453
+sg26
+S'2015-03-19 22:06:55'
+p454
+sg28
+S'5674646'
+p455
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p456
+sg33
+S'1400245'
+p457
+sg35
+S'2015-03-19 22:06:55'
+p458
+sg37
+g41
+sg234
+S'4326'
+p459
+sg236
+S'2015-03-19 22:06:55'
+p460
+sg238
+S'2015-03-19 17:54:49'
+p461
+sg240
+S'cgwillis'
+p462
+ssS'Carlowrightia_serpyllifolia'
+p463
+(dp464
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400246'
+p465
+sg23
+g463
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p466
+sg26
+S'2015-03-19 22:04:41'
+p467
+sg28
+S'5680720'
+p468
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p469
+sg33
+S'1400246'
+p470
+sg35
+S'2015-03-19 22:04:41'
+p471
+sg37
+g41
+sg234
+S'4326'
+p472
+sg236
+S'2015-03-19 22:04:41'
+p473
+sg238
+S'2015-03-19 17:54:58'
+p474
+sg240
+S'cgwillis'
+p475
+ssS'Ruellia_strepens'
+p476
+(dp477
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400247'
+p478
+sg23
+g476
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p479
+sg26
+S'2015-03-19 22:06:05'
+p480
+sg28
+S'5678337'
+p481
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p482
+sg33
+S'1400247'
+p483
+sg35
+S'2015-03-19 22:06:05'
+p484
+sg37
+g41
+sg234
+S'4326'
+p485
+sg236
+S'2015-03-19 22:06:05'
+p486
+sg238
+S'2015-03-19 17:55:07'
+p487
+sg240
+S'cgwillis'
+p488
+ssS'Asystasia_gangetica'
+p489
+(dp490
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400248'
+p491
+sg23
+g489
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p492
+sg26
+S'2015-03-19 22:07:00'
+p493
+sg28
+S'5668534'
+p494
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p495
+sg33
+S'1400248'
+p496
+sg35
+S'2015-03-19 22:07:00'
+p497
+sg37
+g41
+sg234
+S'4326'
+p498
+sg236
+S'2015-03-19 22:07:00'
+p499
+sg238
+S'2015-03-19 17:55:16'
+p500
+sg240
+S'cgwillis'
+p501
+ssS'Dicliptera_sexangularis'
+p502
+(dp503
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400249'
+p504
+sg23
+g502
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p505
+sg26
+S'2015-03-19 22:06:55'
+p506
+sg28
+S'5674876'
+p507
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p508
+sg33
+S'1400249'
+p509
+sg35
+S'2015-03-19 22:06:55'
+p510
+sg37
+g41
+sg234
+S'4326'
+p511
+sg236
+S'2015-03-19 22:06:55'
+p512
+sg238
+S'2015-03-19 17:55:25'
+p513
+sg240
+S'cgwillis'
+p514
+ssS'Dyschoriste_schiedeana'
+p515
+(dp516
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400250'
+p517
+sg23
+g515
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p518
+sg26
+S'2015-03-19 22:07:16'
+p519
+sg28
+S'5673243'
+p520
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p521
+sg33
+S'1400250'
+p522
+sg35
+S'2015-03-19 22:07:16'
+p523
+sg37
+g41
+sg234
+S'4326'
+p524
+sg236
+S'2015-03-19 22:07:16'
+p525
+sg238
+S'2015-03-19 17:55:34'
+p526
+sg240
+S'cgwillis'
+p527
+ssS'Elytraria_imbricata'
+p528
+(dp529
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400251'
+p530
+sg23
+g528
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p531
+sg26
+S'2015-03-19 22:13:56'
+p532
+sg28
+S'5678294'
+p533
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p534
+sg33
+S'1400251'
+p535
+sg35
+S'2015-03-19 22:13:56'
+p536
+sg37
+g41
+sg234
+S'4326'
+p537
+sg236
+S'2015-03-19 22:13:56'
+p538
+sg238
+S'2015-03-19 17:55:44'
+p539
+sg240
+S'cgwillis'
+p540
+ssS'Anisacanthus_linearis'
+p541
+(dp542
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400252'
+p543
+sg23
+g541
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p544
+sg26
+S'2015-03-19 22:03:28'
+p545
+sg28
+S'5681189'
+p546
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p547
+sg33
+S'1400252'
+p548
+sg35
+S'2015-03-19 22:03:28'
+p549
+sg37
+g41
+sg234
+S'4326'
+p550
+sg236
+S'2015-03-19 22:03:28'
+p551
+sg238
+S'2015-03-19 17:55:53'
+p552
+sg240
+S'cgwillis'
+p553
+ssS'Thunbergia_grandiflora'
+p554
+(dp555
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400253'
+p556
+sg23
+g554
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p557
+sg26
+S'2015-03-19 22:06:55'
+p558
+sg28
+S'5675367'
+p559
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p560
+sg33
+S'1400253'
+p561
+sg35
+S'2015-03-19 22:06:55'
+p562
+sg37
+g41
+sg234
+S'4326'
+p563
+sg236
+S'2015-03-19 22:06:55'
+p564
+sg238
+S'2015-03-19 17:56:03'
+p565
+sg240
+S'cgwillis'
+p566
+ssS'Yeatesia_viridiflora'
+p567
+(dp568
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400255'
+p569
+sg23
+g567
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p570
+sg26
+S'2015-03-19 22:07:03'
+p571
+sg28
+S'5670470'
+p572
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p573
+sg33
+S'1400255'
+p574
+sg35
+S'2015-03-19 22:07:03'
+p575
+sg37
+g41
+sg234
+S'4326'
+p576
+sg236
+S'2015-03-19 22:07:03'
+p577
+sg238
+S'2015-03-19 17:56:12'
+p578
+sg240
+S'cgwillis'
+p579
+ssS'Yeatesia_platystegia'
+p580
+(dp581
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400256'
+p582
+sg23
+g580
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p583
+sg26
+S'2015-03-19 22:06:29'
+p584
+sg28
+S'5668454'
+p585
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p586
+sg33
+S'1400256'
+p587
+sg35
+S'2015-03-19 22:06:29'
+p588
+sg37
+g41
+sg234
+S'4326'
+p589
+sg236
+S'2015-03-19 22:06:29'
+p590
+sg238
+S'2015-03-19 17:56:22'
+p591
+sg240
+S'cgwillis'
+p592
+ssS'Justicia_americana'
+p593
+(dp594
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400257'
+p595
+sg23
+g593
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p596
+sg26
+S'2015-03-19 22:04:35'
+p597
+sg28
+S'5680078'
+p598
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p599
+sg33
+S'1400257'
+p600
+sg35
+S'2015-03-19 22:04:35'
+p601
+sg37
+g41
+sg234
+S'4326'
+p602
+sg236
+S'2015-03-19 22:04:35'
+p603
+sg238
+S'2015-03-19 17:56:31'
+p604
+sg240
+S'cgwillis'
+p605
+ssS'Carlowrightia_linearifolia'
+p606
+(dp607
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400258'
+p608
+sg23
+g606
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p609
+sg26
+S'2015-03-19 22:07:00'
+p610
+sg28
+S'5672766'
+p611
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p612
+sg33
+S'1400258'
+p613
+sg35
+S'2015-03-19 22:07:00'
+p614
+sg37
+g41
+sg234
+S'4326'
+p615
+sg236
+S'2015-03-19 22:07:00'
+p616
+sg238
+S'2015-03-19 17:56:41'
+p617
+sg240
+S'cgwillis'
+p618
+ssS'Barleria_cristata'
+p619
+(dp620
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400259'
+p621
+sg23
+g619
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p622
+sg26
+S'2015-03-19 22:05:38'
+p623
+sg28
+S'5670362'
+p624
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p625
+sg33
+S'1400259'
+p626
+sg35
+S'2015-03-19 22:05:38'
+p627
+sg37
+g41
+sg234
+S'4326'
+p628
+sg236
+S'2015-03-19 22:05:38'
+p629
+sg238
+S'2015-03-19 17:56:50'
+p630
+sg240
+S'cgwillis'
+p631
+ssS'Ruellia_metziae'
+p632
+(dp633
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400260'
+p634
+sg23
+g632
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p635
+sg26
+S'2015-03-19 22:05:08'
+p636
+sg28
+S'5674712'
+p637
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p638
+sg33
+S'1400260'
+p639
+sg35
+S'2015-03-19 22:05:08'
+p640
+sg37
+g41
+sg234
+S'4326'
+p641
+sg236
+S'2015-03-19 22:05:08'
+p642
+sg238
+S'2015-03-19 17:56:58'
+p643
+sg240
+S'cgwillis'
+p644
+ssS'Anisacanthus_quadrifidus'
+p645
+(dp646
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400261'
+p647
+sg23
+g645
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p648
+sg26
+S'2015-03-19 22:07:08'
+p649
+sg28
+S'5670089'
+p650
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p651
+sg33
+S'1400261'
+p652
+sg35
+S'2015-03-19 22:07:08'
+p653
+sg37
+g41
+sg234
+S'4326'
+p654
+sg236
+S'2015-03-19 22:07:08'
+p655
+sg238
+S'2015-03-19 17:57:09'
+p656
+sg240
+S'cgwillis'
+p657
+ssS'Stenandrium_dulce'
+p658
+(dp659
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400262'
+p660
+sg23
+g658
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p661
+sg26
+S'2015-03-19 22:04:41'
+p662
+sg28
+S'5671460'
+p663
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p664
+sg33
+S'1400262'
+p665
+sg35
+S'2015-03-19 22:04:41'
+p666
+sg37
+g41
+sg234
+S'4326'
+p667
+sg236
+S'2015-03-19 22:04:41'
+p668
+sg238
+S'2015-03-19 17:57:18'
+p669
+sg240
+S'cgwillis'
+p670
+ssS'Hypoestes_phyllostachya'
+p671
+(dp672
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400263'
+p673
+sg23
+g671
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p674
+sg26
+S'2015-03-19 22:06:55'
+p675
+sg28
+S'5676721'
+p676
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p677
+sg33
+S'1400263'
+p678
+sg35
+S'2015-03-19 22:06:55'
+p679
+sg37
+g41
+sg234
+S'4326'
+p680
+sg236
+S'2015-03-19 22:06:55'
+p681
+sg238
+S'2015-03-19 17:57:27'
+p682
+sg240
+S'cgwillis'
+p683
+ssS'Justicia_carnea'
+p684
+(dp685
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400264'
+p686
+sg23
+g684
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p687
+sg26
+S'2015-03-19 22:07:27'
+p688
+sg28
+S'5676275'
+p689
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p690
+sg33
+S'1400264'
+p691
+sg35
+S'2015-03-19 22:07:27'
+p692
+sg37
+g41
+sg234
+S'4326'
+p693
+sg236
+S'2015-03-19 22:07:27'
+p694
+sg238
+S'2015-03-19 17:57:36'
+p695
+sg240
+S'cgwillis'
+p696
+ssS'Hygrophila_corymbosa'
+p697
+(dp698
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400265'
+p699
+sg23
+g697
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p700
+sg26
+S'2015-03-19 22:07:27'
+p701
+sg28
+S'5678997'
+p702
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p703
+sg33
+S'1400265'
+p704
+sg35
+S'2015-03-19 22:07:27'
+p705
+sg37
+g41
+sg234
+S'4326'
+p706
+sg236
+S'2015-03-19 22:07:27'
+p707
+sg238
+S'2015-03-19 17:57:45'
+p708
+sg240
+S'cgwillis'
+p709
+ssS'Ruellia_corzoi'
+p710
+(dp711
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400266'
+p712
+sg23
+g710
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p713
+sg26
+S'2015-03-19 22:04:06'
+p714
+sg28
+S'5674402'
+p715
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p716
+sg33
+S'1400266'
+p717
+sg35
+S'2015-03-19 22:04:06'
+p718
+sg37
+g41
+sg234
+S'4326'
+p719
+sg236
+S'2015-03-19 22:04:06'
+p720
+sg238
+S'2015-03-19 17:57:54'
+p721
+sg240
+S'cgwillis'
+p722
+ssS'Justicia_longii'
+p723
+(dp724
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400308'
+p725
+sg23
+g723
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p726
+sg26
+S'2015-03-19 22:07:04'
+p727
+sg28
+S'5681487'
+p728
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p729
+sg33
+S'1400308'
+p730
+sg35
+S'2015-03-19 22:07:04'
+p731
+sg37
+g41
+sg234
+S'4326'
+p732
+sg236
+S'2015-03-19 22:07:04'
+p733
+sg238
+S'2015-03-19 18:04:18'
+p734
+sg240
+S'cgwillis'
+p735
+ssS'Dyschoriste_angusta'
+p736
+(dp737
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400268'
+p738
+sg23
+g736
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p739
+sg26
+S'2015-03-19 22:05:08'
+p740
+sg28
+S'5666778'
+p741
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p742
+sg33
+S'1400268'
+p743
+sg35
+S'2015-03-19 22:05:08'
+p744
+sg37
+g41
+sg234
+S'4326'
+p745
+sg236
+S'2015-03-19 22:05:08'
+p746
+sg238
+S'2015-03-19 17:58:12'
+p747
+sg240
+S'cgwillis'
+p748
+ssS'Justicia_pectoralis'
+p749
+(dp750
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400269'
+p751
+sg23
+g749
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p752
+sg26
+S'2015-03-19 22:07:27'
+p753
+sg28
+S'5666523'
+p754
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p755
+sg33
+S'1400269'
+p756
+sg35
+S'2015-03-19 22:07:27'
+p757
+sg37
+g41
+sg234
+S'4326'
+p758
+sg236
+S'2015-03-19 22:07:27'
+p759
+sg238
+S'2015-03-19 17:58:21'
+p760
+sg240
+S'cgwillis'
+p761
+ssS'Justicia_spicigera'
+p762
+(dp763
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400270'
+p764
+sg23
+g762
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p765
+sg26
+S'2015-03-19 22:03:34'
+p766
+sg28
+S'5676744'
+p767
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p768
+sg33
+S'1400270'
+p769
+sg35
+S'2015-03-19 22:03:34'
+p770
+sg37
+g41
+sg234
+S'4326'
+p771
+sg236
+S'2015-03-19 22:03:34'
+p772
+sg238
+S'2015-03-19 17:58:30'
+p773
+sg240
+S'cgwillis'
+p774
+ssS'Ruellia_humilis'
+p775
+(dp776
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400277'
+p777
+sg23
+g775
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p778
+sg26
+S'2015-03-19 22:09:29'
+p779
+sg28
+S'5682203'
+p780
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p781
+sg33
+S'1400277'
+p782
+sg35
+S'2015-03-19 22:09:29'
+p783
+sg37
+g41
+sg234
+S'4326'
+p784
+sg236
+S'2015-03-19 22:09:29'
+p785
+sg238
+S'2015-03-19 17:59:35'
+p786
+sg240
+S'cgwillis'
+p787
+ssS'Ruellia_caroliniensis'
+p788
+(dp789
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400278'
+p790
+sg23
+g788
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p791
+sg26
+S'2015-03-19 22:07:37'
+p792
+sg28
+S'5680343'
+p793
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p794
+sg33
+S'1400278'
+p795
+sg35
+S'2015-03-19 22:07:37'
+p796
+sg37
+g41
+sg234
+S'4326'
+p797
+sg236
+S'2015-03-19 22:07:37'
+p798
+sg238
+S'2015-03-19 17:59:44'
+p799
+sg240
+S'cgwillis'
+p800
+ssS'Dyschoriste_crenulata'
+p801
+(dp802
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400273'
+p803
+sg23
+g801
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p804
+sg26
+S'2015-03-19 22:07:27'
+p805
+sg28
+S'5669117'
+p806
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p807
+sg33
+S'1400273'
+p808
+sg35
+S'2015-03-19 22:07:27'
+p809
+sg37
+g41
+sg234
+S'4326'
+p810
+sg236
+S'2015-03-19 22:07:27'
+p811
+sg238
+S'2015-03-19 17:58:57'
+p812
+sg240
+S'cgwillis'
+p813
+ssS'Justicia_ovata'
+p814
+(dp815
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400274'
+p816
+sg23
+g814
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p817
+sg26
+S'2015-03-19 22:03:28'
+p818
+sg28
+S'5667583'
+p819
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p820
+sg33
+S'1400274'
+p821
+sg35
+S'2015-03-19 22:03:28'
+p822
+sg37
+g41
+sg234
+S'4326'
+p823
+sg236
+S'2015-03-19 22:03:28'
+p824
+sg238
+S'2015-03-19 17:59:06'
+p825
+sg240
+S'cgwillis'
+p826
+ssS'Justicia_wrightii'
+p827
+(dp828
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400275'
+p829
+sg23
+g827
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p830
+sg26
+S'2015-03-19 22:06:05'
+p831
+sg28
+S'5678358'
+p832
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p833
+sg33
+S'1400275'
+p834
+sg35
+S'2015-03-19 22:06:05'
+p835
+sg37
+g41
+sg234
+S'4326'
+p836
+sg236
+S'2015-03-19 22:06:05'
+p837
+sg238
+S'2015-03-19 17:59:17'
+p838
+sg240
+S'cgwillis'
+p839
+ssS'Carlowrightia_parvifolia'
+p840
+(dp841
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400276'
+p842
+sg23
+g840
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p843
+sg26
+S'2015-03-19 22:06:03'
+p844
+sg28
+S'5667848'
+p845
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p846
+sg33
+S'1400276'
+p847
+sg35
+S'2015-03-19 22:06:03'
+p848
+sg37
+g41
+sg234
+S'4326'
+p849
+sg236
+S'2015-03-19 22:06:03'
+p850
+sg238
+S'2015-03-19 17:59:26'
+p851
+sg240
+S'cgwillis'
+p852
+ssS'Hygrophila_costata'
+p853
+(dp854
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400271'
+p855
+sg23
+g853
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p856
+sg26
+S'2015-03-19 22:07:37'
+p857
+sg28
+S'5681506'
+p858
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p859
+sg33
+S'1400271'
+p860
+sg35
+S'2015-03-19 22:07:37'
+p861
+sg37
+g41
+sg234
+S'4326'
+p862
+sg236
+S'2015-03-19 22:07:37'
+p863
+sg238
+S'2015-03-19 17:58:39'
+p864
+sg240
+S'cgwillis'
+p865
+ssS'Justicia_cooleyi'
+p866
+(dp867
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400272'
+p868
+sg23
+g866
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p869
+sg26
+S'2015-03-19 22:07:03'
+p870
+sg28
+S'5677444'
+p871
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p872
+sg33
+S'1400272'
+p873
+sg35
+S'2015-03-19 22:07:03'
+p874
+sg37
+g41
+sg234
+S'4326'
+p875
+sg236
+S'2015-03-19 22:07:03'
+p876
+sg238
+S'2015-03-19 17:58:48'
+p877
+sg240
+S'cgwillis'
+p878
+ssS'Dyschoriste_oblongifolia'
+p879
+(dp880
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400279'
+p881
+sg23
+g879
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p882
+sg26
+S'2015-03-19 22:06:22'
+p883
+sg28
+S'5668625'
+p884
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p885
+sg33
+S'1400279'
+p886
+sg35
+S'2015-03-19 22:06:22'
+p887
+sg37
+g41
+sg234
+S'4326'
+p888
+sg236
+S'2015-03-19 22:06:22'
+p889
+sg238
+S'2015-03-19 17:59:53'
+p890
+sg240
+S'cgwillis'
+p891
+ssS'Justicia_californica'
+p892
+(dp893
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400280'
+p894
+sg23
+g892
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p895
+sg26
+S'2015-03-19 22:05:56'
+p896
+sg28
+S'5675437'
+p897
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p898
+sg33
+S'1400280'
+p899
+sg35
+S'2015-03-19 22:05:56'
+p900
+sg37
+g41
+sg234
+S'4326'
+p901
+sg236
+S'2015-03-19 22:05:56'
+p902
+sg238
+S'2015-03-19 18:00:02'
+p903
+sg240
+S'cgwillis'
+p904
+ssS'Ruellia_nudiflora'
+p905
+(dp906
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400281'
+p907
+sg23
+g905
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p908
+sg26
+S'2015-03-19 22:03:34'
+p909
+sg28
+S'5673333'
+p910
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p911
+sg33
+S'1400281'
+p912
+sg35
+S'2015-03-19 22:03:34'
+p913
+sg37
+g41
+sg234
+S'4326'
+p914
+sg236
+S'2015-03-19 22:03:34'
+p915
+sg238
+S'2015-03-19 18:00:11'
+p916
+sg240
+S'cgwillis'
+p917
+ssS'Thunbergia_alata'
+p918
+(dp919
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400282'
+p920
+sg23
+g918
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p921
+sg26
+S'2015-03-19 22:04:06'
+p922
+sg28
+S'5666800'
+p923
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p924
+sg33
+S'1400282'
+p925
+sg35
+S'2015-03-19 22:04:06'
+p926
+sg37
+g41
+sg234
+S'4326'
+p927
+sg236
+S'2015-03-19 22:04:06'
+p928
+sg238
+S'2015-03-19 18:00:21'
+p929
+sg240
+S'cgwillis'
+p930
+ssS'Stenandrium_barbatum'
+p931
+(dp932
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400283'
+p933
+sg23
+g931
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p934
+sg26
+S'2015-03-19 22:07:08'
+p935
+sg28
+S'5671786'
+p936
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p937
+sg33
+S'1400283'
+p938
+sg35
+S'2015-03-19 22:07:08'
+p939
+sg37
+g41
+sg234
+S'4326'
+p940
+sg236
+S'2015-03-19 22:07:08'
+p941
+sg238
+S'2015-03-19 18:00:30'
+p942
+sg240
+S'cgwillis'
+p943
+ssS'Justicia_warnockii'
+p944
+(dp945
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400284'
+p946
+sg23
+g944
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p947
+sg26
+S'2015-03-19 22:07:00'
+p948
+sg28
+S'5670686'
+p949
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p950
+sg33
+S'1400284'
+p951
+sg35
+S'2015-03-19 22:07:00'
+p952
+sg37
+g41
+sg234
+S'4326'
+p953
+sg236
+S'2015-03-19 22:07:00'
+p954
+sg238
+S'2015-03-19 18:00:39'
+p955
+sg240
+S'cgwillis'
+p956
+ssS'Blechum_pyramidatum'
+p957
+(dp958
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400285'
+p959
+sg23
+g957
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p960
+sg26
+S'2015-03-19 22:05:42'
+p961
+sg28
+S'5677699'
+p962
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p963
+sg33
+S'1400285'
+p964
+sg35
+S'2015-03-19 22:05:42'
+p965
+sg37
+g41
+sg234
+S'4326'
+p966
+sg236
+S'2015-03-19 22:05:42'
+p967
+sg238
+S'2015-03-19 18:00:48'
+p968
+sg240
+S'cgwillis'
+p969
+ssS'Aphelandra_aurantiaca'
+p970
+(dp971
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400299'
+p972
+sg23
+g970
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p973
+sg26
+S'2015-03-19 22:03:34'
+p974
+sg28
+S'5675877'
+p975
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p976
+sg33
+S'1400299'
+p977
+sg35
+S'2015-03-19 22:03:34'
+p978
+sg37
+g41
+sg234
+S'4326'
+p979
+sg236
+S'2015-03-19 22:03:34'
+p980
+sg238
+S'2015-03-19 18:02:57'
+p981
+sg240
+S'cgwillis'
+p982
+ssS'Carlowrightia_arizonica'
+p983
+(dp984
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400287'
+p985
+sg23
+g983
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p986
+sg26
+S'2015-03-19 22:07:08'
+p987
+sg28
+S'5676765'
+p988
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p989
+sg33
+S'1400287'
+p990
+sg35
+S'2015-03-19 22:07:08'
+p991
+sg37
+g41
+sg234
+S'4326'
+p992
+sg236
+S'2015-03-19 22:07:08'
+p993
+sg238
+S'2015-03-19 18:01:07'
+p994
+sg240
+S'cgwillis'
+p995
+ssS'Elytraria_bromoides'
+p996
+(dp997
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400288'
+p998
+sg23
+g996
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p999
+sg26
+S'2015-03-19 22:04:01'
+p1000
+sg28
+S'5671753'
+p1001
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1002
+sg33
+S'1400288'
+p1003
+sg35
+S'2015-03-19 22:04:01'
+p1004
+sg37
+g41
+sg234
+S'4326'
+p1005
+sg236
+S'2015-03-19 22:04:01'
+p1006
+sg238
+S'2015-03-19 18:01:16'
+p1007
+sg240
+S'cgwillis'
+p1008
+ssS'Sanchezia_parvibracteata'
+p1009
+(dp1010
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400289'
+p1011
+sg23
+g1009
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1012
+sg26
+S'2015-03-19 22:08:11'
+p1013
+sg28
+S'5673402'
+p1014
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1015
+sg33
+S'1400289'
+p1016
+sg35
+S'2015-03-19 22:08:11'
+p1017
+sg37
+g41
+sg234
+S'4326'
+p1018
+sg236
+S'2015-03-19 22:08:11'
+p1019
+sg238
+S'2015-03-19 18:01:24'
+p1020
+sg240
+S'cgwillis'
+p1021
+ssS'Ruellia_parryi'
+p1022
+(dp1023
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400290'
+p1024
+sg23
+g1022
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1025
+sg26
+S'2015-03-19 22:05:08'
+p1026
+sg28
+S'5671013'
+p1027
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1028
+sg33
+S'1400290'
+p1029
+sg35
+S'2015-03-19 22:05:08'
+p1030
+sg37
+g41
+sg234
+S'4326'
+p1031
+sg236
+S'2015-03-19 22:05:08'
+p1032
+sg238
+S'2015-03-19 18:01:33'
+p1033
+sg240
+S'cgwillis'
+p1034
+ssS'Justicia_turneri'
+p1035
+(dp1036
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400291'
+p1037
+sg23
+g1035
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1038
+sg26
+S'2015-03-19 22:07:08'
+p1039
+sg28
+S'5668631'
+p1040
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1041
+sg33
+S'1400291'
+p1042
+sg35
+S'2015-03-19 22:07:08'
+p1043
+sg37
+g41
+sg234
+S'4326'
+p1044
+sg236
+S'2015-03-19 22:07:08'
+p1045
+sg238
+S'2015-03-19 18:01:42'
+p1046
+sg240
+S'cgwillis'
+p1047
+ssS'Dyschoriste_linearis'
+p1048
+(dp1049
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400292'
+p1050
+sg23
+g1048
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1051
+sg26
+S'2015-03-19 22:07:04'
+p1052
+sg28
+S'5671213'
+p1053
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1054
+sg33
+S'1400292'
+p1055
+sg35
+S'2015-03-19 22:07:04'
+p1056
+sg37
+g41
+sg234
+S'4326'
+p1057
+sg236
+S'2015-03-19 22:07:04'
+p1058
+sg238
+S'2015-03-19 18:01:53'
+p1059
+sg240
+S'cgwillis'
+p1060
+ssS'Graptophyllum_pictum'
+p1061
+(dp1062
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400293'
+p1063
+sg23
+g1061
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1064
+sg26
+S'2015-03-19 22:05:54'
+p1065
+sg28
+S'5682002'
+p1066
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1067
+sg33
+S'1400293'
+p1068
+sg35
+S'2015-03-19 22:05:54'
+p1069
+sg37
+g41
+sg234
+S'4326'
+p1070
+sg236
+S'2015-03-19 22:05:54'
+p1071
+sg238
+S'2015-03-19 18:02:02'
+p1072
+sg240
+S'cgwillis'
+p1073
+ssS'Ruellia_occidentalis'
+p1074
+(dp1075
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400294'
+p1076
+sg23
+g1074
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1077
+sg26
+S'2015-03-19 22:03:28'
+p1078
+sg28
+S'5671772'
+p1079
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1080
+sg33
+S'1400294'
+p1081
+sg35
+S'2015-03-19 22:03:28'
+p1082
+sg37
+g41
+sg234
+S'4326'
+p1083
+sg236
+S'2015-03-19 22:03:28'
+p1084
+sg238
+S'2015-03-19 18:02:11'
+p1085
+sg240
+S'cgwillis'
+p1086
+ssS'Justicia_pilosella'
+p1087
+(dp1088
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400295'
+p1089
+sg23
+g1087
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1090
+sg26
+S'2015-03-19 22:04:41'
+p1091
+sg28
+S'5679476'
+p1092
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1093
+sg33
+S'1400295'
+p1094
+sg35
+S'2015-03-19 22:04:41'
+p1095
+sg37
+g41
+sg234
+S'4326'
+p1096
+sg236
+S'2015-03-19 22:04:41'
+p1097
+sg238
+S'2015-03-19 18:02:20'
+p1098
+sg240
+S'cgwillis'
+p1099
+ssS'Avicennia_marina'
+p1100
+(dp1101
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400296'
+p1102
+sg23
+g1100
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1103
+sg26
+S'2015-03-19 22:07:00'
+p1104
+sg28
+S'5682235'
+p1105
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1106
+sg33
+S'1400296'
+p1107
+sg35
+S'2015-03-19 22:07:00'
+p1108
+sg37
+g41
+sg234
+S'4326'
+p1109
+sg236
+S'2015-03-19 22:07:00'
+p1110
+sg238
+S'2015-03-19 18:02:30'
+p1111
+sg240
+S'cgwillis'
+p1112
+ssS'Ruellia_drushelii'
+p1113
+(dp1114
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400297'
+p1115
+sg23
+g1113
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1116
+sg26
+S'2015-03-19 22:07:03'
+p1117
+sg28
+S'5681071'
+p1118
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1119
+sg33
+S'1400297'
+p1120
+sg35
+S'2015-03-19 22:07:03'
+p1121
+sg37
+g41
+sg234
+S'4326'
+p1122
+sg236
+S'2015-03-19 22:07:03'
+p1123
+sg238
+S'2015-03-19 18:02:39'
+p1124
+sg240
+S'cgwillis'
+p1125
+ssS'Apassalus_humistratus'
+p1126
+(dp1127
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400298'
+p1128
+sg23
+g1126
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1129
+sg26
+S'2015-03-19 22:08:11'
+p1130
+sg28
+S'5668686'
+p1131
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1132
+sg33
+S'1400298'
+p1133
+sg35
+S'2015-03-19 22:08:11'
+p1134
+sg37
+g41
+sg234
+S'4326'
+p1135
+sg236
+S'2015-03-19 22:08:11'
+p1136
+sg238
+S'2015-03-19 18:02:48'
+p1137
+sg240
+S'cgwillis'
+p1138
+ssS'Carlowrightia_mexicana'
+p1139
+(dp1140
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400286'
+p1141
+sg23
+g1139
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1142
+sg26
+S'2015-03-19 22:07:04'
+p1143
+sg28
+S'5666807'
+p1144
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1145
+sg33
+S'1400286'
+p1146
+sg35
+S'2015-03-19 22:07:04'
+p1147
+sg37
+g41
+sg234
+S'4326'
+p1148
+sg236
+S'2015-03-19 22:07:04'
+p1149
+sg238
+S'2015-03-19 18:00:57'
+p1150
+sg240
+S'cgwillis'
+p1151
+ssS'Ruellia_noctiflora'
+p1152
+(dp1153
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400300'
+p1154
+sg23
+g1152
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1155
+sg26
+S'2015-03-19 22:05:38'
+p1156
+sg28
+S'5666599'
+p1157
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1158
+sg33
+S'1400300'
+p1159
+sg35
+S'2015-03-19 22:05:38'
+p1160
+sg37
+g41
+sg234
+S'4326'
+p1161
+sg236
+S'2015-03-19 22:05:38'
+p1162
+sg238
+S'2015-03-19 18:03:06'
+p1163
+sg240
+S'cgwillis'
+p1164
+ssS'Nelsonia_canescens'
+p1165
+(dp1166
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400301'
+p1167
+sg23
+g1165
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1168
+sg26
+S'2015-03-19 22:07:00'
+p1169
+sg28
+S'5679081'
+p1170
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1171
+sg33
+S'1400301'
+p1172
+sg35
+S'2015-03-19 22:07:00'
+p1173
+sg37
+g41
+sg234
+S'4326'
+p1174
+sg236
+S'2015-03-19 22:07:00'
+p1175
+sg238
+S'2015-03-19 18:03:15'
+p1176
+sg240
+S'cgwillis'
+p1177
+ssS'Justicia_angusta'
+p1178
+(dp1179
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400302'
+p1180
+sg23
+g1178
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1181
+sg26
+S'2015-03-19 22:08:17'
+p1182
+sg28
+S'5668679'
+p1183
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1184
+sg33
+S'1400302'
+p1185
+sg35
+S'2015-03-19 22:08:17'
+p1186
+sg37
+g41
+sg234
+S'4326'
+p1187
+sg236
+S'2015-03-19 22:08:17'
+p1188
+sg238
+S'2015-03-19 18:03:24'
+p1189
+sg240
+S'cgwillis'
+p1190
+ssS'Odontonema_cuspidatum'
+p1191
+(dp1192
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400303'
+p1193
+sg23
+g1191
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1194
+sg26
+S'2015-03-19 22:06:05'
+p1195
+sg28
+S'5677516'
+p1196
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1197
+sg33
+S'1400303'
+p1198
+sg35
+S'2015-03-19 22:06:05'
+p1199
+sg37
+g41
+sg234
+S'4326'
+p1200
+sg236
+S'2015-03-19 22:06:05'
+p1201
+sg238
+S'2015-03-19 18:03:33'
+p1202
+sg240
+S'cgwillis'
+p1203
+ssS'Ruellia_drummondiana'
+p1204
+(dp1205
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400304'
+p1206
+sg23
+g1204
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1207
+sg26
+S'2015-03-19 22:05:38'
+p1208
+sg28
+S'5682271'
+p1209
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1210
+sg33
+S'1400304'
+p1211
+sg35
+S'2015-03-19 22:05:38'
+p1212
+sg37
+g41
+sg234
+S'4326'
+p1213
+sg236
+S'2015-03-19 22:05:38'
+p1214
+sg238
+S'2015-03-19 18:03:42'
+p1215
+sg240
+S'cgwillis'
+p1216
+ssS'Hemigraphis_reptans'
+p1217
+(dp1218
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400305'
+p1219
+sg23
+g1217
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1220
+sg26
+S'2015-03-19 22:03:34'
+p1221
+sg28
+S'5673147'
+p1222
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1223
+sg33
+S'1400305'
+p1224
+sg35
+S'2015-03-19 22:03:34'
+p1225
+sg37
+g41
+sg234
+S'4326'
+p1226
+sg236
+S'2015-03-19 22:03:34'
+p1227
+sg238
+S'2015-03-19 18:03:51'
+p1228
+sg240
+S'cgwillis'
+p1229
+ssS'Ruellia_purshiana'
+p1230
+(dp1231
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400306'
+p1232
+sg23
+g1230
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1233
+sg26
+S'2015-03-19 22:07:17'
+p1234
+sg28
+S'5682276'
+p1235
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1236
+sg33
+S'1400306'
+p1237
+sg35
+S'2015-03-19 22:07:17'
+p1238
+sg37
+g41
+sg234
+S'4326'
+p1239
+sg236
+S'2015-03-19 22:07:17'
+p1240
+sg238
+S'2015-03-19 18:04:00'
+p1241
+sg240
+S'cgwillis'
+p1242
+ssS'Henrya_insularis'
+p1243
+(dp1244
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400307'
+p1245
+sg23
+g1243
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1246
+sg26
+S'2015-03-19 22:06:03'
+p1247
+sg28
+S'5677058'
+p1248
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1249
+sg33
+S'1400307'
+p1250
+sg35
+S'2015-03-19 22:06:03'
+p1251
+sg37
+g41
+sg234
+S'4326'
+p1252
+sg236
+S'2015-03-19 22:06:03'
+p1253
+sg238
+S'2015-03-19 18:04:09'
+p1254
+sg240
+S'cgwillis'
+p1255
+ssS'Pseuderanthemum_variabile'
+p1256
+(dp1257
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400267'
+p1258
+sg23
+g1256
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1259
+sg26
+S'2015-03-19 22:07:16'
+p1260
+sg28
+S'5673301'
+p1261
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1262
+sg33
+S'1400267'
+p1263
+sg35
+S'2015-03-19 22:07:16'
+p1264
+sg37
+g41
+sg234
+S'4326'
+p1265
+sg236
+S'2015-03-19 22:07:16'
+p1266
+sg238
+S'2015-03-19 17:58:03'
+p1267
+sg240
+S'cgwillis'
+p1268
+ssS'Hygrophila_polysperma'
+p1269
+(dp1270
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400309'
+p1271
+sg23
+g1269
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1272
+sg26
+S'2015-03-19 22:13:48'
+p1273
+sg28
+S'5671722'
+p1274
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1275
+sg33
+S'1400309'
+p1276
+sg35
+S'2015-03-19 22:13:48'
+p1277
+sg37
+g41
+sg234
+S'4326'
+p1278
+sg236
+S'2015-03-19 22:13:48'
+p1279
+sg238
+S'2015-03-19 18:04:27'
+p1280
+sg240
+S'cgwillis'
+p1281
+ssS'Carlowrightia_torreyana'
+p1282
+(dp1283
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400310'
+p1284
+sg23
+g1282
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1285
+sg26
+S'2015-03-19 22:04:08'
+p1286
+sg28
+S'5681579'
+p1287
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1288
+sg33
+S'1400310'
+p1289
+sg35
+S'2015-03-19 22:04:08'
+p1290
+sg37
+g41
+sg234
+S'4326'
+p1291
+sg236
+S'2015-03-19 22:04:08'
+p1292
+sg238
+S'2015-03-19 18:04:36'
+p1293
+sg240
+S'cgwillis'
+p1294
+ssS'Dicliptera_resupinata'
+p1295
+(dp1296
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400311'
+p1297
+sg23
+g1295
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1298
+sg26
+S'2015-03-19 22:06:22'
+p1299
+sg28
+S'5675920'
+p1300
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1301
+sg33
+S'1400311'
+p1302
+sg35
+S'2015-03-19 22:06:22'
+p1303
+sg37
+g41
+sg234
+S'4326'
+p1304
+sg236
+S'2015-03-19 22:06:22'
+p1305
+sg238
+S'2015-03-19 18:04:45'
+p1306
+sg240
+S'cgwillis'
+p1307
+ssS'Ruellia_davisiorum'
+p1308
+(dp1309
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400240'
+p1310
+sg23
+g1308
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1311
+sg26
+S'2015-03-19 22:05:54'
+p1312
+sg28
+S'5669022'
+p1313
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1314
+sg33
+S'1400240'
+p1315
+sg35
+S'2015-03-19 22:05:54'
+p1316
+sg37
+g41
+sg234
+S'4326'
+p1317
+sg236
+S'2015-03-19 22:05:54'
+p1318
+sg238
+S'2015-03-19 17:54:02'
+p1319
+sg240
+S'cgwillis'
+p1320
+ssS'Justicia_brandegeeana'
+p1321
+(dp1322
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400313'
+p1323
+sg23
+g1321
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1324
+sg26
+S'2015-03-19 22:07:59'
+p1325
+sg28
+S'5676854'
+p1326
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1327
+sg33
+S'1400313'
+p1328
+sg35
+S'2015-03-19 22:07:59'
+p1329
+sg37
+g41
+sg234
+S'4326'
+p1330
+sg236
+S'2015-03-19 22:07:59'
+p1331
+sg238
+S'2015-03-19 18:05:04'
+p1332
+sg240
+S'cgwillis'
+p1333
+ssS'Thunbergia_erecta'
+p1334
+(dp1335
+g4
+g5
+sg21
+S'http://lifemapper.org/services/sdm/experiments/1400314'
+p1336
+sg23
+g1334
+sg24
+S'Climate layers Used: climSpatial layers used: add Environment layers used: add'
+p1337
+sg26
+S'2015-03-19 22:03:28'
+p1338
+sg28
+S'5675051'
+p1339
+sg30
+g15
+sg31
+S'(-179.0, 14.5, -45.0, 83.5)'
+p1340
+sg33
+S'1400314'
+p1341
+sg35
+S'2015-03-19 22:03:28'
+p1342
+sg37
+g41
+sg234
+S'4326'
+p1343
+sg236
+S'2015-03-19 22:03:28'
+p1344
+sg238
+S'2015-03-19 18:05:12'
+p1345
+sg240
+S'cgwillis'
+p1346
 ss.
