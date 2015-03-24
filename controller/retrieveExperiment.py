@@ -37,20 +37,23 @@ def getExperimentAndProj(experimentDict, path):
 				os.makedirs(projPath)
 			print '\tGetting lifemapper projections IDs for:', key
 			expProjs = cl.sdm.getExperiment(experiment['id'])
+			expProjsTotal = len(expProjs.projections)
+			expProjsCount = 0
 			for expProj in expProjs.projections:
 				print '\tDownloading projections...', expProj.scenarioCode.split('-')[1], '->', expProj.id
 				try:
+					expProjsCount += 1
 					cl.sdm.getProjectionTiff(expProj.id, filename=projPath + expProj.speciesName +'-'+  expProj.id +'-'+ expProj.scenarioCode +'.tif')
 				except:
 					projLifeMapperTime = experiment['statusModTime']
 					tdeltaProj = datetime.datetime.strptime(currentTime, FMT) - datetime.datetime.strptime(projLifeMapperTime, FMT)
 					print '\t\tFAILED cannot download projection:', expProj.scenarioCode.split('-')[1], "->" , expProj.id, '\n\tLAPSES in time from posted projections to lifemapper ->', str(tdeltaProj)
-
 		except:
 			ExpLifemapperTime = experiment['createTime']
 			tdeltaExp = datetime.datetime.strptime(currentTime, FMT) - datetime.datetime.strptime(ExpLifemapperTime, FMT)
 			print '\tFAILED cannot download experiment:', key, "->", experiment['id'],'\n\tLAPSES in time from posted experiment to lifemapper ->', str(tdeltaExp)
 			pass
+		print 'Counter equal %s' % expProjsCount
 		count += 1
 
 

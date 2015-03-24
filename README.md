@@ -1,8 +1,10 @@
 #Mapper Command Description
-##General command line input
+**General command line input**
 
 
 ##python mapper.py -c -s -e -family -group -title -corlay
+**example:** python mapper.py -c clim -s add -e del -family poaceae -corlay yes
+
 
 -c - indicate which climate layers to use: 
   * 'clim' - use bioclim climate layers
@@ -16,14 +18,15 @@
   * 'add' - includes environmental layers
   * 'del' - removes environmental layers
 
--upocc - indicate whether pull taxa from pre-existing taxa by list
+-o - indicate whether pull taxa from pre-existing taxa by list
   *	'picklist' - a list of taxa
+  * 'master' - run all taxa, this could be really list
 		 
 -family - indicates whether pull taxa from pre-existing taxa by family
   * 'family' - a predefined family name e.g., poaceae
 	 	  
 -group - indicates whether pull taxa from pre-existing taxa by group
-  * 'group' - a predefined family name e.g., group1
+  * 'group' - a predefined family name e.g., group1. Requires a intger value
 	 	  
 -title - indicates whether to include title for a given experiment
   * 'yes' - include a title (prompted later to entire title)

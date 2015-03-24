@@ -462,6 +462,29 @@ def updateFamilyList(args):
 		
 	print '\nOccurrence dictionary of %s family contains %s records\n' % (str(args.Family), len(newOccurrenceFamilyDictionary))
 
+def updateGroupList(args):
+
+	occurrenceDictionaryLoop = masterOccurrenceDictionary()
+	newOccurrenceFamilyDictionary = masterOccurrenceDictionary()
+	occurrenceGroupID = []
+	for key, occurrence in occurrenceDictionaryLoop.iteritems():
+		occurrenceGroupID.append(occurrence['group'])
+		if occurrence['group'] == args.Group:
+			pass
+		else:
+			del newOccurrenceFamilyDictionary[key]
+	if len(newOccurrenceFamilyDictionary) == 0:
+		print 'Group number %s is not in the occurrence dictionary'
+		print 'Pick a number within this range\n', list(set(occurrenceGroupID))
+		print 'Exiting and pick a better number'
+		sys.exit()
+			#Save a pickle file of the occurrence IDs
+	with open('../views/pastPickleDictionaries/' + 'occurrenceDictionary' + '.pickle', 'wb') as f:
+		cPickle.dump(newOccurrenceFamilyDictionary, f)
+		
+	print '\nOccurrence dictionary of group %s contains %s records\n' % (str(args.Group), len(newOccurrenceFamilyDictionary))
+
+
 def updateMasterOccurrence():
 	perPageTotal = 20000
 	epsgCodeL = 4326
@@ -732,9 +755,14 @@ def newOrOldFiles():
 		else:
 			print 'ERROR!!'
 			sys.exit()
+
 	if args.Family:
 		if args.Family.lower()[-5:] == 'aceae':
 			updateFamilyList(args)
+
+	if args.Group:
+		if type(args.Group) == type(0):
+			updateGroupList(args)
 
 
 	if args.CleanUpLayer:

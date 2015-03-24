@@ -4,11 +4,10 @@ def getArgs(parser):
 	parser.add_argument('-c', '--Climate', required=True, help='Use Climate Clim or Agclim')
 	parser.add_argument('-e', '--Environment', required=True, help='Use Environment layers add or del')
 	parser.add_argument('-s', '--Spatial', required=True, help='Use Spatial layers add or del')
-	parser.add_argument('-o', '--Occurrence', required=False, help='Use past occurrence data dictionary')
+	parser.add_argument('-o', '--UpdateOccurrences', required=False, help='Create a new "master" or "picklist" dictionary for the occurrences')
 	parser.add_argument('-family', '--Family', required=False, help='Select subset of families from past occurrence dictionary')
 	parser.add_argument('-group', '--Group', required=False, help='Select an integer batch from past occurrence dictionary')
 	parser.add_argument('-cleanlayers', '--CleanUpLayer', required=False, help='Recreate the .masterLayerDictionary ["yes"]')
-	parser.add_argument('-upocc', '--UpdateOccurrences', required=False, help='Create a new "master" or "picklist" dictionary for the occurrences')
 	parser.add_argument('-corlay', '--Correlatedlayers', required=False, help='Remove highly correlated layers ["yes" or "no"]')
 	parser.add_argument('-title', '--Title', required=False, help='Add a title to Post Experiment')
 
@@ -60,9 +59,14 @@ def getArgs(parser):
 	if args.Group:
 		GroupTest = True
 		while GroupTest:
+			try:
+				args.Group = int(args.Group)
+			except:
+				pass
 			if type(args.Group) == type(0):
 				print 'Selecting group from dictionary', args.Group
 				GroupTest = False
+
 			else:
 				args.Group = raw_input('Enter integer to select set batch out of occurrence dictionary: ')
 				GroupTest = True
@@ -80,7 +84,7 @@ def getArgs(parser):
 	if args.Correlatedlayers:
 		if args.Correlatedlayers.lower() != 'yes' and args.Correlatedlayers.lower() != 'no':
 			correlatedlayersTest = True
-			while updateOccurrencesTest:
+			while correlatedlayersTest:
 				args.Correlatedlayers = raw_input('Remove correlated layers "yes" or "no": ')
 				if args.Correlatedlayers.lower() == 'yes' or args.Correlatedlayers.lower() == 'no':
 					correlatedlayersTest = False
