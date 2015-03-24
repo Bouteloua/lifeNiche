@@ -727,7 +727,7 @@ def newOrOldFiles():
 		if inputType.lower() == 'new':
 			rawDataDictionary = rawMetaData()
 			postTypeCode(rawDataDictionary)
-			layersdictionary = postLayers(rawDataDictionary, rawMetaData())
+			layersdictionary = recursionLayersPost(rawDataDictionary, rawMetaData())
 			del rawDataDictionary
 			#layersdictionary = recursionLayersPost(rawDataDictionary)
 			whilePostLayers = False
