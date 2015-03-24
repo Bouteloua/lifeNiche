@@ -182,7 +182,6 @@ def postScenario(postDicLayers,uniqid):
 				'author': 'CGW',
 				'resolution': resolution,
 				'bioclim': scenarioKey,
-				'model': model,
 				'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 				})
 
@@ -215,7 +214,7 @@ def newPostExperiment(scenarioDic, currentID, occurrences, args):
 		prjScns_input.append(value['ScenarioID'])
 
 	expDic = dict()
-	
+
 	print 'Current ID', scenarioDic[currentID]['ScenarioID']
 	for key, occurrence in occurrences.iteritems():
 		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentID]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, expTitle, descriptionName)
@@ -459,7 +458,7 @@ def updateFamilyList(args):
 			#Save a pickle file of the occurrence IDs
 	with open('../views/pastPickleDictionaries/' + 'occurrenceDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(newOccurrenceFamilyDictionary, f)
-		
+
 	print '\nOccurrence dictionary of %s family contains %s records\n' % (str(args.Family), len(newOccurrenceFamilyDictionary))
 
 def updateGroupList(args):
@@ -481,7 +480,7 @@ def updateGroupList(args):
 			#Save a pickle file of the occurrence IDs
 	with open('../views/pastPickleDictionaries/' + 'occurrenceDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(newOccurrenceFamilyDictionary, f)
-		
+
 	print '\nOccurrence dictionary of group %s contains %s records\n' % (str(args.Group), len(newOccurrenceFamilyDictionary))
 
 
