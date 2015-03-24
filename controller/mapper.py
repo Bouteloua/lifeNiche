@@ -444,6 +444,23 @@ def updatePickList():
 
 	print '\nOccurrence dictionary of %s records updated\n' % len(pickList)
 
+def updateFamilyList(args):
+
+	occurrenceDictionaryLoop = masterOccurrenceDictionary()
+	newOccurrenceFamilyDictionary = masterOccurrenceDictionary()
+
+	for key, occurrence in occurrenceDictionaryLoop.iteritems():
+		if occurrence['family'].lower() == args.Family.lower():
+			pass
+		else:
+			del newOccurrenceFamilyDictionary[key]
+
+			#Save a pickle file of the occurrence IDs
+	with open('../views/pastPickleDictionaries/' + 'occurrenceDictionary' + '.pickle', 'wb') as f:
+		cPickle.dump(newOccurrenceFamilyDictionary, f)
+		
+	print '\nOccurrence dictionary of %s family contains %s records\n' % (str(args.Family), len(newOccurrenceFamilyDictionary))
+
 def updateMasterOccurrence():
 	perPageTotal = 20000
 	epsgCodeL = 4326
@@ -507,7 +524,7 @@ def updateMasterOccurrence():
 	return occurrenceDictionary
 
 def occurrencePickList():
-	'''Open the the file speciesDistributionmetaData.csv to get all the label meta data that cannot get out of the file name. Return a dictionary'''
+	'''Open the the file occurrencePickList.csv and get list all species in the picklist. Return a dictionary'''
 	with open('../views/layerDescriptions/occurrencePickList.csv', mode='r') as infile:
 		reader = c.reader(infile)
 		speciesHolder = []
@@ -714,6 +731,9 @@ def newOrOldFiles():
 		else:
 			print 'ERROR!!'
 			sys.exit()
+
+	if args.Family.lower()[-5:] == 'aceae':
+		updateFamilyList(args)
 
 
 	if args.CleanUpLayer:
