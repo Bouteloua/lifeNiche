@@ -732,9 +732,9 @@ def newOrOldFiles():
 		else:
 			print 'ERROR!!'
 			sys.exit()
-
-	if args.Family.lower()[-5:] == 'aceae':
-		updateFamilyList(args)
+	if args.Family:
+		if args.Family.lower()[-5:] == 'aceae':
+			updateFamilyList(args)
 
 
 	if args.CleanUpLayer:
