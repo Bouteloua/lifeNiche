@@ -174,7 +174,6 @@ def postScenario(postDicLayers,uniqid):
 				print currentID
 
 			scenarioDictionary.setdefault(uniqueScenarioName, {
-				# remove the index + X
 				'layers': climateLayerID + environemntID + spatialID,
 				'code': uniqueScenarioName,
 				'epsgCode': epsgCode,
@@ -243,6 +242,7 @@ def newPostExperiment(scenarioDic, currentID, occurrences, args):
 			'algorithm': alg,
 			'occSetId': occurrence['occurrenceID'],
 			'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
+			'downloaded': False,
 			})
 		postTime = datetime.datetime.strftime(datetime.datetime.now(), '_%Y-%m')
 		with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + postTime + '.pickle', 'wb') as f:
@@ -306,6 +306,7 @@ def oldPostExperiment(scenarioDic, occurrences, args):
 			'user': exp.user,
 			'speciesName': key,
 			'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
+			'downloaded': False,
 			})
 
 		postTime = datetime.datetime.strftime(datetime.datetime.now(), '_%Y-%m')
