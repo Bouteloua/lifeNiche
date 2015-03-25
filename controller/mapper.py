@@ -182,6 +182,7 @@ def postScenario(postDicLayers,uniqid):
 				'author': 'CGW',
 				'resolution': resolution,
 				'bioclim': scenarioKey,
+				'model': model,
 				'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
 				})
 
