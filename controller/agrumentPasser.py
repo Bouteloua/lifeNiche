@@ -10,6 +10,7 @@ def getArgs(parser):
 	parser.add_argument('-cleanlayers', '--CleanUpLayer', required=False, help='Recreate the .masterLayerDictionary ["yes"]')
 	parser.add_argument('-corlay', '--Correlatedlayers', required=False, help='Remove highly correlated layers ["yes" or "no"]')
 	parser.add_argument('-title', '--Title', required=False, help='Add a title to Post Experiment')
+	parser.add_argument('-occ_n', '--OccurrenceNumber', required=False, help='limit number of occurrence number')
 
 	args = parser.parse_args()
 	if args.Title:
@@ -64,7 +65,9 @@ def getArgs(parser):
 			except:
 				pass
 			if type(args.Group) == type(0):
-				print 'Selecting group from dictionary', args.Group
+				print 'Selecting occurrence group ', args.Group
+
+				args.OccurrenceNumber = occ_n(args)
 				GroupTest = False
 
 			else:
@@ -91,6 +94,18 @@ def getArgs(parser):
 				else:
 					correlatedlayersTest = True
 
-
-
 	return args
+
+def occ_n(args):
+	if not args.OccurrenceNumber:
+		occ_nTest = True
+		while occ_nTest:
+			OccurrenceNumber = int(raw_input('Minimal number of occurrence records within the shapefile (count <= X): '))
+			if type(OccurrenceNumber) == type(0) and OccurrenceNumber > 0:
+				occ_nTest = False
+				return OccurrenceNumber
+			else:
+				occ_nTest = True
+	return int(args.OccurrenceNumber)
+
+

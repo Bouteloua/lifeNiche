@@ -467,9 +467,15 @@ def updateGroupList(args):
 	occurrenceDictionaryLoop = masterOccurrenceDictionary()
 	newOccurrenceFamilyDictionary = masterOccurrenceDictionary()
 	occurrenceGroupID = []
+	deletedFromGroup = 0
 	for key, occurrence in occurrenceDictionaryLoop.iteritems():
 		occurrenceGroupID.append(occurrence['group'])
 		if occurrence['group'] == args.Group:
+			if args.OccurrenceNumber:	
+				if int(args.OccurrenceNumber) > int(occurrence['occurencesCount']):
+					deletedFromGroup += 1
+					del newOccurrenceFamilyDictionary[key]
+					pass
 			pass
 		else:
 			del newOccurrenceFamilyDictionary[key]
@@ -482,7 +488,7 @@ def updateGroupList(args):
 	with open('../views/pastPickleDictionaries/' + 'occurrenceDictionary' + '.pickle', 'wb') as f:
 		cPickle.dump(newOccurrenceFamilyDictionary, f)
 
-	print '\nOccurrence dictionary of group %s contains %s records\n' % (str(args.Group), len(newOccurrenceFamilyDictionary))
+	print '\nGroup %s contains %s records\nUsing: %s records\nRemoved %s records below %s occurrences\n' % (str(args.Group), (len(newOccurrenceFamilyDictionary) + deletedFromGroup), len(newOccurrenceFamilyDictionary), deletedFromGroup, args.OccurrenceNumber)
 
 
 def updateMasterOccurrence():
