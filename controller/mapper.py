@@ -232,12 +232,12 @@ def newPostExperiment(scenarioDic, currentID, occurrences, args):
 	print 'Current ID', scenarioDic[currentID]['ScenarioID']
 	for key, occurrence in occurrences.iteritems():
 		try:
-			# exp = cl.sdm.postExperiment(algorithm=alg,
-			# 							mdlScn=scenarioDic[currentID]['ScenarioID'],
-			# 							occSetId=occurrence['occurrenceID'],
-			# 							prjScns=prjScns_input,
-			# 							name='CGW Experiment',
-			# 							description=descriptionName)
+			exp = cl.sdm.postExperiment(algorithm=alg,
+										mdlScn=scenarioDic[currentID]['ScenarioID'],
+										occSetId=occurrence['occurrenceID'],
+										prjScns=prjScns_input,
+										name='CGW Experiment',
+										description=descriptionName)
 			print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentID]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, expTitle, descriptionName)
 
 			expDic.setdefault(key, {
@@ -307,12 +307,12 @@ def oldPostExperiment(scenarioDic, occurrences, args):
 	print prjScns_input
 	for key, occurrence in occurrences.iteritems():
 		try:
-			# exp = cl.sdm.postExperiment(algorithm=alg,
-			# 							mdlScn=scenarioDic[currentLayerName]['ScenarioID'],
-			# 							occSetId=occurrence['occurrenceID'],
-			# 							prjScns=prjScns_input,
-			# 							name='CGW Experiment',
-			# 							description=descriptionName)
+			exp = cl.sdm.postExperiment(algorithm=alg,
+										mdlScn=scenarioDic[currentLayerName]['ScenarioID'],
+										occSetId=occurrence['occurrenceID'],
+										prjScns=prjScns_input,
+										name='CGW Experiment',
+										description=descriptionName)
 			print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentLayerName]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, expTitle, descriptionName)
 			
 			expDic.setdefault(key, {
