@@ -1,0 +1,51 @@
+(dp1
+S'Alisma_lanceolatum'
+p2
+(dp3
+S'metadataUrl'
+p4
+S'http://lifemapper.org/services/sdm/experiments/1490587'
+p5
+sS'speciesName'
+p6
+g2
+sS'description'
+p7
+S'Climate layers: clim Spatial layers: add Environment layers: add'
+p8
+sS'statusModTime'
+p9
+S'2015-04-15 06:53:47'
+p10
+sS'downloaded'
+p11
+I00
+sS'bbox'
+p12
+S'(-179.0, 14.5, -45.0, 83.5)'
+p13
+sS'id'
+p14
+S'1490587'
+p15
+sS'modTime'
+p16
+S'2015-04-15 06:53:47'
+p17
+sS'created_at'
+p18
+S'2015-04-16 11:27:27'
+p19
+sS'createTime'
+p20
+S'2015-04-15 06:53:47'
+p21
+sS'epsgcode'
+p22
+S'4326'
+p23
+sS'user'
+p24
+S'cgwillis'
+p25
+ss.

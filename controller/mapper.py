@@ -69,18 +69,25 @@ def recursionLayersPost(recurSearchLayerDic, masterLayersDic):
 	if type(recurSearchLayerDic)==type({}):
 		for key in recurSearchLayerDic:
 			if key == 'fullname':
-				print "cl.sdm.postLayer(name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s, description=layerName%s, isCategorical=False)" % (recurSearchLayerDic['fullname'], recurSearchLayerDic['epsgCode'], recurSearchLayerDic['typeCode'], recurSearchLayerDic['units'], recurSearchLayerDic['dataFormat'], recurSearchLayerDic['filePath'], recurSearchLayerDic['title'], recurSearchLayerDic['layerDescription'])
-				lyrObj = cl.sdm.postLayer(name=recurSearchLayerDic['fullname'],
-										  epsgCode=recurSearchLayerDic['epsgCode'],
-										  envLayerType=recurSearchLayerDic['typeCode'],
-										  units=recurSearchLayerDic['units'],
-										  dataFormat=recurSearchLayerDic['dataFormat'],
-										  fileName=recurSearchLayerDic['filePath'],
-										  title=recurSearchLayerDic['title'],
-										  description=recurSearchLayerDic['layerDescription']
-										  )
-				#Updating the recurSearchLayerDic with the new lifemapper ID for that layer
-				fullMasterLayersDic[recurSearchLayerDic['model']][recurSearchLayerDic['bioclim']][recurSearchLayerDic['typeCode']].update({'lyrID':lyrObj.id})
+				try:
+					lyrObj = cl.sdm.postLayer(name=recurSearchLayerDic['fullname'],
+											  epsgCode=recurSearchLayerDic['epsgCode'],
+											  envLayerType=recurSearchLayerDic['typeCode'],
+											  units=recurSearchLayerDic['units'],
+											  dataFormat=recurSearchLayerDic['dataFormat'],
+											  fileName=recurSearchLayerDic['filePath'],
+											  title=recurSearchLayerDic['title'],
+											  description=recurSearchLayerDic['layerDescription']
+											  )
+					print "cl.sdm.postLayer(name=%s, epsgCode=%s, envLayerType=%s, units=%s, dataFormat=%s, fileName=%s, title=%s, description=layerName%s, isCategorical=False)" % (recurSearchLayerDic['fullname'], recurSearchLayerDic['epsgCode'], recurSearchLayerDic['typeCode'], recurSearchLayerDic['units'], recurSearchLayerDic['dataFormat'], recurSearchLayerDic['filePath'], recurSearchLayerDic['title'], recurSearchLayerDic['layerDescription'])
+					#Updating the recurSearchLayerDic with the new lifemapper ID for that layer
+					fullMasterLayersDic[recurSearchLayerDic['model']][recurSearchLayerDic['bioclim']][recurSearchLayerDic['typeCode']].update({'lyrID':lyrObj.id})
+				except:
+					print "ERROR!!!!!! Could not post experiment, check the log", fullname
+					f = open("../views/pastPickleDictionaries/errorLoggerLayers.txt","a")
+					strHolder = fullname +","+ fileName +","+ timeCheck()
+					f.write(strHolder + "\n")
+					f.close()
 
 			else:
 				recursionLayersPost(recurSearchLayerDic[key], masterLayersDic)
@@ -104,13 +111,19 @@ def postOccurrence():
 		occurrenceDictionary = getShapeFiles()
 
 	for speciesNameKey, occurrenceValue in occurrenceDictionary.iteritems():
-		print "cl.sdm.postOccurrenceSet(displayName=%s, fileType=%s, epsgCode=%s)"  % (str(speciesNameKey), 'shapefile', occurrenceValue['epsgCode'])
-		occurrenceObj = cl.sdm.postOccurrenceSet(displayName=str(speciesNameKey),
-										  fileType='shapefile',
-										  epsgCode=occurrenceValue['epsgCode'])
-
-		#Add the occurrence ID from lifemapper to the dictionary
-		occurrenceDictionary[speciesNameKey].update({'occurrenceID':occurrenceObj.id})
+		try:
+			occurrenceObj = cl.sdm.postOccurrenceSet(displayName=str(speciesNameKey),
+											  fileType='shapefile',
+											  epsgCode=occurrenceValue['epsgCode'])
+			print "cl.sdm.postOccurrenceSet(displayName=%s, fileType=%s, epsgCode=%s)"  % (str(speciesNameKey), 'shapefile', occurrenceValue['epsgCode'])
+			#Add the occurrence ID from lifemapper to the dictionary
+			occurrenceDictionary[speciesNameKey].update({'occurrenceID':occurrenceObj.id})
+		except:
+			print "ERROR!!!!!! Could not post experiment, check the log", str(speciesNameKey)
+			f = open("../views/pastPickleDictionaries/errorLoggerOccurrence.txt","a")
+			strHolder = str(speciesNameKey) + "," + timeCheck()
+			f.write(strHolder + "\n")
+			f.close()
 
 	#Save a pickle file of the occurrence IDs
 	with open('../views/pastPickleDictionaries/' + 'occurrenceDictionary.pickle', 'wb') as f:
@@ -218,35 +231,42 @@ def newPostExperiment(scenarioDic, currentID, occurrences, args):
 
 	print 'Current ID', scenarioDic[currentID]['ScenarioID']
 	for key, occurrence in occurrences.iteritems():
-		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentID]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, expTitle, descriptionName)
-		exp = cl.sdm.postExperiment(algorithm=alg,
-									mdlScn=scenarioDic[currentID]['ScenarioID'],
-									occSetId=occurrence['occurrenceID'],
-									prjScns=prjScns_input,
-									name='CGW Experiment',
-									description=descriptionName)
+		try:
+			exp = cl.sdm.postExperiment(algorithm=alg,
+										mdlScn=scenarioDic[currentID]['ScenarioID'],
+										occSetId=occurrence['occurrenceID'],
+										prjScns=prjScns_input,
+										name='CGW Experiment',
+										description=descriptionName)
+			print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentID]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, expTitle, descriptionName)
 
-		expDic.setdefault(key, {
-			'bbox': exp.bbox,
-			'createTime': exp.createTime,
-			'description': exp.description,
-			'epsgcode': exp.epsgcode,
-			'id': exp.id,
-			'metadataUrl': exp.metadataUrl,
-			'modTime': exp.modTime,
-			'statusModTime': exp.statusModTime,
-			'user': exp.user,
-			'speciesName': key,
-			'prjScns': prjScns_input,
-			'mdlScn': scenarioDic[currentID]['ScenarioID'],
-			'algorithm': alg,
-			'occSetId': occurrence['occurrenceID'],
-			'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
-			'downloaded': False,
-			})
-		postTime = datetime.datetime.strftime(datetime.datetime.now(), '_%Y-%m')
-		with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + postTime + '.pickle', 'wb') as f:
-			cPickle.dump(expDic, f)
+			expDic.setdefault(key, {
+				'bbox': exp.bbox,
+				'createTime': exp.createTime,
+				'description': exp.description,
+				'epsgcode': exp.epsgcode,
+				'id': exp.id,
+				'metadataUrl': exp.metadataUrl,
+				'modTime': exp.modTime,
+				'statusModTime': exp.statusModTime,
+				'user': exp.user,
+				'speciesName': key,
+				'prjScns': prjScns_input,
+				'mdlScn': scenarioDic[currentID]['ScenarioID'],
+				'algorithm': alg,
+				'occSetId': occurrence['occurrenceID'],
+				'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
+				'downloaded': False,
+				})
+			postTime = datetime.datetime.strftime(datetime.datetime.now(), '_%Y-%m')
+			with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + postTime + '.pickle', 'wb') as f:
+				cPickle.dump(expDic, f)
+		except:
+			print "ERROR!!!!!! Could not post experiment, check the log", occurrence['species']
+			f = open("../views/pastPickleDictionaries/errorLoggerExperiment.txt","a")
+			strHolder = str(occurrence['occurrenceID']) +","+ occurrence['species'] +","+ timeCheck()
+			f.write(strHolder + "\n")
+			f.close()
 
 	print '####### Completed loadup of Experiment IDs see file expDic.pickle for input ############\n'
 
@@ -284,35 +304,41 @@ def oldPostExperiment(scenarioDic, occurrences, args):
 	expDic = dict()
 	descriptionName = 'Climate layers: '+ str(args.Climate) + ' Spatial layers: ' + str(args.Spatial) + ' Environment layers: ' + str(args.Environment)
 	expTitle = str(args.Title)
+	print prjScns_input
 	for key, occurrence in occurrences.iteritems():
-		print prjScns_input
-		print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentLayerName]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, expTitle, descriptionName)
-		exp = cl.sdm.postExperiment(algorithm=alg,
-									mdlScn=scenarioDic[currentLayerName]['ScenarioID'],
-									occSetId=occurrence['occurrenceID'],
-									prjScns=prjScns_input,
-									name='CGW Experiment',
-									description=descriptionName)
+		try:
+			exp = cl.sdm.postExperiment(algorithm=alg,
+										mdlScn=scenarioDic[currentLayerName]['ScenarioID'],
+										occSetId=occurrence['occurrenceID'],
+										prjScns=prjScns_input,
+										name='CGW Experiment',
+										description=descriptionName)
+			print "cl.sdm.postExperiment(algorithm=%s, mdlScn=%s, occSetId=%s, prjScns=%s, name=%s, description=%s)" % (alg, scenarioDic[currentLayerName]['ScenarioID'], occurrence['occurrenceID'], prjScns_input, expTitle, descriptionName)
+			
+			expDic.setdefault(key, {
+				'bbox': exp.bbox,
+				'createTime': exp.createTime,
+				'description': exp.description,
+				'epsgcode': exp.epsgcode,
+				'id': exp.id,
+				'metadataUrl': exp.metadataUrl,
+				'modTime': exp.modTime,
+				'statusModTime': exp.statusModTime,
+				'user': exp.user,
+				'speciesName': key,
+				'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
+				'downloaded': False,
+				})
 
-		expDic.setdefault(key, {
-			'bbox': exp.bbox,
-			'createTime': exp.createTime,
-			'description': exp.description,
-			'epsgcode': exp.epsgcode,
-			'id': exp.id,
-			'metadataUrl': exp.metadataUrl,
-			'modTime': exp.modTime,
-			'statusModTime': exp.statusModTime,
-			'user': exp.user,
-			'speciesName': key,
-			'created_at': datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S'),
-			'downloaded': False,
-			})
-
-		postTime = datetime.datetime.strftime(datetime.datetime.now(), '_%Y-%m')
-		with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + postTime +'.pickle', 'wb') as f:
-			cPickle.dump(expDic, f)
-
+			postTime = datetime.datetime.strftime(datetime.datetime.now(), '_%Y-%m')
+			with open('../views/pastPickleDictionaries/' + 'experimentDictionary' + postTime +'.pickle', 'wb') as f:
+				cPickle.dump(expDic, f)
+		except:
+			print "ERROR!!!!!! Could not post experiment, check the log", occurrence['species']
+			f = open("../views/pastPickleDictionaries/errorLoggerExperiment.txt","a")
+			strHolder = str(occurrence['occurrenceID']) +","+ occurrence['species'] +","+ timeCheck()
+			f.write(strHolder + "\n")
+			f.close()
 	print '####### Completed loadup of Experiment IDs see file expDic.pickle for input ############\n'
 
 	print '\n*********ATT_MAXENT setting**********\n'
@@ -421,6 +447,7 @@ def pickleFileOccurrence():
 	return occurrenceDictionary
 
 
+
 def pickleFileScenario():
 	'''Load the pickle file of scenario'''
 	path = '../views/pastPickleDictionaries/scenarioDictionary.pickle'
@@ -432,6 +459,8 @@ def pickleFileScenario():
 		sys.exit()
 	return scenarioDictionary
 
+def timeCheck():
+	return datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S')
 ############################# END START LOAD OLD FILES ######################################
 def updatePickList():
 
