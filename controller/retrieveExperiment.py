@@ -1,6 +1,6 @@
 import cPickle, datetime
 import sys, os, glob
-from lifemapper.lmClientLib import LMClient
+from LmClient.lmClientLib import LMClient
 from password import *
 
 

@@ -1,6 +1,6 @@
 import os, sys
 import cPickle as cp
-from lifemapper.lmClientLib import LMClient
+from LmClient.lmClientLib import LMClient
 import csv as c
 
 
